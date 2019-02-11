@@ -66,15 +66,10 @@ test_check_headers:
 check_headers:
 	@source test/make.sh && check_headers
 
-.PHONY: test_ci
-test_ci:
-	test/run_ci.sh
-
 # Integration tests
 .PHONY: test_integration
 test_integration:
-	bundle install
-	bundle exec kitchen test --destroy=always
+	test/integration.sh
 
 .PHONY: generate_docs
 generate_docs:

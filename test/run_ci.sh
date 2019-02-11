@@ -43,4 +43,5 @@ set -x
 GOOGLE_APPLICATION_CREDENTIALS="${CLOUDSDK_AUTH_CREDENTIAL_FILE_OVERRIDE}"
 declare -rx CLOUDSDK_AUTH_CREDENTIAL_FILE_OVERRIDE GOOGLE_APPLICATION_CREDENTIALS
 set +e
-make test_integration
+bundle install
+bundle exec kitchen test --destroy=always
