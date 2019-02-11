@@ -66,6 +66,10 @@ test_check_headers:
 check_headers:
 	@source test/make.sh && check_headers
 
+.PHONY: test_ci
+test_ci:
+	test/run_ci.sh
+
 # Integration tests
 .PHONY: test_integration
 test_integration:
