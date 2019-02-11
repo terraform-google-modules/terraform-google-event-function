@@ -70,11 +70,7 @@ check_headers:
 .PHONY: test_integration
 test_integration:
 	bundle install
-	bundle exec kitchen create
-	bundle exec kitchen converge
-	bundle exec kitchen converge
-	bundle exec kitchen verify
-	bundle exec kitchen destroy
+	bundle exec kitchen test --destroy=always
 
 .PHONY: generate_docs
 generate_docs:
