@@ -4,6 +4,15 @@ This example module invokes the [root module][root-module] to configure a system
 which responds to Compute VM creation events by labelling them with the
 principal email address of the account responsible for causing the events.
 
+## Usage
+
+To provision this example, run the following commands from within this directory:
+
+- `terraform init` to get the plugins
+- `terraform plan` to see the infrastructure plan
+- `terraform apply` to apply the infrastructure build
+- `terraform destroy` to destroy the built infrastructure
+
 ## Requirements
 
 The following requirements must be met in order to invoke this module:
@@ -30,13 +39,6 @@ The project against which this module will be invoked requires no additional API
 | region | The region in which resources will be applied. | string | n/a | yes |
 
 [^]: (autogen_docs_end)
-
-To provision this example, run the following from within this directory:
-
-- `terraform init` to get the plugins
-- `terraform plan` to see the infrastructure plan
-- `terraform apply` to apply the infrastructure build
-- `terraform destroy` to destroy the built infrastructure
 
 [root-module]: ../..
 [root-module-requirements]: ../../README.md#requirements
