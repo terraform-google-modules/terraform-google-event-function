@@ -2,8 +2,28 @@
 
 This test module invokes the
 [Automatic Labelling example module][example-module] and
-then creates an unlabelled Compute VM in order to test the automatic labelling
-behaviour.
+then creates an unlabelled Compute VM in order to test the automatic
+labelling behaviour.
+
+[^]: (autogen_docs_start)
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| project\_id | The ID of the project to which resources will be applied. | string | n/a | yes |
+| region | The region in which resources will be applied. | string | n/a | yes |
+| zone | The zone in which resources will be applied. | string | n/a | yes |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| project\_id | The ID of the project to which resources are applied. |
+| region | The region in which resources are applied. |
+| zone | The zone in which resources are applied. |
+
+[^]: (autogen_docs_end)
 
 ## Requirements
 
@@ -27,26 +47,6 @@ The project against which this module will be invoked must have the following AP
 - Compute Engine API
 
 The [Project Factory module][project-factory-module] can be used to provision projects with specific APIs activated.
-
-[^]: (autogen_docs_start)
-
-## Inputs
-
-| Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| project\_id | The ID of the project to which resources will be applied. | string | - | yes |
-| region | The region in which resources will be applied. | string | - | yes |
-| zone | The zone in which resources will be applied. | string | - | yes |
-
-## Outputs
-
-| Name | Description |
-|------|-------------|
-| project\_id | The ID of the project to which resources are applied. |
-| region | The region in which resources are applied. |
-| zone | The zone in which resources are applied. |
-
-[^]: (autogen_docs_end)
 
 [example-module]: ../../../examples/automatic_labelling
 [example-module-requirements]: ../../../examples/automatic_labelling/README.md#Requirements
