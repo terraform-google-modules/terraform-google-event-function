@@ -13,6 +13,17 @@ To provision this example, run the following commands from within this directory
 - `terraform apply` to apply the infrastructure build
 - `terraform destroy` to destroy the built infrastructure
 
+[^]: (autogen_docs_start)
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| project\_id | The ID of the project to which resources will be applied. | string | n/a | yes |
+| region | The region in which resources will be applied. | string | n/a | yes |
+
+[^]: (autogen_docs_end)
+
 ## Requirements
 
 The following requirements must be met in order to invoke this module:
@@ -28,17 +39,6 @@ The Service Account which will be used to invoke this module requires no additio
 ### APIs
 
 The project against which this module will be invoked requires no additional APIs enabled.
-
-[^]: (autogen_docs_start)
-
-## Inputs
-
-| Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| project\_id | The ID of the project to which resources will be applied. | string | n/a | yes |
-| region | The region in which resources will be applied. | string | n/a | yes |
-
-[^]: (autogen_docs_end)
 
 [root-module]: ../..
 [root-module-requirements]: ../../README.md#requirements
