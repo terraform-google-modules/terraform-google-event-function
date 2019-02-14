@@ -62,14 +62,6 @@ function basefiles() {
   done
 }
 
-# This function runs the hadolint linter on
-# every file named 'Dockerfile'
-function docker() {
-  echo "Running hadolint on Dockerfiles"
-  find_files . -name "Dockerfile" -print0 \
-    | compat_xargs -0 hadolint
-}
-
 # This function runs 'terraform validate' against all
 # directory paths which contain *.tf files.
 function check_terraform() {
@@ -79,14 +71,6 @@ function check_terraform() {
     | sort -u \
     | grep -xv './test/fixtures/shared' \
     | compat_xargs -t -n1 terraform validate --check-variables=false
-}
-
-# This function runs 'go fmt' and 'go vet' on every file
-# that ends in '.go'
-function golang() {
-  echo "Running go fmt and go vet"
-  find_files . -name "*.go" -print0 | compat_xargs -0 -n1 go fmt
-  find_files . -name "*.go" -print0 | compat_xargs -0 -n1 go vet
 }
 
 # This function runs the flake8 linter on every file

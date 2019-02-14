@@ -27,7 +27,7 @@ DOCKER_REPO_BASE_KITCHEN_TERRAFORM 	:= ${DOCKER_ORG}/cft/kitchen-terraform:${DOC
 all: check generate_docs
 
 .PHONY: check
-check: check_shell check_python check_golang check_terraform check_docker check_base_files test_check_headers check_headers check_trailing_whitespace
+check: check_shell check_python check_terraform check_base_files test_check_headers check_headers check_trailing_whitespace
 
 .PHONY: check_shell
 check_shell:
@@ -37,17 +37,9 @@ check_shell:
 check_python:
 	@source test/make.sh && check_python
 
-.PHONY: check_golang
-check_golang:
-	@source test/make.sh && golang
-
 .PHONY: check_terraform
 check_terraform:
 	@source test/make.sh && check_terraform
-
-.PHONY: check_docker
-check_docker:
-	@source test/make.sh && docker
 
 .PHONY: check_base_files
 check_base_files:
