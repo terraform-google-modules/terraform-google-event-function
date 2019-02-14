@@ -29,7 +29,7 @@ fi
 
 export TF_VAR_project_id="${PROJECT_ID}"
 export TF_VAR_region="${REGION:-us-east4}"
-export TF_VAR_zone="${ZONE:-us-east4-a"
+export TF_VAR_zone="${ZONE:-us-east4-a}"
 
 DELETE_AT_EXIT="$(mktemp -d)"
 finish() {
