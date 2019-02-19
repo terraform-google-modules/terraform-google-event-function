@@ -33,29 +33,14 @@ resource "random_pet" "main" {
 module "event_function" {
   source = "../../"
 
-  function_available_memory_mb = "128"
-  function_description         = "Labels resource with owner information."
-  function_entry_point         = "labelResource"
+  function_description = "Labels resource with owner information."
+  function_entry_point = "labelResource"
 
   function_environment_variables = {
     LABEL_KEY = "principal-email"
   }
 
-  function_event_trigger_failure_policy_retry = "true"
-
-  function_labels {
-    module = "simple-example"
-  }
-
-  function_runtime = "nodejs6"
-
-  function_source_archive_bucket_labels {
-    module = "simple-example"
-  }
-
-  function_source_archive_bucket_location = "US-EAST1"
-  function_source_directory               = "${path.module}/function_source"
-  function_timeout_s                      = "30"
+  function_source_directory = "${path.module}/function_source"
 
   log_export_filter = "${
     join(
