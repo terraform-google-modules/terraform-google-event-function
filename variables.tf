@@ -79,7 +79,6 @@ variable "log_export_filter" {
 
 variable "name" {
   type        = "string"
-  default     = "event-function"
   description = "The name to apply to any nameable resources."
 }
 
