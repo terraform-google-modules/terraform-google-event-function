@@ -12,8 +12,8 @@ Storage bucket.
 
 ## Usage
 
-The (examples) directory contains tested references of how to use this
-module.
+The [examples directory](examples) contains tested references of how to
+use this module.
 
 [^]: (autogen_docs_start)
 
@@ -81,9 +81,9 @@ provision projects with specific APIs activated.
 
 ## Testing
 
-The (test/fixtures) and (test/integration) directories comprise
-Terraform modules and InSpec tests used to verify the behaviour of this
-module.
+The [fixtures directory](test/fixtures) and
+[integration directory](test/integration) comprise Terraform
+modules and InSpec tests used to verify the behaviour of this module.
 
 ### Testing Software Dependencies
 
@@ -98,16 +98,17 @@ from which the tests will be invoked:
 Integration tests are invoked using [Kitchen][kitchen-site],
 [Kitchen-Terraform][kitchen-terraform-site], and [InSpec][inspec-site].
 
-Kitchen instances are configured in (kitchen.yml). The instances use
-the modules in (test/fixtures) to invoke identically named modules in
-(examples) and test this module.
+Kitchen instances are configured in the
+[Kitchen configuration file](kitchen.yml). The instances use the modules
+in [fixtures directory](test/fixtures) to invoke identically named
+modules in the [examples directory](examples) and test this module.
 
 #### Integration Tests Configuration
 
 Each Kitchen instance requires a variable file named `terraform.tfvars`
 to be created and populated in the associated test fixture. For
-convenience, a sample file is available at
-(test/fixtures/shared/terraform.tfvars.sample).
+convenience, a [sample variable file][sameple-variable-file] is
+available.
 
 A key file for a Service Account with the required
 [IAM roles](#iam-roles) must be downloaded from the GCP console and
@@ -185,6 +186,7 @@ Run `make generate_docs` to update the documentation.
 [kitchen-terraform-site]: https://github.com/newcontext-oss/kitchen-terraform/
 [project-factory-module-site]: https://github.com/terraform-google-modules/terraform-google-project-factory/
 [ruby-site]: https://ruby-lang.org/
+[sample-variable-file]: test/fixtures/shared/terraform.tfvars.sample
 [shellcheck-site]: https://www.shellcheck.net/
 [terraform-docs-site]: https://github.com/segmentio/terraform-docs/releases/
 [terraform-provider-google-site]: https://github.com/terraform-providers/terraform-provider-google/
