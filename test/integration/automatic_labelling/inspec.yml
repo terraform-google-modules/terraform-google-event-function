@@ -28,4 +28,3 @@ attributes:
     type: string
     required: true
     description: "The zone in which resources are applied."
-    
