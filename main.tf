@@ -74,7 +74,7 @@ data "archive_file" "main" {
 resource "google_storage_bucket" "main" {
   name          = "${var.name}"
   force_destroy = "true"
-  location      = "${var.function_source_archive_bucket_location}"
+  location      = "${var.region}"
   project       = "${var.project_id}"
   storage_class = "REGIONAL"
   labels        = "${var.function_source_archive_bucket_labels}"

@@ -61,12 +61,6 @@ variable "function_source_archive_bucket_labels" {
   description = "A set of key/value label pairs to assign to the function source archive bucket."
 }
 
-variable "function_source_archive_bucket_location" {
-  type        = "string"
-  default     = "US"
-  description = "The Google Cloud Storage location in which to create the function source archive bucket."
-}
-
 variable "function_source_directory" {
   type        = "string"
   description = "The contents of this directory will be archived and used as the function source."
