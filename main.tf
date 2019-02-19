@@ -27,17 +27,11 @@ resource "google_logging_project_sink" "main" {
   unique_writer_identity = true
 }
 
-data "google_iam_policy" "main" {
-  binding {
-    role    = "roles/pubsub.publisher"
-    members = ["${google_logging_project_sink.main.writer_identity}"]
-  }
-}
-
-resource "google_pubsub_topic_iam_policy" "main" {
-  topic       = "${google_pubsub_topic.main.name}"
-  project     = "${var.project_id}"
-  policy_data = "${data.google_iam_policy.main.policy_data}"
+resource "google_pubsub_topic_iam_member" "main" {
+  topic   = "${google_pubsub_topic.main.name}"
+  role    = "roles/pubsub.publisher"
+  member  = "${google_logging_project_sink.main.writer_identity}"
+  project = "${var.project_id}"
 }
 
 resource "google_cloudfunctions_function" "main" {
