@@ -50,7 +50,7 @@ resource "google_cloudfunctions_function" "main" {
   entry_point           = "${var.function_entry_point}"
 
   event_trigger {
-    event_type = "providers/cloud.pubsub/eventTypes/topic.publish"
+    event_type = "google.pubsub.topic.publish"
     resource   = "${google_pubsub_topic.main.name}"
 
     failure_policy {
