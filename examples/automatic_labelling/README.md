@@ -35,6 +35,7 @@ The project against which this module will be invoked requires no additional API
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
+| name | The name to apply to any nameable resources. | string | n/a | yes |
 | project\_id | The ID of the project to which resources will be applied. | string | n/a | yes |
 | region | The region in which resources will be applied. | string | n/a | yes |
 
