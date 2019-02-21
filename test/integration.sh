@@ -38,7 +38,7 @@ setup_environment() {
 
   # Terraform variables
   export TF_VAR_project_id="${PROJECT_ID}"
-	export TF_VAR_region="${REGION:-us-east1}"
+  export TF_VAR_region="${REGION:-us-east1}"
 	export TF_VAR_zone="${ZONE:-us-east1-b}"
 }
 
