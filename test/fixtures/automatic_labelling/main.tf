@@ -14,6 +14,18 @@
  * limitations under the License.
  */
 
+provider "archive" {
+  version = "~> 1.1"
+}
+
+provider "google" {
+  version = "~> 1.20"
+}
+
+provider "random" {
+  version = "~> 2.0"
+}
+
 provider "null" {
   version = "~> 1.0"
 }
