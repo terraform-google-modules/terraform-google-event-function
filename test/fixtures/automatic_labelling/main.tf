@@ -30,10 +30,15 @@ provider "null" {
   version = "~> 1.0"
 }
 
+resource "random_pet" "main" {
+  separator = "-"
+}
+
 module "automatic_labelling" {
   source = "../../../examples/automatic_labelling"
 
   project_id = "${var.project_id}"
+  name       = "automatic-labelling-${random_pet.main.id}"
   region     = "${var.region}"
 }
 
