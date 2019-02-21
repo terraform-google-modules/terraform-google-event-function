@@ -27,7 +27,7 @@ provider "random" {
 }
 
 provider "null" {
-  version = "~> 1.0"
+  version = "~> 2.0"
 }
 
 resource "random_pet" "main" {
