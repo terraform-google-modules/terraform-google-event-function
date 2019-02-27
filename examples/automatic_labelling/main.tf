@@ -14,22 +14,6 @@
  * limitations under the License.
  */
 
-provider "archive" {
-  version = "~> 1.1"
-}
-
-provider "google" {
-  version = "~> 1.20"
-}
-
-provider "random" {
-  version = "~> 2.0"
-}
-
-resource "random_pet" "main" {
-  separator = "-"
-}
-
 module "event_function" {
   source = "../../"
 
@@ -53,7 +37,7 @@ module "event_function" {
     )
   }"
 
-  name       = "${random_pet.main.id}"
+  name       = "${var.name}"
   project_id = "${var.project_id}"
   region     = "${var.region}"
 }

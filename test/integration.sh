@@ -14,34 +14,49 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-set -e
-set -x
-
-if [ -z "${PROJECT_ID}" ]; then
-	echo "The PROJECT_ID ENV variable must be set to proceed. Aborting."
-	exit 1
-fi
-
-if [ -z "${SERVICE_ACCOUNT_JSON}" ]; then
-	echo "The SERVICE_ACCOUNT_JSON ENV variable must be set to proceed. Aborting."
-	exit 1
-fi
-
-export TF_VAR_project_id="${PROJECT_ID}"
-export TF_VAR_region="${REGION:-us-east1}"
-export TF_VAR_zone="${ZONE:-us-east1-b}"
-
+# Always clean up.
 DELETE_AT_EXIT="$(mktemp -d)"
 finish() {
-	[[ -d "${DELETE_AT_EXIT}" ]] && rm -rf "${DELETE_AT_EXIT}"
+  echo 'BEGIN: finish() trap handler' >&2
+  kitchen destroy
+  [[ -d "${DELETE_AT_EXIT}" ]] && rm -rf "${DELETE_AT_EXIT}"
+  echo 'END: finish() trap handler' >&2
 }
-trap finish EXIT
-CLOUDSDK_AUTH_CREDENTIAL_FILE_OVERRIDE="$(TMPDIR="${DELETE_AT_EXIT}" mktemp)"
-set +x
-echo "${SERVICE_ACCOUNT_JSON}" > "${CLOUDSDK_AUTH_CREDENTIAL_FILE_OVERRIDE}"
-set -x
-GOOGLE_APPLICATION_CREDENTIALS="${CLOUDSDK_AUTH_CREDENTIAL_FILE_OVERRIDE}"
-declare -rx CLOUDSDK_AUTH_CREDENTIAL_FILE_OVERRIDE GOOGLE_APPLICATION_CREDENTIALS
-set +e
-bundle install
-bundle exec kitchen test --destroy=always
+
+# Map the input parameters provided by Concourse CI, or whatever mechanism is
+# running the tests to Terraform input variables.  Also setup credentials for
+# use with kitchen-terraform, inspec, and gcloud.
+setup_environment() {
+  local tmpfile
+  tmpfile="$(mktemp)"
+  echo "${SERVICE_ACCOUNT_JSON}" > "${tmpfile}"
+
+  # gcloud variables
+  export CLOUDSDK_AUTH_CREDENTIAL_FILE_OVERRIDE="${tmpfile}"
+  # Application default credentials (Terraform google provider and inspec-gcp)
+  export GOOGLE_APPLICATION_CREDENTIALS="${tmpfile}"
+
+  # Terraform variables
+  export TF_VAR_project_id="${PROJECT_ID}"
+  export TF_VAR_region="${REGION:-us-east1}"
+  export TF_VAR_zone="${ZONE:-us-east1-b}"
+}
+
+main() {
+  set -eu
+  # Setup trap handler to auto-cleanup
+  export TMPDIR="${DELETE_AT_EXIT}"
+  trap finish EXIT
+
+  # Setup environment variables
+  setup_environment
+  set -x
+
+  # Execute the test lifecycle
+  kitchen verify
+}
+
+# if script is being executed and not sourced.
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+  main "$@"
+fi

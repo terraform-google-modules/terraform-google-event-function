@@ -29,11 +29,10 @@ use this module.
 | function\_labels | A set of key/value label pairs to assign to the function. | map | `<map>` | no |
 | function\_runtime | The runtime in which the function will be executed. | string | `"nodejs6"` | no |
 | function\_source\_archive\_bucket\_labels | A set of key/value label pairs to assign to the function source archive bucket. | map | `<map>` | no |
-| function\_source\_archive\_bucket\_location | The Google Cloud Storage location in which to create the function source archive bucket. | string | `"US"` | no |
 | function\_source\_directory | The contents of this directory will be archived and used as the function source. | string | n/a | yes |
 | function\_timeout\_s | The amount of time in seconds allotted for the execution of the function. | string | `"60"` | no |
 | log\_export\_filter | The filter to apply when exporting logs to the Pub/Sub topic. | string | n/a | yes |
-| name | The name to apply to any nameable resources. | string | `"event-function"` | no |
+| name | The name to apply to any nameable resources. | string | n/a | yes |
 | project\_id | The ID of the project to which resources will be applied. | string | n/a | yes |
 | region | The region in which resources will be applied. | string | n/a | yes |
 

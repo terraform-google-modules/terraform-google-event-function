@@ -14,14 +14,31 @@
  * limitations under the License.
  */
 
+provider "archive" {
+  version = "~> 1.1"
+}
+
+provider "google" {
+  version = "~> 1.20"
+}
+
+provider "random" {
+  version = "~> 2.0"
+}
+
 provider "null" {
-  version = "~> 1.0"
+  version = "~> 2.0"
+}
+
+resource "random_pet" "main" {
+  separator = "-"
 }
 
 module "automatic_labelling" {
   source = "../../../examples/automatic_labelling"
 
   project_id = "${var.project_id}"
+  name       = "automatic-labelling-${random_pet.main.id}"
   region     = "${var.region}"
 }
 
