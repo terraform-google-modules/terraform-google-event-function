@@ -25,13 +25,14 @@ use this module.
 | function\_description | The description of the function. | string | `"Processes log export events provided through a Pub/Sub topic subscription."` | no |
 | function\_entry\_point | The name of a method in the function source which will be invoked when the function is executed. | string | n/a | yes |
 | function\_environment\_variables | A set of key/value environment variable pairs to assign to the function. | map | `<map>` | no |
+| function\_event\_trigger\_event\_type | The type of event for the function to observe. | string | n/a | yes |
 | function\_event\_trigger\_failure\_policy\_retry | A toggle to determine if the function should be retried on failure. | string | `"false"` | no |
+| function\_event\_trigger\_resource | The name of the resource from which the function will observe events. | string | n/a | yes |
 | function\_labels | A set of key/value label pairs to assign to the function. | map | `<map>` | no |
 | function\_runtime | The runtime in which the function will be executed. | string | `"nodejs6"` | no |
 | function\_source\_archive\_bucket\_labels | A set of key/value label pairs to assign to the function source archive bucket. | map | `<map>` | no |
 | function\_source\_directory | The contents of this directory will be archived and used as the function source. | string | n/a | yes |
 | function\_timeout\_s | The amount of time in seconds allotted for the execution of the function. | string | `"60"` | no |
-| log\_export\_filter | The filter to apply when exporting logs to the Pub/Sub topic. | string | n/a | yes |
 | name | The name to apply to any nameable resources. | string | n/a | yes |
 | project\_id | The ID of the project to which resources will be applied. | string | n/a | yes |
 | region | The region in which resources will be applied. | string | n/a | yes |

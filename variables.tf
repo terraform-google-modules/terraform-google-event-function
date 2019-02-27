@@ -43,6 +43,16 @@ variable "function_event_trigger_failure_policy_retry" {
   description = "A toggle to determine if the function should be retried on failure."
 }
 
+variable "function_event_trigger_event_type" {
+  type        = "string"
+  description = "The type of event for the function to observe."
+}
+
+variable "function_event_trigger_resource" {
+  type        = "string"
+  description = "The name of the resource from which the function will observe events."
+}
+
 variable "function_labels" {
   type        = "map"
   default     = {}
@@ -70,11 +80,6 @@ variable "function_timeout_s" {
   type        = "string"
   default     = "60"
   description = "The amount of time in seconds allotted for the execution of the function."
-}
-
-variable "log_export_filter" {
-  type        = "string"
-  description = "The filter to apply when exporting logs to the Pub/Sub topic."
 }
 
 variable "name" {

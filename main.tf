@@ -14,26 +14,6 @@
  * limitations under the License.
  */
 
-resource "google_pubsub_topic" "main" {
-  name    = "${var.name}"
-  project = "${var.project_id}"
-}
-
-resource "google_logging_project_sink" "main" {
-  name                   = "${var.name}"
-  destination            = "pubsub.googleapis.com/${google_pubsub_topic.main.id}"
-  filter                 = "${var.log_export_filter}"
-  project                = "${var.project_id}"
-  unique_writer_identity = true
-}
-
-resource "google_pubsub_topic_iam_member" "main" {
-  topic   = "${google_pubsub_topic.main.name}"
-  role    = "roles/pubsub.publisher"
-  member  = "${google_logging_project_sink.main.writer_identity}"
-  project = "${var.project_id}"
-}
-
 resource "google_cloudfunctions_function" "main" {
   name                  = "${var.name}"
   source_archive_bucket = "${google_storage_bucket.main.name}"
@@ -44,8 +24,8 @@ resource "google_cloudfunctions_function" "main" {
   entry_point           = "${var.function_entry_point}"
 
   event_trigger {
-    event_type = "google.pubsub.topic.publish"
-    resource   = "${google_pubsub_topic.main.name}"
+    event_type = "${var.function_event_trigger_event_type}"
+    resource   = "${var.function_event_trigger_resource}"
 
     failure_policy {
       retry = "${var.function_event_trigger_failure_policy_retry}"
