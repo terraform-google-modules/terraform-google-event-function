@@ -22,7 +22,7 @@ variable "labels" {
 
 variable "name" {
   type        = "string"
-  description = "The name to apply to any nameable resources."
+  description = "The name to apply to the topic."
 }
 
 variable "project_id" {
