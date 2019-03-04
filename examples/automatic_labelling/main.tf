@@ -19,7 +19,7 @@ provider "archive" {
 }
 
 provider "google" {
-  version = "~> 1.20"
+  version = "~> 2.1"
 }
 
 provider "random" {
@@ -28,6 +28,15 @@ provider "random" {
 
 resource "random_pet" "main" {
   separator = "-"
+}
+
+module "function_source_storage_bucket" {
+  source = "../../modules/function_source_storage_bucket"
+
+  function_source_directory = "${path.module}/function_source"
+  name                      = "${random_pet.main.id}"
+  project_id                = "${var.project_id}"
+  region                    = "${var.region}"
 }
 
 module "event_source_logging_project_sink" {
@@ -70,9 +79,9 @@ module "event_function" {
     LABEL_KEY = "principal-email"
   }
 
-  function_source_directory = "${path.module}/function_source"
-
-  name       = "${random_pet.main.id}"
-  project_id = "${var.project_id}"
-  region     = "${var.region}"
+  name                  = "${random_pet.main.id}"
+  project_id            = "${var.project_id}"
+  region                = "${var.region}"
+  source_archive_bucket = "${module.function_source_storage_bucket.function_source_archive_bucket}"
+  source_archive_object = "${module.function_source_storage_bucket.function_source_archive_object}"
 }
