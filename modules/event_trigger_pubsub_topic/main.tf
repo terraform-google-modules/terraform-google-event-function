@@ -16,6 +16,7 @@
 
 resource "google_pubsub_topic" "main" {
   name    = "${var.name}"
+  labels  = "${var.labels}"
   project = "${var.project_id}"
 }
 

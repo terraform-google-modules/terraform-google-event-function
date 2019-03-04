@@ -14,6 +14,12 @@
  * limitations under the License.
  */
 
+variable "labels" {
+  type        = "map"
+  default     = {}
+  description = "A set of key/value label pairs to assign to the topic."
+}
+
 variable "name" {
   type        = "string"
   description = "The name to apply to any nameable resources."
