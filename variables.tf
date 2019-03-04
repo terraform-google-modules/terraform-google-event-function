@@ -65,17 +65,6 @@ variable "function_runtime" {
   description = "The runtime in which the function will be executed."
 }
 
-variable "function_source_archive_bucket_labels" {
-  type        = "map"
-  default     = {}
-  description = "A set of key/value label pairs to assign to the function source archive bucket."
-}
-
-variable "function_source_directory" {
-  type        = "string"
-  description = "The contents of this directory will be archived and used as the function source."
-}
-
 variable "function_timeout_s" {
   type        = "string"
   default     = "60"
@@ -95,4 +84,22 @@ variable "project_id" {
 variable "region" {
   type        = "string"
   description = "The region in which resources will be applied."
+}
+
+variable "source_archive_bucket" {
+  type        = "string"
+  description = "The name of the bucket which contains the source archive object."
+  default     = ""
+}
+
+variable "source_archive_object" {
+  type        = "string"
+  description = "The name of the object which contains the source code of the function."
+  default     = ""
+}
+
+variable "source_repository_url" {
+  type        = "string"
+  description = "The URL of the repository which contains the function source code."
+  default     = ""
 }
