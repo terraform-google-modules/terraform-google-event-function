@@ -23,14 +23,17 @@ verifier:
   name: terraform
 
 platforms:
-  - name: gcp
+  - name: from-localhost
+    driver:
+      root_module_directory: test/fixtures/automatic-labelling-from-localhost
+  - name: from-repository
+    driver:
+      root_module_directory: test/fixtures/automatic-labelling-from-repository
 
 suites:
-  - name: automatic_labelling
-    driver:
-      root_module_directory: test/fixtures/automatic_labelling
+  - name: automatic-labelling
     verifier:
       systems:
-        - name: automatic_labelling
+        - name: automatic-labelling
           backend: gcp
           color: false

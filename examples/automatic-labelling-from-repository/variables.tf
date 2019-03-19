@@ -14,16 +14,6 @@
  * limitations under the License.
  */
 
-variable "destination" {
-  type        = "string"
-  description = "The destination of the sink."
-}
-
-variable "filter" {
-  type        = "string"
-  description = "The filter to apply when exporting logs."
-}
-
 variable "name" {
   type        = "string"
   description = "The name to apply to any nameable resources."
@@ -32,4 +22,14 @@ variable "name" {
 variable "project_id" {
   type        = "string"
   description = "The ID of the project to which resources will be applied."
+}
+
+variable "region" {
+  type        = "string"
+  description = "The region in which resources will be applied."
+}
+
+variable "zone" {
+  type        = "string"
+  description = "The zone in which resources will be applied."
 }

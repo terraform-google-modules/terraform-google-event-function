@@ -14,17 +14,23 @@
  * limitations under the License.
  */
 
-output "destination" {
-  description = "The universal resource identifier of the topic."
-  value       = "pubsub.googleapis.com/${google_pubsub_topic.main.id}"
+variable "filter" {
+  type        = "string"
+  description = "The filter to apply when exporting logs."
 }
 
-output "event_type" {
-  description = "The type of event which will be observed by the function."
-  value       = "google.pubsub.topic.publish"
+variable "labels" {
+  type        = "map"
+  default     = {}
+  description = "A set of key/value label pairs to assign to any labelable resources."
 }
 
-output "resource" {
-  description = "The name of the topic from which the function will observe events."
-  value       = "${google_pubsub_topic.main.name}"
+variable "name" {
+  type        = "string"
+  description = "The name to apply to any nameable resources."
+}
+
+variable "project_id" {
+  type        = "string"
+  description = "The ID of the project to which resources will be applied."
 }

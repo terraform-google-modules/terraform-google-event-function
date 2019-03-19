@@ -1,19 +1,24 @@
-# terraform-google-event-function
+# Event Function
 
-This module configures a system which responds to filtered Stackdriver
-Logging events by invoking a Cloud Functions function.
+This module configures a system which responds to events by invoking a
+Cloud Functions function.
 
-A project-level Stackdriver Logging export uses a provided filter to
-identify events of interest and publish them to a dedicated Pub/Sub
-topic. A Cloud Functions function subscribes to the topic and uses
-provided source code to process each event. The source code is
-retrieved from an archive which is created locally and stored in a
-Storage bucket.
+The root module configures a function sourced from a directory on
+localhost to respond to a given event trigger. The source directory is
+compressed and uploaded as a Cloud Storage bucket object which will be
+leveraged by the function.
+
+Alternatively, the
+[function-sourced-from-repository submodule][f6n-sourced-from-r8y-s7e]
+configures a function sourced from a Cloud Source Repositories
+repository.
 
 ## Usage
 
-The [examples directory](examples) contains tested references of how to
-use this module.
+The
+[automatic-labelling-from-localhost example][a7c-l7g-from-l7t-example]
+is a tested reference of how to use the root module with the
+[event-project-log-entry submodule][event-project-log-entry-submodule].
 
 [^]: (autogen_docs_start)
 
@@ -21,60 +26,58 @@ use this module.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| function\_available\_memory\_mb | The amount of memory in megabytes allotted for the function to use. | string | `"256"` | no |
-| function\_description | The description of the function. | string | `"Processes log export events provided through a Pub/Sub topic subscription."` | no |
-| function\_entry\_point | The name of a method in the function source which will be invoked when the function is executed. | string | n/a | yes |
-| function\_environment\_variables | A set of key/value environment variable pairs to assign to the function. | map | `<map>` | no |
-| function\_event\_trigger\_event\_type | The type of event for the function to observe. | string | n/a | yes |
-| function\_event\_trigger\_failure\_policy\_retry | A toggle to determine if the function should be retried on failure. | string | `"false"` | no |
-| function\_event\_trigger\_resource | The name of the resource from which the function will observe events. | string | n/a | yes |
-| function\_labels | A set of key/value label pairs to assign to the function. | map | `<map>` | no |
-| function\_runtime | The runtime in which the function will be executed. | string | `"nodejs6"` | no |
-| function\_source\_archive\_bucket\_labels | A set of key/value label pairs to assign to the function source archive bucket. | map | `<map>` | no |
-| function\_source\_directory | The contents of this directory will be archived and used as the function source. | string | n/a | yes |
-| function\_timeout\_s | The amount of time in seconds allotted for the execution of the function. | string | `"60"` | no |
+| available\_memory\_mb | The amount of memory in megabytes allotted for the function to use. | string | `"256"` | no |
+| description | The description of the function. | string | `"Processes events."` | no |
+| entry\_point | The name of a method in the function source which will be invoked when the function is executed. | string | n/a | yes |
+| environment\_variables | A set of key/value environment variable pairs to assign to the function. | map | `<map>` | no |
+| event\_trigger | A source that fires events in response to a condition in another service. | map | n/a | yes |
+| labels | A set of key/value label pairs to assign to any lableable resources. | map | `<map>` | no |
 | name | The name to apply to any nameable resources. | string | n/a | yes |
 | project\_id | The ID of the project to which resources will be applied. | string | n/a | yes |
 | region | The region in which resources will be applied. | string | n/a | yes |
+| runtime | The runtime in which the function will be executed. | string | `"nodejs6"` | no |
+| source\_directory | The pathname of the directory which contains the function source code. | string | n/a | yes |
+| timeout\_s | The amount of time in seconds allotted for the execution of the function. | string | `"60"` | no |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| name | The name of the function. |
 
 [^]: (autogen_docs_end)
 
 ## Requirements
 
-The following requirements must be met in order to invoke this module:
-
-1. [Software dependencies](#software-dependencies).
-2. [IAM roles](#iam-roles).
-3. [APIs](#apis).
+The following sections describe the requirements which must be met in
+order to invoke this module.
 
 ### Software Dependencies
 
 The following software dependencies must be installed on the system
 from which this module will be invoked:
 
-- [Terraform][terraform-site] v0.11.x
-- [Google Terraform provider][terraform-provider-google-site] v1.20.0
+- [Terraform][terraform-site] v0.11.Z
+- [Terraform Provider for Archive][terraform-provider-archive-site]
+  v1.2.Z
+- [Terraform Provider for Google Cloud Platform][t7m-provider-gcp-site]
+  v2.1.Z
 
 ### IAM Roles
 
 The Service Account which will be used to invoke this module must have
 the following IAM roles:
 
-- Cloud Functions Developer
-- Compute Viewer
-- Logs Configuration Writer
-- Pub/Sub Admin
-- Service Account User
-- Storage Admin
+- Cloud Functions Developer: `roles/cloudfunctions.developer`
+- Storage Admin: `roles/storage.admin`
 
 ### APIs
 
 The project against which this module will be invoked must have the
 following APIs enabled:
 
-- Cloud Functions API
-- Cloud Pub/Sub API
-- Google Cloud Storage
+- Cloud Functions API: `cloudfunctions.googleapis.com`
+- Cloud Storage API: `storage-component.googleapis.com`
 
 The [Project Factory module][project-factory-module-site] can be used to
 provision projects with specific APIs activated.
@@ -177,7 +180,10 @@ from which the documentation will be generated:
 
 Run `make generate_docs` to update the documentation.
 
+[a7c-l7g-from-l7t-example]: examples/automatic-labelling-from-localhost
 [bundler-site]: https://bundler.io/
+[event-project-log-entry-submodule]: modules/event-project-log-entry
+[f6n-sourced-from-r8y-s7e]: modules/function-sourced-from-repository
 [flake8-site]: https://pypi.org/project/flake8/
 [gofmt-site]: https://golang.org/cmd/gofmt/
 [hadolint-site]: https://github.com/hadolint/hadolint/
@@ -189,6 +195,6 @@ Run `make generate_docs` to update the documentation.
 [sample-variable-file]: test/fixtures/shared/terraform.tfvars.sample
 [shellcheck-site]: https://www.shellcheck.net/
 [terraform-docs-site]: https://github.com/segmentio/terraform-docs/releases/
-[terraform-provider-google-site]: https://github.com/terraform-providers/terraform-provider-google/
+[t7m-provider-gcp-site]: https://github.com/terraform-providers/terraform-provider-google/
 [terraform-site]: https://www.terraform.io/
 [terraform-validate-site]: https://www.terraform.io/docs/commands/validate.html

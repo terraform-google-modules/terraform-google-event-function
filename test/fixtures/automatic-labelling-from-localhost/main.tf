@@ -14,15 +14,10 @@
  * limitations under the License.
  */
 
-resource "google_pubsub_topic" "main" {
-  name    = "${var.name}"
-  labels  = "${var.labels}"
-  project = "${var.project_id}"
-}
+module "automatic_labelling_from_localhost" {
+  source = "../../../examples/automatic-labelling-from-localhost"
 
-resource "google_pubsub_topic_iam_member" "main" {
-  topic   = "${google_pubsub_topic.main.name}"
-  role    = "roles/pubsub.publisher"
-  member  = "${var.publisher_member}"
-  project = "${var.project_id}"
+  project_id = "${var.project_id}"
+  region     = "${var.region}"
+  zone       = "${var.zone}"
 }

@@ -14,10 +14,23 @@
  * limitations under the License.
  */
 
+resource "google_pubsub_topic" "main" {
+  name    = "${var.name}"
+  labels  = "${var.labels}"
+  project = "${var.project_id}"
+}
+
 resource "google_logging_project_sink" "main" {
   name                   = "${var.name}"
-  destination            = "${var.destination}"
+  destination            = "pubsub.googleapis.com/${google_pubsub_topic.main.id}"
   filter                 = "${var.filter}"
   project                = "${var.project_id}"
   unique_writer_identity = true
+}
+
+resource "google_pubsub_topic_iam_member" "main" {
+  topic   = "${google_pubsub_topic.main.name}"
+  project = "${google_logging_project_sink.main.project}"
+  member  = "${google_logging_project_sink.main.writer_identity}"
+  role    = "roles/pubsub.publisher"
 }

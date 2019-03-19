@@ -14,12 +14,17 @@
  * limitations under the License.
  */
 
-output "function_source_archive_bucket" {
-  description = "The name of the bucket which contains the source archive object."
-  value       = "${google_storage_bucket.main.name}"
+variable "project_id" {
+  type        = "string"
+  description = "The ID of the project to which resources will be applied."
 }
 
-output "function_source_archive_object" {
-  description = "The name of the object which is the function source archive."
-  value       = "${google_storage_bucket_object.main.output_name}"
+variable "region" {
+  type        = "string"
+  description = "The region in which resources will be applied."
+}
+
+variable "zone" {
+  type        = "string"
+  description = "The zone in which resources will be applied."
 }

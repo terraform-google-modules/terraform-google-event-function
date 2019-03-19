@@ -69,9 +69,9 @@ variable "runtime" {
   description = "The runtime in which the function will be executed."
 }
 
-variable "source_directory" {
+variable "source_repository_url" {
   type        = "string"
-  description = "The pathname of the directory which contains the function source code."
+  description = "The URL of the repository which contains the function source code."
 }
 
 variable "timeout_s" {

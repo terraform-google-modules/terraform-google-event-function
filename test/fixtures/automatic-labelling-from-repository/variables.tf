@@ -14,22 +14,6 @@
  * limitations under the License.
  */
 
-variable "function_source_directory" {
-  type        = "string"
-  description = "The pathname of the directory which contains the function source code to be uploaded to the bucket."
-}
-
-variable "labels" {
-  type        = "map"
-  default     = {}
-  description = "A set of key/value label pairs to assign to the bucket."
-}
-
-variable "name" {
-  type        = "string"
-  description = "The name to apply to any nameable resources."
-}
-
 variable "project_id" {
   type        = "string"
   description = "The ID of the project to which resources will be applied."
@@ -38,4 +22,9 @@ variable "project_id" {
 variable "region" {
   type        = "string"
   description = "The region in which resources will be applied."
+}
+
+variable "zone" {
+  type        = "string"
+  description = "The zone in which resources will be applied."
 }

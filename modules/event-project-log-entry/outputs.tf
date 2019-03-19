@@ -14,12 +14,7 @@
  * limitations under the License.
  */
 
-output "id" {
-  description = "The ID of the sink."
-  value       = "${google_logging_project_sink.main.id}"
-}
-
-output "publisher_member" {
-  description = "The identity associated with the sink which must be authorized to write to the destination."
-  value       = "${google_logging_project_sink.main.writer_identity}"
+output "function_event_trigger" {
+  description = "The information used to trigger the function when a log entry is exported to the topic."
+  value       = "${map("event_type", "google.pubsub.topic.publish", "resource", "${google_pubsub_topic.main.name}")}"
 }

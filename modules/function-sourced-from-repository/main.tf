@@ -14,29 +14,6 @@
  * limitations under the License.
  */
 
-data "archive_file" "main" {
-  type        = "zip"
-  output_path = "${pathexpand("${var.source_directory}.zip")}"
-  source_dir  = "${pathexpand("${var.source_directory}")}"
-}
-
-resource "google_storage_bucket" "main" {
-  name          = "${var.name}"
-  location      = "${var.region}"
-  project       = "${var.project_id}"
-  storage_class = "REGIONAL"
-  labels        = "${var.labels}"
-}
-
-resource "google_storage_bucket_object" "main" {
-  name                = "${basename(data.archive_file.main.output_path)}"
-  bucket              = "${google_storage_bucket.main.name}"
-  source              = "${data.archive_file.main.output_path}"
-  content_disposition = "attachment"
-  content_encoding    = "gzip"
-  content_type        = "application/zip"
-}
-
 resource "google_cloudfunctions_function" "main" {
   name                = "${var.name}"
   description         = "${var.description}"
@@ -52,8 +29,11 @@ resource "google_cloudfunctions_function" "main" {
   labels                = "${var.labels}"
   runtime               = "${var.runtime}"
   environment_variables = "${var.environment_variables}"
-  source_archive_bucket = "${google_storage_bucket.main.name}"
-  source_archive_object = "${google_storage_bucket_object.main.name}"
-  project               = "${var.project_id}"
-  region                = "${var.region}"
+
+  source_repository {
+    url = "${var.source_repository_url}"
+  }
+
+  project = "${var.project_id}"
+  region  = "${var.region}"
 }

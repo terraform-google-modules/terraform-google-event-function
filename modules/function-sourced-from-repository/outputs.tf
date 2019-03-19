@@ -14,23 +14,7 @@
  * limitations under the License.
  */
 
-variable "labels" {
-  type        = "map"
-  default     = {}
-  description = "A set of key/value label pairs to assign to the topic."
-}
-
-variable "name" {
-  type        = "string"
-  description = "The name to apply to the topic."
-}
-
-variable "project_id" {
-  type        = "string"
-  description = "The ID of the project to which resources will be applied."
-}
-
-variable "publisher_member" {
-  type        = "string"
-  description = "The identity which will be authorized to publish to the topic."
+output "name" {
+  description = "The name of the function."
+  value       = "${google_cloudfunctions_function.main.name}"
 }

@@ -14,12 +14,16 @@
  * limitations under the License.
  */
 
+terraform {
+  required_version = "~> 0.11.0"
+}
+
 provider "archive" {
-  version = "~> 1.1"
+  version = "~> 1.0"
 }
 
 provider "google" {
-  version = "~> 1.20"
+  version = "~> 2.1"
 }
 
 provider "random" {
@@ -27,27 +31,54 @@ provider "random" {
 }
 
 provider "null" {
-  version = "~> 2.0"
+  version = "~> 1.0"
 }
 
 resource "random_pet" "main" {
   separator = "-"
 }
 
-module "automatic_labelling" {
-  source = "../../../examples/automatic_labelling"
+module "event_project_log_entry" {
+  source = "../../modules/event-project-log-entry"
 
+  filter = "${
+    join(
+      " AND ",
+      list(
+        "protoPayload.@type=\"type.googleapis.com/google.cloud.audit.AuditLog\"",
+        "protoPayload.methodName:insert",
+        "operation.first=true",
+      )
+    )
+  }"
+
+  name       = "${random_pet.main.id}"
   project_id = "${var.project_id}"
-  name       = "automatic-labelling-${random_pet.main.id}"
-  region     = "${var.region}"
 }
 
-resource "null_resource" "wait_for_cloud_functions_function" {
+module "function_sourced_from_localhost" {
+  source = "../.."
+
+  description = "Labels resource with owner information."
+  entry_point = "labelResource"
+
+  environment_variables = {
+    LABEL_KEY = "principal-email"
+  }
+
+  event_trigger    = "${module.event_project_log_entry.function_event_trigger}"
+  name             = "${random_pet.main.id}"
+  project_id       = "${var.project_id}"
+  region           = "${var.region}"
+  source_directory = "${path.module}/function_source"
+}
+
+resource "null_resource" "wait_for_function" {
   provisioner "local-exec" {
     command = "sleep 60"
   }
 
-  depends_on = ["module.automatic_labelling"]
+  depends_on = ["module.function_sourced_from_localhost"]
 }
 
 resource "google_compute_instance" "main" {
@@ -67,5 +98,5 @@ resource "google_compute_instance" "main" {
 
   project = "${var.project_id}"
 
-  depends_on = ["null_resource.wait_for_cloud_functions_function"]
+  depends_on = ["null_resource.wait_for_function"]
 }

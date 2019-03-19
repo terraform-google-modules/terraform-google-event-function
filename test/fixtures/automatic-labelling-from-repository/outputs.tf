@@ -14,7 +14,17 @@
  * limitations under the License.
  */
 
-output "name" {
-  description = "The name of the function."
-  value       = "${google_cloudfunctions_function.main.name}"
+output "project_id" {
+  value       = "${var.project_id}"
+  description = "The ID of the project to which resources are applied."
+}
+
+output "region" {
+  value       = "${var.region}"
+  description = "The region in which resources are applied."
+}
+
+output "zone" {
+  value       = "${var.zone}"
+  description = "The zone in which resources are applied."
 }
