@@ -17,13 +17,13 @@
 set -e
 set -x
 
-cp -R $REPOSITORY_DIRECTORY $REPOSITORY_COPY_DIRECTORY
-cd $REPOSITORY_COPY_DIRECTORY
+cp -R "$REPOSITORY_DIRECTORY" "$REPOSITORY_COPY_DIRECTORY"
+cd "$REPOSITORY_COPY_DIRECTORY"
 git init
 git config user.name "Terraform"
 git config user.email "terraform@example.com"
 git config credential.'https://source.developers.google.com'.helper gcloud.sh
-git remote add google $REMOTE_URL
+git remote add google "$REMOTE_URL"
 git add -A
 git commit -m "Initial commit"
 git push -u google master
