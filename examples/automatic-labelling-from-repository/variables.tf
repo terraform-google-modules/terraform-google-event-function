@@ -14,11 +14,6 @@
  * limitations under the License.
  */
 
-variable "name" {
-  type        = "string"
-  description = "The name to apply to any nameable resources."
-}
-
 variable "project_id" {
   type        = "string"
   description = "The ID of the project to which resources will be applied."
