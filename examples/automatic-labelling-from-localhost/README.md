@@ -55,7 +55,6 @@ the following IAM roles:
 The project against which this module will be invoked must have the
 following APIs enabled:
 
-- Cloud Source Repositories API: `sourcerepo.googleapis.com`
 - Compute Engine API: `compute.googleapis.com`
 
 [event-project-log-entry-s7e-r10s]: ../../modules/event-project-log-entry/README.md#requirements
