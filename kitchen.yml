@@ -33,7 +33,7 @@ platforms:
 suites:
   - name: automatic-labelling
     verifier:
+      color: false
       systems:
         - name: automatic-labelling
           backend: gcp
-          color: false
