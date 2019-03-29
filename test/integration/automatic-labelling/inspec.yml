@@ -20,6 +20,10 @@ depends:
     git: https://github.com/inspec/inspec-gcp.git
     tag: v0.10.0
 attributes:
+  - name: compute_instance_name
+    type: string
+    required: true
+    description: "The name of the unlabelled Compute instance."
   - name: project_id
     type: string
     required: true

@@ -118,7 +118,7 @@ resource "google_compute_instance" "main" {
   }
 
   machine_type = "f1-micro"
-  name         = "unlabelled"
+  name         = "unlabelled-${random_pet.main.id}"
   zone         = "${var.zone}"
 
   network_interface = {

@@ -20,7 +20,7 @@ control "automatically labelled" do
   describe google_compute_instance(
     project: attribute("project_id"),
     zone: attribute("zone"),
-    name: "unlabelled",
+    name: attribute("compute_instance_name"),
   ) do
     let :principal_email do
       JSON.parse(File.read(ENV.fetch("GOOGLE_APPLICATION_CREDENTIALS"))).fetch("client_email").split("@").first
