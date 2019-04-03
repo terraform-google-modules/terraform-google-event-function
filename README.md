@@ -16,7 +16,7 @@ repository.
 ## Usage
 
 The
-[automatic-labelling-from-localhost example][a7c-l7g-from-l7t-example]
+[automatic-labelling-from-localhost example][automatic-labelling-from-localhost-example]
 is a tested reference of how to use the root module with the
 [event-project-log-entry submodule][event-project-log-entry-submodule].
 
@@ -60,7 +60,7 @@ from which this module will be invoked:
 - [Terraform][terraform-site] v0.11.Z
 - [Terraform Provider for Archive][terraform-provider-archive-site]
   v1.2.Z
-- [Terraform Provider for Google Cloud Platform][t7m-provider-gcp-site]
+- [Terraform Provider for Google Cloud Platform][terraform-provider-gcp-site]
   v2.1.Z
 
 ### IAM Roles
@@ -180,7 +180,7 @@ from which the documentation will be generated:
 
 Run `make generate_docs` to update the documentation.
 
-[a7c-l7g-from-l7t-example]: examples/automatic-labelling-from-localhost
+[automatic-labelling-from-localhost-example]: examples/automatic-labelling-from-localhost
 [bundler-site]: https://bundler.io/
 [event-project-log-entry-submodule]: modules/event-project-log-entry
 [repository-function-submodule]: modules/repository-function
@@ -195,6 +195,6 @@ Run `make generate_docs` to update the documentation.
 [sample-variable-file]: test/fixtures/shared/terraform.tfvars.sample
 [shellcheck-site]: https://www.shellcheck.net/
 [terraform-docs-site]: https://github.com/segmentio/terraform-docs/releases/
-[t7m-provider-gcp-site]: https://github.com/terraform-providers/terraform-provider-google/
+[terraform-provider-gcp-site]: https://github.com/terraform-providers/terraform-provider-google/
 [terraform-site]: https://www.terraform.io/
 [terraform-validate-site]: https://www.terraform.io/docs/commands/validate.html

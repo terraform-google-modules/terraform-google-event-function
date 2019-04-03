@@ -35,7 +35,7 @@ The following sections describe the requirements which must be met in
 order to invoke this module. The
 [repository-function submodule requirements][repository-function-submodule-requirements]
 and the
-[event-project-log-entry submodule][event-project-log-entry-s7e-r10s]
+[event-project-log-entry submodule requirements][event-project-log-entry-submodule-requirements]
 must also be met.
 
 ### Software Dependencies
@@ -61,7 +61,7 @@ following APIs enabled:
 - Cloud Source Repositories API: `sourcerepo.googleapis.com`
 - Compute Engine API: `compute.googleapis.com`
 
-[event-project-log-entry-s7e-r10s]: ../../modules/event-project-log-entry/README.md#requirements
+[event-project-log-entry-submodule-requirements]: ../../modules/event-project-log-entry/README.md#requirements
 [event-project-log-entry-submodule]: ../../modules/event-project-log-entry
 [repository-function-submodule-requirements]: ../../modules/repository-function/README.md#requirements
 [repository-function-submodule]: ../../modules/repository-function

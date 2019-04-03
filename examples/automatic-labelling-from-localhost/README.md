@@ -34,7 +34,8 @@ this directory:
 The following sections describe the requirements which must be met in
 order to invoke this module. The requirements of the
 [root module][root-module-requirements] and the
-[event-project-log-entry submodule][event-project-log-entry-s7e-r10s] must also be met.
+[event-project-log-entry submodule][event-project-log-entry-submodule-requirements]
+must also be met.
 
 ### Software Dependencies
 
@@ -57,7 +58,7 @@ following APIs enabled:
 
 - Compute Engine API: `compute.googleapis.com`
 
-[event-project-log-entry-s7e-r10s]: ../../modules/event-project-log-entry/README.md#requirements
+[event-project-log-entry-submodule-requirements]: ../../modules/event-project-log-entry/README.md#requirements
 [event-project-log-entry-submodule]: ../../modules/event-project-log-entry
 [root-module-requirements]: ../../README.md#requirements
 [root-module]: ../..

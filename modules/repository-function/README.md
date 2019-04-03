@@ -9,7 +9,7 @@ sourced from a directory on localhost.
 ## Usage
 
 The
-[automatic-labelling-from-repository example][a7c-l7g-from-r8y-example]
+[automatic-labelling-from-repository example][automatic-labelling-from-repository-example]
 is a tested reference of how to use this submodule with the
 [event-project-log-entry submodule][event-project-log-entry-submodule].
 
@@ -68,6 +68,6 @@ following APIs enabled:
 
 - Cloud Functions API: `cloudfunctions.googleapis.com`
 
-[a7c-l7g-from-r8y-example]: ../../examples/automatic-labelling-from-repository
+[automatic-labelling-from-repository-example]: ../../examples/automatic-labelling-from-repository
 [event-project-log-entry-submodule]: ../event-project-log-entry
 [terraform-site]: https://www.terraform.io/
