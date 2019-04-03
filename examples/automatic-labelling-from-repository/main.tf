@@ -70,17 +70,7 @@ data "null_data_source" "main" {
 module "event_project_log_entry" {
   source = "../../modules/event-project-log-entry"
 
-  filter = "${
-    join(
-      " AND ",
-      list(
-        "protoPayload.@type=\"type.googleapis.com/google.cloud.audit.AuditLog\"",
-        "protoPayload.methodName:insert",
-        "operation.first=true",
-      )
-    )
-  }"
-
+  filter     = "protoPayload.@type=\"type.googleapis.com/google.cloud.audit.AuditLog\" protoPayload.methodName:insert operation.first=true"
   name       = "${random_pet.main.id}"
   project_id = "${var.project_id}"
 }
