@@ -46,7 +46,7 @@ module "event_project_log_entry" {
   project_id = "${var.project_id}"
 }
 
-module "function_sourced_from_localhost" {
+module "localhost_function" {
   source = "../.."
 
   description = "Labels resource with owner information."
@@ -68,7 +68,7 @@ resource "null_resource" "wait_for_function" {
     command = "sleep 60"
   }
 
-  depends_on = ["module.function_sourced_from_localhost"]
+  depends_on = ["module.localhost_function"]
 }
 
 resource "google_compute_instance" "main" {
