@@ -3,7 +3,7 @@
 This submodule configures a project-level Stackdriver Logging export to
 act as an event which will trigger a Cloud Functions function configured
 by the [root module][root-module] or the
-[function-sourced-from-repository submodule][f6n-sourced-from-r8y-s7e].
+[repository-function submodule][repository-function].
 
 The export uses a provided filter to identify events of interest and
 publishes them to a dedicated Pub/Sub topic. The target function
@@ -67,7 +67,7 @@ following APIs enabled:
 - Cloud Pub/Sub API: `pubsub.googleapis.com`
 - Stackdriver Logging API: `logging.googleapis.com`
 
-[root-module]: ../..
 [automatic-labelling-example]: ../../examples/automatic_labelling
-[f6n-sourced-from-r8y-s7e]: ../function-sourced-from-repository
+[repository-function]: ../repository-function
+[root-module]: ../..
 [terraform-site]: https://www.terraform.io/

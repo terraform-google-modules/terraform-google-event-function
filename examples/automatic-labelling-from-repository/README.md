@@ -1,8 +1,7 @@
 # Automatic Labelling from Repository
 
 This example demonstrates how to use the
-[function-sourced-from-repository submodule][f6n-sourced-from-r8y-s7e]
-and the
+[repository-function submodule][repository-function-submodule] and the
 [event-project-log-entry submodule][event-project-log-entry-submodule]
 to configure a system
 which responds to Compute VM creation events by labelling them with the
@@ -33,8 +32,8 @@ this directory:
 ## Requirements
 
 The following sections describe the requirements which must be met in
-order to invoke this module. The requirements of the
-[function-sourced-from-repository submodule][f6n-s4e-from-r8y-s7e-r10s]
+order to invoke this module. The
+[repository-function submodule requirements][repository-function-submodule-requirements]
 and the
 [event-project-log-entry submodule][event-project-log-entry-s7e-r10s]
 must also be met.
@@ -64,5 +63,5 @@ following APIs enabled:
 
 [event-project-log-entry-s7e-r10s]: ../../modules/event-project-log-entry/README.md#requirements
 [event-project-log-entry-submodule]: ../../modules/event-project-log-entry
-[f6n-s4e-from-r8y-s7e-r10s]: ../../modules/function-sourced-from-repository/README.md#requirements
-[f6n-sourced-from-r8y-s7e]: ../../modules/function-sourced-from-repository
+[repository-function-submodule-requirements]: ../../modules/repository-function/README.md#requirements
+[repository-function-submodule]: ../../modules/repository-function

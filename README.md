@@ -9,7 +9,7 @@ compressed and uploaded as a Cloud Storage bucket object which will be
 leveraged by the function.
 
 Alternatively, the
-[function-sourced-from-repository submodule][f6n-sourced-from-r8y-s7e]
+[repository-function submodule][repository-function-submodule]
 configures a function sourced from a Cloud Source Repositories
 repository.
 
@@ -183,7 +183,7 @@ Run `make generate_docs` to update the documentation.
 [a7c-l7g-from-l7t-example]: examples/automatic-labelling-from-localhost
 [bundler-site]: https://bundler.io/
 [event-project-log-entry-submodule]: modules/event-project-log-entry
-[f6n-sourced-from-r8y-s7e]: modules/function-sourced-from-repository
+[repository-function-submodule]: modules/repository-function
 [flake8-site]: https://pypi.org/project/flake8/
 [gofmt-site]: https://golang.org/cmd/gofmt/
 [hadolint-site]: https://github.com/hadolint/hadolint/

@@ -85,8 +85,8 @@ module "event_project_log_entry" {
   project_id = "${var.project_id}"
 }
 
-module "function_sourced_from_repository" {
-  source = "../../modules/function-sourced-from-repository"
+module "repository_function" {
+  source = "../../modules/repository-function"
 
   description = "Labels resource with owner information."
   entry_point = "labelResource"
@@ -107,7 +107,7 @@ resource "null_resource" "wait_for_function" {
     command = "sleep 60"
   }
 
-  depends_on = ["module.function_sourced_from_repository"]
+  depends_on = ["module.repository_function"]
 }
 
 resource "google_compute_instance" "main" {

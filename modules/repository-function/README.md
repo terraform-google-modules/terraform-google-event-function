@@ -1,4 +1,4 @@
-# Function Sourced from Repository
+# Repository Function
 
 This submodule configures a function sourced from a Cloud Source
 Repositories repository to respond to a given event trigger.
