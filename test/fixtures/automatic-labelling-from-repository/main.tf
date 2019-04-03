@@ -14,7 +14,10 @@
  * limitations under the License.
  */
 
-output "name" {
-  description = "The name of the function."
-  value       = "${google_cloudfunctions_function.main.name}"
+module "automatic_labelling_from_repository" {
+  source = "../../../examples/automatic-labelling-from-repository"
+
+  project_id = "${var.project_id}"
+  region     = "${var.region}"
+  zone       = "${var.zone}"
 }

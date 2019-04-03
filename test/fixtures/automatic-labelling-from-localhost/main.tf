@@ -14,30 +14,10 @@
  * limitations under the License.
  */
 
-module "event_function" {
-  source = "../../"
+module "automatic_labelling_from_localhost" {
+  source = "../../../examples/automatic-labelling-from-localhost"
 
-  function_description = "Labels resource with owner information."
-  function_entry_point = "labelResource"
-
-  function_environment_variables = {
-    LABEL_KEY = "principal-email"
-  }
-
-  function_source_directory = "${path.module}/function_source"
-
-  log_export_filter = "${
-    join(
-      " AND ",
-      list(
-        "protoPayload.@type=\"type.googleapis.com/google.cloud.audit.AuditLog\"",
-        "protoPayload.methodName:insert",
-        "operation.first=true",
-      )
-    )
-  }"
-
-  name       = "${var.name}"
   project_id = "${var.project_id}"
   region     = "${var.region}"
+  zone       = "${var.zone}"
 }

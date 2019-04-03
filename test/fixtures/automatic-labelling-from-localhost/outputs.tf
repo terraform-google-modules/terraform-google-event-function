@@ -14,17 +14,22 @@
  * limitations under the License.
  */
 
-variable "name" {
-  type        = "string"
-  description = "The name to apply to any nameable resources."
+output "compute_instance_name" {
+  value       = "${module.automatic_labelling_from_localhost.compute_instance_name}"
+  description = "The name of the unlabelled Compute instance."
 }
 
-variable "project_id" {
-  type        = "string"
-  description = "The ID of the project to which resources will be applied."
+output "project_id" {
+  value       = "${var.project_id}"
+  description = "The ID of the project to which resources are applied."
 }
 
-variable "region" {
-  type        = "string"
-  description = "The region in which resources will be applied."
+output "region" {
+  value       = "${var.region}"
+  description = "The region in which resources are applied."
+}
+
+output "zone" {
+  value       = "${var.zone}"
+  description = "The zone in which resources are applied."
 }

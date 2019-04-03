@@ -14,7 +14,23 @@
  * limitations under the License.
  */
 
-output "name" {
-  description = "The name of the function."
-  value       = "${google_cloudfunctions_function.main.name}"
+variable "filter" {
+  type        = "string"
+  description = "The filter to apply when exporting logs."
+}
+
+variable "labels" {
+  type        = "map"
+  default     = {}
+  description = "A set of key/value label pairs to assign to any labelable resources."
+}
+
+variable "name" {
+  type        = "string"
+  description = "The name to apply to any nameable resources."
+}
+
+variable "project_id" {
+  type        = "string"
+  description = "The ID of the project to which resources will be applied."
 }

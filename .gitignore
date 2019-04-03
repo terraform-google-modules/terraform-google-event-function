@@ -45,4 +45,5 @@ crash.log
 
 credentials.json
 
-examples/automatic_labelling/function_source.zip
+examples/automatic-labelling-from-localhost/function_source.zip
+examples/automatic-labelling-from-repository/function_source_copy

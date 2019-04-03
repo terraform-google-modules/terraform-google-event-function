@@ -14,6 +14,11 @@
  * limitations under the License.
  */
 
+output "compute_instance_name" {
+  value       = "${module.automatic_labelling_from_repository.compute_instance_name}"
+  description = "The name of the unlabelled Compute instance."
+}
+
 output "project_id" {
   value       = "${var.project_id}"
   description = "The ID of the project to which resources are applied."
