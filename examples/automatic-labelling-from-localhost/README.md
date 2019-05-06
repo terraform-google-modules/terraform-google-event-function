@@ -9,7 +9,7 @@ principal email address of the account responsible for causing the events.
 
 ## Usage
 
-To provision this example, populate `terraform.tfvars` with the [required variables][#inputs] and run the following commands within
+To provision this example, populate `terraform.tfvars` with the [required variables](#inputs) and run the following commands within
 this directory:
 
 - `terraform init` to initialize the directory
@@ -62,3 +62,4 @@ following APIs enabled:
 [event-project-log-entry-submodule]: ../../modules/event-project-log-entry
 [root-module-requirements]: ../../README.md#requirements
 [root-module]: ../..
+[terraform-site]: https://terraform.io/
