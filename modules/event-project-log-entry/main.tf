@@ -14,23 +14,21 @@
  * limitations under the License.
  */
 
-resource "google_pubsub_topic" "main" {
-  name    = "${var.name}"
-  labels  = "${var.labels}"
-  project = "${var.project_id}"
-}
-
-resource "google_logging_project_sink" "main" {
-  name                   = "${var.name}"
-  destination            = "pubsub.googleapis.com/${google_pubsub_topic.main.id}"
+module "log_export" {
+  source                 = "terraform-google-modules/log-export/google"
+  destination_uri        = "${module.destination.destination_uri}"
   filter                 = "${var.filter}"
-  project                = "${var.project_id}"
-  unique_writer_identity = true
+  log_sink_name          = "${var.name}"
+  parent_resource_id     = "${var.project_id}"
+  parent_resource_type   = "${var.parent_resource_type}"
+  unique_writer_identity = "true"
 }
 
-resource "google_pubsub_topic_iam_member" "main" {
-  topic   = "${google_pubsub_topic.main.name}"
-  project = "${google_logging_project_sink.main.project}"
-  member  = "${google_logging_project_sink.main.writer_identity}"
-  role    = "roles/pubsub.publisher"
+
+module "destination" {
+  source                   = "terraform-google-modules/log-export/google//modules/pubsub"
+  project_id               = "${var.project_id}"
+  topic_name               = "${var.name}"
+  log_sink_writer_identity = "${module.log_export.writer_identity}"
+  create_subscriber        = "true"
 }
