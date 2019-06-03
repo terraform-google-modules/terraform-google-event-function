@@ -13,6 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+locals {
+  destination_uri = "pubsub.googleapis.com/projects/${var.project_id}/topics/${local.topic_name}"
+  topic_name      = "${element(concat(google_pubsub_topic.main.*.name, list("")), 0)}"
+}
+
+module "log_export" {
+  source                 = "terraform-google-modules/log-export/google"
+  destination_uri        = "${local.destination_uri}"
+  filter                 = "${var.filter}"
+  log_sink_name          = "${var.name}"
+  parent_resource_id     = "${var.project_id}"
+  parent_resource_type   = "${var.parent_resource_type}"
+  unique_writer_identity = "true"
+}
 
 resource "google_pubsub_topic" "main" {
   name    = "${var.name}"
@@ -20,17 +34,10 @@ resource "google_pubsub_topic" "main" {
   project = "${var.project_id}"
 }
 
-resource "google_logging_project_sink" "main" {
-  name                   = "${var.name}"
-  destination            = "pubsub.googleapis.com/${google_pubsub_topic.main.id}"
-  filter                 = "${var.filter}"
-  project                = "${var.project_id}"
-  unique_writer_identity = true
-}
-
 resource "google_pubsub_topic_iam_member" "main" {
   topic   = "${google_pubsub_topic.main.name}"
-  project = "${google_logging_project_sink.main.project}"
-  member  = "${google_logging_project_sink.main.writer_identity}"
+  project = "${var.project_id}"
+  member  = "${module.log_export.writer_identity}"
   role    = "roles/pubsub.publisher"
 }
+

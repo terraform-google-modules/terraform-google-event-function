@@ -34,3 +34,9 @@ variable "project_id" {
   type        = "string"
   description = "The ID of the project to which resources will be applied."
 }
+
+variable "parent_resource_type" {
+  type        = "string"
+  default     = "project"
+  description = "The GCP resource in which you create the log sink. The value must not be computed, and must be one of the following: 'project', 'folder', 'billing_account', or 'organization'."
+}
