@@ -47,10 +47,10 @@ from which this module will be invoked:
 The Service Account which will be used to invoke this module must have
 the following IAM roles:
 
-- Pub/Sub Admin
-- Storage Admin
-- Cloud Functions Developer
-- Logging Sink Admin
+- Pub/Sub Admin: `roles/pubsub.admin`
+- Storage Admin: `roles/storage.admin`
+- Cloud Functions Developer: `roles/cloudfunctions.developer`
+- Logging Config Writer: `roles/logging.configWriter`
 
 ### APIs
 
