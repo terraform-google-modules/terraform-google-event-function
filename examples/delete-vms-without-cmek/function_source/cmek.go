@@ -49,7 +49,7 @@ func init() {
 	}
 }
 
-func RecieveMessage(ctx context.Context, msg *pubsub.Message) error {
+func ReceiveMessage(ctx context.Context, msg *pubsub.Message) error {
 	var event creationEvent
 	json.Unmarshal([]byte(msg.Data), &event)
 	labels := event.Resource.Labels

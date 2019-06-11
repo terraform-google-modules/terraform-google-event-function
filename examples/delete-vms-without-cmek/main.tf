@@ -46,7 +46,7 @@ module "localhost_function" {
   source = "../.."
 
   description = "Deletes VMs created with disks not encrypted with CMEK"
-  entry_point = "RecieveMessage"
+  entry_point = "ReceiveMessage"
   runtime = "go111"
   timeout_s = "240"
 
