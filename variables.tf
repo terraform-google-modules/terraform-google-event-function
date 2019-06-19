@@ -65,7 +65,7 @@ variable "region" {
 
 variable "runtime" {
   type        = "string"
-  default     = "nodejs6"
+  default     = "nodejs8"
   description = "The runtime in which the function will be executed."
 }
 
