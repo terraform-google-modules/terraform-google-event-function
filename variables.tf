@@ -99,8 +99,8 @@ variable "bucket_name" {
 }
 
 variable "bucket_force_destroy" {
-  type = "string"
-  default = "false"
+  type        = "string"
+  default     = "false"
   description = "When deleting the GCS bucket containing the cloud function, delete all objects in the bucket first."
 }
 
