@@ -103,3 +103,9 @@ variable "bucket_force_destroy" {
   default = "false"
   description = "When deleting the GCS bucket containing the cloud function, delete all objects in the bucket first."
 }
+
+variable "event_trigger_failure_policy_retry" {
+  type        = "string"
+  default     = "false"
+  description = "A toggle to determine if the function should be retried on failure."
+}

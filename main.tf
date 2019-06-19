@@ -48,6 +48,10 @@ resource "google_cloudfunctions_function" "main" {
   event_trigger {
     event_type = "${var.event_trigger["event_type"]}"
     resource   = "${var.event_trigger["resource"]}"
+
+    failure_policy {
+      retry = "${var.event_trigger_failure_policy_retry}"
+    }
   }
 
   labels                = "${var.labels}"
