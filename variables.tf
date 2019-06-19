@@ -45,7 +45,7 @@ variable "event_trigger" {
 variable "labels" {
   type        = "map"
   default     = {}
-  description = "A set of key/value label pairs to assign to any lableable resources."
+  description = "A set of key/value label pairs to assign to the Cloud Function."
 }
 
 variable "name" {
@@ -78,4 +78,22 @@ variable "timeout_s" {
   type        = "string"
   default     = "60"
   description = "The amount of time in seconds allotted for the execution of the function."
+}
+
+variable "source_archive_bucket_labels" {
+  type        = "map"
+  default     = {}
+  description = "A set of key/value label pairs to assign to the function source archive bucket."
+}
+
+variable "service_account_email" {
+  type        = "string"
+  default     = ""
+  description = "The service account to run the function as."
+}
+
+variable "bucket_name" {
+  type        = "string"
+  default     = ""
+  description = "The name to apply to the bucket. Will default to a string of the function name."
 }

@@ -21,11 +21,11 @@ data "archive_file" "main" {
 }
 
 resource "google_storage_bucket" "main" {
-  name          = "${var.name}"
+  name          = "${coalesce(var.bucket_name, var.name)}"
   location      = "${var.region}"
   project       = "${var.project_id}"
   storage_class = "REGIONAL"
-  labels        = "${var.labels}"
+  labels        = "${var.source_archive_bucket_labels}"
 }
 
 resource "google_storage_bucket_object" "main" {
@@ -56,4 +56,5 @@ resource "google_cloudfunctions_function" "main" {
   source_archive_object = "${google_storage_bucket_object.main.name}"
   project               = "${var.project_id}"
   region                = "${var.region}"
+  service_account_email = "${var.service_account_email}"
 }
