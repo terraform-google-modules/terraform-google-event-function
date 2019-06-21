@@ -80,7 +80,7 @@ variable "timeout_s" {
   description = "The amount of time in seconds allotted for the execution of the function."
 }
 
-variable "source_archive_bucket_labels" {
+variable "bucket_labels" {
   type        = "map"
   default     = {}
   description = "A set of key/value label pairs to assign to the function source archive bucket."

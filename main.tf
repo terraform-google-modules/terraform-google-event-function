@@ -26,7 +26,7 @@ resource "google_storage_bucket" "main" {
   location      = "${var.region}"
   project       = "${var.project_id}"
   storage_class = "REGIONAL"
-  labels        = "${var.source_archive_bucket_labels}"
+  labels        = "${var.bucket_labels}"
 }
 
 resource "google_storage_bucket_object" "main" {
