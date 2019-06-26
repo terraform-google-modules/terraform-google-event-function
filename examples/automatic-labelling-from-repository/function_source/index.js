@@ -110,9 +110,9 @@ storeLabels =
  * @param {!Object} event Event payload and metadata.
  * @param {!Function} callback Callback function to signal completion.
  */
-exports.labelResource = (event, callback) => {
+exports.labelResource = (data, context, callback)=> {
   const eventData =
-    JSON.parse(Buffer.from(event.data.data, "base64").toString());
+    JSON.parse(Buffer.from(data.data, "base64").toString());
 
   console.log("Received event");
   console.log(eventData);

@@ -80,7 +80,7 @@ module "repository_function" {
 
   description = "Labels resource with owner information."
   entry_point = "labelResource"
-  runtime     = "nodejs6"
+  runtime     = "nodejs8"
 
   environment_variables = {
     LABEL_KEY = "principal-email"
