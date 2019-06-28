@@ -21,11 +21,12 @@ data "archive_file" "main" {
 }
 
 resource "google_storage_bucket" "main" {
-  name          = "${var.name}"
+  name          = "${coalesce(var.bucket_name, var.name)}"
+  force_destroy = "${var.bucket_force_destroy}"
   location      = "${var.region}"
   project       = "${var.project_id}"
   storage_class = "REGIONAL"
-  labels        = "${var.labels}"
+  labels        = "${var.bucket_labels}"
 }
 
 resource "google_storage_bucket_object" "main" {
@@ -47,6 +48,10 @@ resource "google_cloudfunctions_function" "main" {
   event_trigger {
     event_type = "${var.event_trigger["event_type"]}"
     resource   = "${var.event_trigger["resource"]}"
+
+    failure_policy {
+      retry = "${var.event_trigger_failure_policy_retry}"
+    }
   }
 
   labels                = "${var.labels}"
@@ -56,4 +61,5 @@ resource "google_cloudfunctions_function" "main" {
   source_archive_object = "${google_storage_bucket_object.main.name}"
   project               = "${var.project_id}"
   region                = "${var.region}"
+  service_account_email = "${var.service_account_email}"
 }

@@ -45,7 +45,7 @@ variable "event_trigger" {
 variable "labels" {
   type        = "map"
   default     = {}
-  description = "A set of key/value label pairs to assign to any lableable resources."
+  description = "A set of key/value label pairs to assign to the Cloud Function."
 }
 
 variable "name" {
@@ -65,7 +65,6 @@ variable "region" {
 
 variable "runtime" {
   type        = "string"
-  default     = "nodejs6"
   description = "The runtime in which the function will be executed."
 }
 
@@ -78,4 +77,34 @@ variable "timeout_s" {
   type        = "string"
   default     = "60"
   description = "The amount of time in seconds allotted for the execution of the function."
+}
+
+variable "bucket_labels" {
+  type        = "map"
+  default     = {}
+  description = "A set of key/value label pairs to assign to the function source archive bucket."
+}
+
+variable "service_account_email" {
+  type        = "string"
+  default     = ""
+  description = "The service account to run the function as."
+}
+
+variable "bucket_name" {
+  type        = "string"
+  default     = ""
+  description = "The name to apply to the bucket. Will default to a string of the function name."
+}
+
+variable "bucket_force_destroy" {
+  type        = "string"
+  default     = "false"
+  description = "When deleting the GCS bucket containing the cloud function, delete all objects in the bucket first."
+}
+
+variable "event_trigger_failure_policy_retry" {
+  type        = "string"
+  default     = "false"
+  description = "A toggle to determine if the function should be retried on failure."
 }
