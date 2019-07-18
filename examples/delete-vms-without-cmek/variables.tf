@@ -23,4 +23,3 @@ variable "region" {
   type        = "string"
   description = "The region in which resources will be applied."
 }
-

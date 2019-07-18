@@ -40,4 +40,3 @@ resource "google_pubsub_topic_iam_member" "main" {
   member  = "${module.log_export.writer_identity}"
   role    = "roles/pubsub.publisher"
 }
-

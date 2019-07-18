@@ -47,8 +47,8 @@ module "localhost_function" {
 
   description = "Deletes VMs created with disks not encrypted with CMEK"
   entry_point = "ReceiveMessage"
-  runtime = "go111"
-  timeout_s = "240"
+  runtime     = "go111"
+  timeout_s   = "240"
 
   event_trigger    = "${module.event_project_log_entry.function_event_trigger}"
   name             = "${random_pet.main.id}"
