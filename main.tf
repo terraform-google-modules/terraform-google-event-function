@@ -16,50 +16,50 @@
 
 data "archive_file" "main" {
   type        = "zip"
-  output_path = "${pathexpand("${var.source_directory}.zip")}"
-  source_dir  = "${pathexpand("${var.source_directory}")}"
+  output_path = pathexpand("${var.source_directory}.zip")
+  source_dir  = pathexpand(var.source_directory)
 }
 
 resource "google_storage_bucket" "main" {
-  name          = "${coalesce(var.bucket_name, var.name)}"
-  force_destroy = "${var.bucket_force_destroy}"
-  location      = "${var.region}"
-  project       = "${var.project_id}"
+  name          = coalesce(var.bucket_name, var.name)
+  force_destroy = var.bucket_force_destroy
+  location      = var.region
+  project       = var.project_id
   storage_class = "REGIONAL"
-  labels        = "${var.bucket_labels}"
+  labels        = var.bucket_labels
 }
 
 resource "google_storage_bucket_object" "main" {
-  name                = "${basename(data.archive_file.main.output_path)}"
-  bucket              = "${google_storage_bucket.main.name}"
-  source              = "${data.archive_file.main.output_path}"
+  name                = basename(data.archive_file.main.output_path)
+  bucket              = google_storage_bucket.main.name
+  source              = data.archive_file.main.output_path
   content_disposition = "attachment"
   content_encoding    = "gzip"
   content_type        = "application/zip"
 }
 
 resource "google_cloudfunctions_function" "main" {
-  name                = "${var.name}"
-  description         = "${var.description}"
-  available_memory_mb = "${var.available_memory_mb}"
-  timeout             = "${var.timeout_s}"
-  entry_point         = "${var.entry_point}"
+  name                = var.name
+  description         = var.description
+  available_memory_mb = var.available_memory_mb
+  timeout             = var.timeout_s
+  entry_point         = var.entry_point
 
   event_trigger {
-    event_type = "${var.event_trigger["event_type"]}"
-    resource   = "${var.event_trigger["resource"]}"
+    event_type = var.event_trigger["event_type"]
+    resource   = var.event_trigger["resource"]
 
     failure_policy {
-      retry = "${var.event_trigger_failure_policy_retry}"
+      retry = var.event_trigger_failure_policy_retry
     }
   }
 
-  labels                = "${var.labels}"
-  runtime               = "${var.runtime}"
-  environment_variables = "${var.environment_variables}"
-  source_archive_bucket = "${google_storage_bucket.main.name}"
-  source_archive_object = "${google_storage_bucket_object.main.name}"
-  project               = "${var.project_id}"
-  region                = "${var.region}"
-  service_account_email = "${var.service_account_email}"
+  labels                = var.labels
+  runtime               = var.runtime
+  environment_variables = var.environment_variables
+  source_archive_bucket = google_storage_bucket.main.name
+  source_archive_object = google_storage_bucket_object.main.name
+  project               = var.project_id
+  region                = var.region
+  service_account_email = var.service_account_email
 }

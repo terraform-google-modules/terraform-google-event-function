@@ -17,7 +17,7 @@
 module "automatic_labelling_from_repository" {
   source = "../../../examples/automatic-labelling-from-repository"
 
-  project_id = "${var.project_id}"
-  region     = "${var.region}"
-  zone       = "${var.zone}"
+  project_id = var.project_id
+  region     = var.region
+  zone       = var.zone
 }

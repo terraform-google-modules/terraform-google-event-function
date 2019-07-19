@@ -40,6 +40,15 @@ setup_environment() {
   export TF_VAR_project_id="${PROJECT_ID}"
   export TF_VAR_region="${REGION:-us-east1}"
   export TF_VAR_zone="${ZONE:-us-east1-b}"
+
+  # Stubs for module/*. Use for terraform linter
+  export TF_VAR_entry_point=""
+  export TF_VAR_event_trigger="{event_type=\"\",resource=\"\"}"
+  export TF_VAR_name="test"
+  export TF_VAR_runtime=""
+  export TF_VAR_source_directory=""
+  export TF_VAR_source_repository_url=""
+  export TF_VAR_filter=""
 }
 
 main() {

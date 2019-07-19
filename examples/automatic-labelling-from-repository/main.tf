@@ -15,7 +15,7 @@
  */
 
 terraform {
-  required_version = "~> 0.11.0"
+  required_version = "~> 0.12.0"
 }
 
 provider "archive" {
@@ -31,7 +31,7 @@ provider "random" {
 }
 
 provider "null" {
-  version = "~> 1.0"
+  version = "~> 2.1"
 }
 
 resource "random_pet" "main" {
@@ -39,20 +39,20 @@ resource "random_pet" "main" {
 }
 
 resource "google_sourcerepo_repository" "main" {
-  name    = "${random_pet.main.id}"
-  project = "${var.project_id}"
+  name    = random_pet.main.id
+  project = var.project_id
 }
 
 resource "null_resource" "configure_repository" {
-  triggers {
-    repository_url = "${google_sourcerepo_repository.main.url}"
+  triggers = {
+    repository_url = google_sourcerepo_repository.main.url
   }
 
   provisioner "local-exec" {
     command = "${path.module}/scripts/configure_repository.sh"
 
-    environment {
-      REMOTE_URL                = "${google_sourcerepo_repository.main.url}"
+    environment = {
+      REMOTE_URL                = google_sourcerepo_repository.main.url
       REPOSITORY_DIRECTORY      = "${path.module}/function_source"
       REPOSITORY_COPY_DIRECTORY = "${path.module}/function_source_copy"
     }
@@ -64,15 +64,15 @@ data "null_data_source" "main" {
     source_repository_url = "https://source.developers.google.com/projects/${var.project_id}/repos/${random_pet.main.id}/moveable-aliases/master/paths/"
   }
 
-  depends_on = ["null_resource.configure_repository"]
+  depends_on = [null_resource.configure_repository]
 }
 
 module "event_project_log_entry" {
   source = "../../modules/event-project-log-entry"
 
   filter     = "protoPayload.@type=\"type.googleapis.com/google.cloud.audit.AuditLog\" protoPayload.methodName:insert operation.first=true"
-  name       = "${random_pet.main.id}"
-  project_id = "${var.project_id}"
+  name       = random_pet.main.id
+  project_id = var.project_id
 }
 
 module "repository_function" {
@@ -86,11 +86,11 @@ module "repository_function" {
     LABEL_KEY = "principal-email"
   }
 
-  event_trigger         = "${module.event_project_log_entry.function_event_trigger}"
-  name                  = "${random_pet.main.id}"
-  project_id            = "${var.project_id}"
-  region                = "${var.region}"
-  source_repository_url = "${data.null_data_source.main.outputs["source_repository_url"]}"
+  event_trigger         = module.event_project_log_entry.function_event_trigger
+  name                  = random_pet.main.id
+  project_id            = var.project_id
+  region                = var.region
+  source_repository_url = data.null_data_source.main.outputs["source_repository_url"]
 }
 
 resource "null_resource" "wait_for_function" {
@@ -98,25 +98,31 @@ resource "null_resource" "wait_for_function" {
     command = "sleep 60"
   }
 
-  depends_on = ["module.repository_function"]
+  depends_on = [module.repository_function]
 }
 
 resource "google_compute_instance" "main" {
-  boot_disk = {
-    initialize_params = {
+  boot_disk {
+    initialize_params {
       image = "debian-cloud/debian-9"
     }
   }
 
   machine_type = "f1-micro"
   name         = "unlabelled-${random_pet.main.id}"
-  zone         = "${var.zone}"
+  zone         = var.zone
 
-  network_interface = {
+  lifecycle {
+    ignore_changes = [
+      labels,
+    ]
+  }
+
+  network_interface {
     network = "default"
   }
 
-  project = "${var.project_id}"
+  project = var.project_id
 
-  depends_on = ["null_resource.wait_for_function"]
+  depends_on = [null_resource.wait_for_function]
 }

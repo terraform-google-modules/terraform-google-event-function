@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-output "name" {
-  description = "The name of the function."
-  value       = google_cloudfunctions_function.main.name
+terraform {
+  required_version = ">= 0.12"
 }
