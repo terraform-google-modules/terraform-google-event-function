@@ -7,7 +7,7 @@ project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
-## [1.0.0] - 2019-YY-ZZ
+## [1.0.0] - 2019-07-29
 
 ### Changed
 
@@ -20,8 +20,10 @@ project adheres to [Semantic Versioning](http://semver.org/).
 
 - Initial release
 
-[Unreleased]: https://github.com/terraform-google-modules/terraform-google-event-function/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/terraform-google-modules/terraform-google-event-function/compare/v1.0.0...HEAD
 [0.1.0]: https://github.com/terraform-google-modules/terraform-google-event-function/releases/tag/v0.1.0
+[1.0.0]: https://github.com/terraform-google-modules/terraform-google-event-function/releases/tag/v0.1.0...v1.0.0
+
 
 [#23]: https://github.com/terraform-google-modules/terraform-google-event-function/pull/23
 [#18]: https://github.com/terraform-google-modules/terraform-google-event-function/pull/18
