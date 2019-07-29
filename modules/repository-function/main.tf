@@ -15,25 +15,25 @@
  */
 
 resource "google_cloudfunctions_function" "main" {
-  name                = "${var.name}"
-  description         = "${var.description}"
-  available_memory_mb = "${var.available_memory_mb}"
-  timeout             = "${var.timeout_s}"
-  entry_point         = "${var.entry_point}"
+  name                = var.name
+  description         = var.description
+  available_memory_mb = var.available_memory_mb
+  timeout             = var.timeout_s
+  entry_point         = var.entry_point
 
   event_trigger {
-    event_type = "${var.event_trigger["event_type"]}"
-    resource   = "${var.event_trigger["resource"]}"
+    event_type = var.event_trigger["event_type"]
+    resource   = var.event_trigger["resource"]
   }
 
-  labels                = "${var.labels}"
-  runtime               = "${var.runtime}"
-  environment_variables = "${var.environment_variables}"
+  labels                = var.labels
+  runtime               = var.runtime
+  environment_variables = var.environment_variables
 
   source_repository {
-    url = "${var.source_repository_url}"
+    url = var.source_repository_url
   }
 
-  project = "${var.project_id}"
-  region  = "${var.region}"
+  project = var.project_id
+  region  = var.region
 }

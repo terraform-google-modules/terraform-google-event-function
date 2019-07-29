@@ -15,21 +15,21 @@
  */
 
 output "compute_instance_name" {
-  value       = "${module.automatic_labelling_from_repository.compute_instance_name}"
+  value       = module.automatic_labelling_from_repository.compute_instance_name
   description = "The name of the unlabelled Compute instance."
 }
 
 output "project_id" {
-  value       = "${var.project_id}"
+  value       = var.project_id
   description = "The ID of the project to which resources are applied."
 }
 
 output "region" {
-  value       = "${var.region}"
+  value       = var.region
   description = "The region in which resources are applied."
 }
 
 output "zone" {
-  value       = "${var.zone}"
+  value       = var.zone
   description = "The zone in which resources are applied."
 }

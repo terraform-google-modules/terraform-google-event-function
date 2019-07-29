@@ -49,7 +49,7 @@ authenticate = callback => {
  * @param {!Function} callback A callback function to signal completion.
  */
 fetchLabels = ({ authClient, instance, project, zone }, callback) => {
-  console.log("Fetching labels");
+  console.log("Fetching labels for " + instance);
   compute.instances.get(
     { auth: authClient, instance, project, zone }, (error, response) => {
       if (error) {
@@ -84,7 +84,7 @@ fetchLabels = ({ authClient, instance, project, zone }, callback) => {
 storeLabels =
   ({ authClient, instance, labelFingerprint, labels, project, zone },
     callback) => {
-    console.log("Storing labels");
+    console.log("Storing labels for " + instance);
     compute.instances.setLabels(
       {
         auth: authClient,
