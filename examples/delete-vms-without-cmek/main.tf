@@ -15,7 +15,7 @@
  */
 
 terraform {
-  required_version = "~> 0.11.0"
+  required_version = "~> 0.12.0"
 }
 
 provider "archive" {
@@ -38,8 +38,8 @@ module "event_project_log_entry" {
   source = "../../modules/event-project-log-entry"
 
   filter     = "resource.type=\"gce_instance\" jsonPayload.event_subtype=\"compute.instances.insert\" jsonPayload.event_type=\"GCE_OPERATION_DONE\""
-  name       = "${random_pet.main.id}"
-  project_id = "${var.project_id}"
+  name       = random_pet.main.id
+  project_id = var.project_id
 }
 
 module "localhost_function" {
@@ -47,12 +47,12 @@ module "localhost_function" {
 
   description = "Deletes VMs created with disks not encrypted with CMEK"
   entry_point = "ReceiveMessage"
-  runtime = "go111"
-  timeout_s = "240"
+  runtime     = "go111"
+  timeout_s   = "240"
 
-  event_trigger    = "${module.event_project_log_entry.function_event_trigger}"
-  name             = "${random_pet.main.id}"
-  project_id       = "${var.project_id}"
-  region           = "${var.region}"
+  event_trigger    = module.event_project_log_entry.function_event_trigger
+  name             = random_pet.main.id
+  project_id       = var.project_id
+  region           = var.region
   source_directory = "${path.module}/function_source"
 }

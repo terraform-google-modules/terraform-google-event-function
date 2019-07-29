@@ -15,67 +15,67 @@
  */
 
 variable "available_memory_mb" {
-  type        = "string"
-  default     = "256"
+  type        = number
+  default     = 256
   description = "The amount of memory in megabytes allotted for the function to use."
 }
 
 variable "description" {
-  type        = "string"
+  type        = string
   default     = "Processes events."
   description = "The description of the function."
 }
 
 variable "entry_point" {
-  type        = "string"
+  type        = string
   description = "The name of a method in the function source which will be invoked when the function is executed."
 }
 
 variable "environment_variables" {
-  type        = "map"
+  type        = map(string)
   default     = {}
   description = "A set of key/value environment variable pairs to assign to the function."
 }
 
 variable "event_trigger" {
-  type        = "map"
+  type        = map(string)
   description = "A source that fires events in response to a condition in another service."
 }
 
 variable "labels" {
-  type        = "map"
+  type        = map(string)
   default     = {}
   description = "A set of key/value label pairs to assign to any lableable resources."
 }
 
 variable "name" {
-  type        = "string"
+  type        = string
   description = "The name to apply to any nameable resources."
 }
 
 variable "project_id" {
-  type        = "string"
+  type        = string
   description = "The ID of the project to which resources will be applied."
 }
 
 variable "region" {
-  type        = "string"
+  type        = string
   description = "The region in which resources will be applied."
 }
 
 variable "runtime" {
-  type        = "string"
+  type        = string
   default     = "nodejs6"
   description = "The runtime in which the function will be executed."
 }
 
 variable "source_repository_url" {
-  type        = "string"
+  type        = string
   description = "The URL of the repository which contains the function source code."
 }
 
 variable "timeout_s" {
-  type        = "string"
-  default     = "60"
+  type        = number
+  default     = 60
   description = "The amount of time in seconds allotted for the execution of the function."
 }

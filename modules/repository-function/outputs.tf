@@ -16,5 +16,6 @@
 
 output "name" {
   description = "The name of the function."
-  value       = "${google_cloudfunctions_function.main.name}"
+  value       = google_cloudfunctions_function.main.name
 }
+

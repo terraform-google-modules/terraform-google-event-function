@@ -15,7 +15,7 @@
  */
 
 terraform {
-  required_version = "~> 0.11.0"
+  required_version = "~> 0.12.0"
 }
 
 provider "archive" {
@@ -31,7 +31,7 @@ provider "random" {
 }
 
 provider "null" {
-  version = "~> 1.0"
+  version = "~> 2.1"
 }
 
 resource "random_pet" "main" {
@@ -42,8 +42,8 @@ module "event_project_log_entry" {
   source = "../../modules/event-project-log-entry"
 
   filter     = "protoPayload.@type=\"type.googleapis.com/google.cloud.audit.AuditLog\" protoPayload.methodName:insert operation.first=true"
-  name       = "${random_pet.main.id}"
-  project_id = "${var.project_id}"
+  name       = random_pet.main.id
+  project_id = var.project_id
 }
 
 module "localhost_function" {
@@ -56,10 +56,10 @@ module "localhost_function" {
     LABEL_KEY = "principal-email"
   }
 
-  event_trigger    = "${module.event_project_log_entry.function_event_trigger}"
-  name             = "${random_pet.main.id}"
-  project_id       = "${var.project_id}"
-  region           = "${var.region}"
+  event_trigger    = module.event_project_log_entry.function_event_trigger
+  name             = random_pet.main.id
+  project_id       = var.project_id
+  region           = var.region
   source_directory = "${path.module}/function_source"
   runtime          = "nodejs8"
 }
@@ -69,25 +69,31 @@ resource "null_resource" "wait_for_function" {
     command = "sleep 60"
   }
 
-  depends_on = ["module.localhost_function"]
+  depends_on = [module.localhost_function]
 }
 
 resource "google_compute_instance" "main" {
-  boot_disk = {
-    initialize_params = {
+  boot_disk {
+    initialize_params {
       image = "debian-cloud/debian-9"
     }
   }
 
   machine_type = "f1-micro"
   name         = "unlabelled-${random_pet.main.id}"
-  zone         = "${var.zone}"
+  zone         = var.zone
 
-  network_interface = {
+  lifecycle {
+    ignore_changes = [
+      labels,
+    ]
+  }
+
+  network_interface {
     network = "default"
   }
 
-  project = "${var.project_id}"
+  project = var.project_id
 
-  depends_on = ["null_resource.wait_for_function"]
+  depends_on = [null_resource.wait_for_function]
 }
