@@ -7,6 +7,12 @@ project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [1.1.0] - 2019-09-02
+
+### Added
+
+- Added support for folder-level exports with [new module](./modules/event-folder-log-entry). [#28]
+
 ## [1.0.0] - 2019-07-29
 
 ### Changed
@@ -20,10 +26,12 @@ project adheres to [Semantic Versioning](http://semver.org/).
 
 - Initial release
 
-[Unreleased]: https://github.com/terraform-google-modules/terraform-google-event-function/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/terraform-google-modules/terraform-google-event-function/compare/v1.1.0...HEAD
 [0.1.0]: https://github.com/terraform-google-modules/terraform-google-event-function/releases/tag/v0.1.0
 [1.0.0]: https://github.com/terraform-google-modules/terraform-google-event-function/compare/v0.1.0...v1.0.0
+[1.1.0]: https://github.com/terraform-google-modules/terraform-google-event-function/compare/v1.0.0...v1.1.0
 
 
+[#28]: https://github.com/terraform-google-modules/terraform-google-event-function/pull/28
 [#23]: https://github.com/terraform-google-modules/terraform-google-event-function/pull/23
 [#18]: https://github.com/terraform-google-modules/terraform-google-event-function/pull/18
