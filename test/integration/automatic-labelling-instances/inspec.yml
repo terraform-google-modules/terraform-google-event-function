@@ -13,7 +13,7 @@
 # limitations under the License.
 
 ---
-name: automatic_labelling
+name: automatic_labelling_instances
 version: 0.1.0
 depends:
   - name: inspec-gcp

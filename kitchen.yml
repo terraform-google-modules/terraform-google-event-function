@@ -23,17 +23,30 @@ verifier:
   name: terraform
 
 platforms:
-  - name: from-localhost
-    driver:
-      root_module_directory: test/fixtures/automatic-labelling-from-localhost
-  - name: from-repository
-    driver:
-      root_module_directory: test/fixtures/automatic-labelling-from-repository
+  - name: default
 
 suites:
-  - name: automatic-labelling
+  - name: automatic-labelling-from-localhost
+    driver:
+      root_module_directory: test/fixtures/automatic-labelling-from-localhost
     verifier:
       color: false
       systems:
-        - name: automatic-labelling
+        - name: automatic-labelling-instances
+          backend: gcp
+  - name: automatic-labelling-from-repository
+    driver:
+      root_module_directory: test/fixtures/automatic-labelling-from-repository
+    verifier:
+      color: false
+      systems:
+        - name: automatic-labelling-instances
+          backend: gcp
+  - name: automatic-labelling-folder
+    driver:
+      root_module_directory: test/fixtures/automatic-labelling-folder
+    verifier:
+      color: false
+      systems:
+        - name: automatic-labelling-projects
           backend: gcp

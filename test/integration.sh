@@ -40,6 +40,7 @@ setup_environment() {
   export TF_VAR_project_id="${PROJECT_ID}"
   export TF_VAR_region="${REGION:-us-east1}"
   export TF_VAR_zone="${ZONE:-us-east1-b}"
+  export TF_VAR_folder_id="${FOLDER_ID}"
 
   # Stubs for module/*. Use for terraform linter
   export TF_VAR_entry_point=""
