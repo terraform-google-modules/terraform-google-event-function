@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # Copyright 2019 Google Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,20 +12,23 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-require "json"
-
-control "automatically labelled" do
-  describe google_compute_instance(
-    project: attribute("project_id"),
-    zone: attribute("zone"),
-    name: attribute("compute_instance_name"),
-  ) do
-    let :principal_email do
-      JSON.parse(File.read(ENV.fetch("GOOGLE_APPLICATION_CREDENTIALS"))).fetch("client_email").split("@").first
-    end
-
-    it "should be automatically labelled by the Cloud Functions function" do
-      expect(subject.label_value_by_key("principal-email")).to eq principal_email
-    end
-  end
-end
+---
+name: automatic_labelling_instances
+version: 0.1.0
+depends:
+  - name: inspec-gcp
+    git: https://github.com/inspec/inspec-gcp.git
+    tag: v0.10.0
+attributes:
+  - name: compute_instance_name
+    type: string
+    required: true
+    description: "The name of the unlabelled Compute instance."
+  - name: project_id
+    type: string
+    required: true
+    description: "The ID of the project to which resources are applied."
+  - name: zone
+    type: string
+    required: true
+    description: "The zone in which resources are applied."

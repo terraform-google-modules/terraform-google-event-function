@@ -17,12 +17,14 @@
 project_id=$(terraform output project_id)
 region=$(terraform output region)
 zone=$(terraform output zone)
+sub_folder_id=$(terraform output sub_folder_id)
 
 {
   echo "#!/usr/bin/env bash"
   echo "export TF_VAR_project_id='$project_id'"
   echo "export TF_VAR_region='$region'"
   echo "export TF_VAR_zone='$zone'"
+  echo "export TF_VAR_folder_id='$sub_folder_id'"
 } > ../source.sh
 
 sa_json=$(terraform output sa_key)

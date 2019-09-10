@@ -15,23 +15,16 @@
  */
 
 output "project_id" {
-  value = module.project.project_id
-}
-
-output "sub_folder_id" {
-  value = google_folder.ci_event_func_subfolder.id
-}
-
-output "sa_key" {
-  value     = google_service_account_key.int_test.private_key
-  sensitive = true
+  value       = var.project_id
+  description = "The ID of the project to which resources are applied."
 }
 
 output "region" {
-  value = var.region
+  value       = var.region
+  description = "The region in which resources are applied."
 }
 
-output "zone" {
-  value = var.zone
+output "test_project_id" {
+  value       = module.automatic_labelling_folder.test_project_id
+  description = "The ID of the project to test."
 }
-

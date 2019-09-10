@@ -14,24 +14,10 @@
  * limitations under the License.
  */
 
-output "project_id" {
-  value = module.project.project_id
-}
+module "automatic_labelling_folder" {
+  source = "../../../examples/automatic-labelling-folder"
 
-output "sub_folder_id" {
-  value = google_folder.ci_event_func_subfolder.id
+  project_id = var.project_id
+  folder_id  = var.folder_id
+  region     = var.region
 }
-
-output "sa_key" {
-  value     = google_service_account_key.int_test.private_key
-  sensitive = true
-}
-
-output "region" {
-  value = var.region
-}
-
-output "zone" {
-  value = var.zone
-}
-
