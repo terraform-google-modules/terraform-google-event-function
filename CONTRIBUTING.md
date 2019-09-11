@@ -1,4 +1,4 @@
-CONTRIBUTING# Contributing
+# Contributing
 
 This document provides guidelines for contributing to the module.
 
@@ -6,29 +6,9 @@ This document provides guidelines for contributing to the module.
 
 The following dependencies must be installed on the development system:
 
-- [Terraform][terraform-site] v0.12.Z
 - [Docker Engine][docker-engine]
 - [Google Cloud SDK][google-cloud-sdk]
 - [make]
-
-### IAM Roles
-
-The Service Account which will be used to invoke this module must have
-the following IAM roles:
-
-- Cloud Functions Developer: `roles/cloudfunctions.developer`
-- Storage Admin: `roles/storage.admin`
-
-### APIs
-
-The project against which this module will be invoked must have the
-following APIs enabled:
-
-- Cloud Functions API: `cloudfunctions.googleapis.com`
-- Cloud Storage API: `storage-component.googleapis.com`
-
-The [Project Factory module][project-factory-module-site] can be used to
-provision projects with specific APIs activated.
 
 ## Generating Documentation for Inputs and Outputs
 

@@ -16,8 +16,13 @@
 
 locals {
   int_required_roles = [
-    "roles/owner",
-    "roles/compute.admin"
+    "roles/cloudfunctions.developer",
+    "roles/storage.admin",
+    "roles/compute.admin",
+    "roles/pubsub.admin",
+    "roles/logging.configWriter",
+    "roles/source.admin",
+    "roles/iam.serviceAccountUser"
   ]
 }
 

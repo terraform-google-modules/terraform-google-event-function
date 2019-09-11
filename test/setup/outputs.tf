@@ -24,10 +24,10 @@ output "sa_key" {
 }
 
 output "region" {
-  value = local.region
+  value = var.region
 }
 
 output "zone" {
-  value = local.zone
+  value = var.zone
 }
 

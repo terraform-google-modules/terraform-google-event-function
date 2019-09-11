@@ -24,3 +24,13 @@ variable "folder_id" {
 variable "billing_account" {
   description = "The billing account id associated with the project, e.g. XXXXXX-YYYYYY-ZZZZZZ"
 }
+
+variable "region" {
+  description = "Compute region to create test resources"
+  default     = "us-east4"
+}
+
+variable "zone" {
+  description = "Compute region zone to create test resources"
+  default     = "us-east4-a"
+}

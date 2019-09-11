@@ -14,14 +14,8 @@
  * limitations under the License.
  */
 
-resource "random_id" "project" {
-  byte_length = 4
-}
-
 locals {
-  project_name = "ci-event-function-${random_id.project.hex}"
-  region       = random_shuffle.available_regions.result[0]
-  zone         = random_shuffle.available_zones.result[0]
+  project_name = "ci-event-function"
 }
 
 
@@ -30,7 +24,7 @@ module "project" {
   version = "~> 3.0"
 
   name                = local.project_name
-  random_project_id   = false
+  random_project_id   = true
   auto_create_network = true
   org_id              = var.org_id
   folder_id           = var.folder_id
@@ -45,24 +39,5 @@ module "project" {
     "sourcerepo.googleapis.com",
     "compute.googleapis.com"
   ]
-}
-
-data "google_compute_regions" "available" {
-  project = module.project.project_id
-}
-
-resource "random_shuffle" "available_regions" {
-  input        = data.google_compute_regions.available.names
-  result_count = 1
-}
-
-data "google_compute_zones" "available" {
-  project = module.project.project_id
-  region  = local.region
-}
-
-resource "random_shuffle" "available_zones" {
-  input        = data.google_compute_zones.available.names
-  result_count = 3
 }
 
