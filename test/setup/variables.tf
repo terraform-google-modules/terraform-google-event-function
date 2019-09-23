@@ -13,3 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+variable "org_id" {
+  description = "The numeric organization id"
+}
+
+variable "folder_id" {
+  description = "The folder to deploy in"
+}
+
+variable "billing_account" {
+  description = "The billing account id associated with the project, e.g. XXXXXX-YYYYYY-ZZZZZZ"
+}
+
+variable "region" {
+  description = "Compute region to create test resources"
+  default     = "us-east4"
+}
+
+variable "zone" {
+  description = "Compute region zone to create test resources"
+  default     = "us-east4-a"
+}
