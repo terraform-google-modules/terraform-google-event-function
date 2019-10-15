@@ -14,24 +14,17 @@
  * limitations under the License.
  */
 
-output "project_id" {
-  value = module.project.project_id
+variable "project_id" {
+  type        = string
+  description = "The ID of the project to which resources will be applied."
 }
 
-output "sub_folder_id" {
-  value = google_folder.ci_event_func_subfolder.id
+variable "folder_id" {
+  type        = string
+  description = "The ID of the folder to look for changes."
 }
 
-output "sa_key" {
-  value     = google_service_account_key.int_test.private_key
-  sensitive = true
+variable "region" {
+  type        = string
+  description = "The region in which resources will be applied."
 }
-
-output "region" {
-  value = var.region
-}
-
-output "zone" {
-  value = var.zone
-}
-

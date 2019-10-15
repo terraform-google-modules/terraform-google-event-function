@@ -19,6 +19,7 @@ set -x
 
 cp -R "$REPOSITORY_DIRECTORY" "$REPOSITORY_COPY_DIRECTORY"
 cd "$REPOSITORY_COPY_DIRECTORY"
+rm -rf .git # clean up .git folder from previouse runs
 git init
 git config user.name "Terraform"
 git config user.email "terraform@example.com"

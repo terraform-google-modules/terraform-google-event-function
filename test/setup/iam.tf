@@ -22,7 +22,19 @@ locals {
     "roles/pubsub.admin",
     "roles/logging.configWriter",
     "roles/source.admin",
-    "roles/iam.serviceAccountUser"
+    "roles/iam.serviceAccountUser",
+  ]
+
+  int_required_folder_roles = [
+    "roles/owner",
+    "roles/resourcemanager.projectCreator",
+    "roles/resourcemanager.folderAdmin",
+    "roles/resourcemanager.folderIamAdmin",
+    "roles/billing.projectManager",
+  ]
+
+  int_required_folder_cloud_function_roles = [
+    "roles/owner",
   ]
 }
 
@@ -38,6 +50,22 @@ resource "google_project_iam_member" "int_test" {
   project = module.project.project_id
   role    = local.int_required_roles[count.index]
   member  = "serviceAccount:${google_service_account.int_test.email}"
+}
+
+resource "google_folder_iam_member" "int_test_folder" {
+  count = length(local.int_required_folder_roles)
+
+  folder = google_folder.ci_event_func_subfolder.name
+  role   = local.int_required_folder_roles[count.index]
+  member = "serviceAccount:${google_service_account.int_test.email}"
+}
+
+resource "google_folder_iam_member" "int_test_sub_folder_cloud_function" {
+  count = length(local.int_required_folder_cloud_function_roles)
+
+  folder = google_folder.ci_event_func_subfolder.name
+  role   = local.int_required_folder_cloud_function_roles[count.index]
+  member = "serviceAccount:${module.project.project_id}@appspot.gserviceaccount.com"
 }
 
 resource "google_service_account_key" "int_test" {
