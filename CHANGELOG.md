@@ -7,6 +7,10 @@ project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Fixed
+
+- Updating the source for a local event-function doesn't update the function. [#32]
+
 ## [1.1.0] - 2019-09-02
 
 ### Added
@@ -32,6 +36,7 @@ project adheres to [Semantic Versioning](http://semver.org/).
 [1.1.0]: https://github.com/terraform-google-modules/terraform-google-event-function/compare/v1.0.0...v1.1.0
 
 
+[#32]: https://github.com/terraform-google-modules/terraform-google-event-function/issues/32
 [#28]: https://github.com/terraform-google-modules/terraform-google-event-function/pull/28
 [#23]: https://github.com/terraform-google-modules/terraform-google-event-function/pull/23
 [#18]: https://github.com/terraform-google-modules/terraform-google-event-function/pull/18
