@@ -30,7 +30,7 @@ resource "google_storage_bucket" "main" {
 }
 
 resource "google_storage_bucket_object" "main" {
-  name                = basename(data.archive_file.main.output_path)
+  name                = "${data.archive_file.main.output_md5}-${basename(data.archive_file.main.output_path)}"
   bucket              = google_storage_bucket.main.name
   source              = data.archive_file.main.output_path
   content_disposition = "attachment"
