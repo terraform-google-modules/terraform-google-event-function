@@ -8,7 +8,7 @@ which responds to Compute VM creation events by deleting any VM instances create
 
 ## Usage
 
-To provision this example, populate `terraform.tfvars` with the [required variables][variables] and run the following commands within
+To provision this example, populate `terraform.tfvars` with the [required variables](#inputs) and run the following commands within
 this directory:
 
 - `terraform init` to initialize the directory
@@ -63,4 +63,3 @@ following APIs enabled:
 [root-module-requirements]: ../../README.md#requirements
 [root-module]: ../..
 [terraform-site]: https://terraform.io/
-[variables]: ./variables.tf

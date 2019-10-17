@@ -9,7 +9,7 @@ principal email address of the account responsible for causing the events.
 
 ## Usage
 
-To provision this example, populate `terraform.tfvars` with the [required variables][variables] and run the following commands within
+To provision this example, populate `terraform.tfvars` with the [required variables](#inputs) and run the following commands within
 this directory:
 
 - `terraform init` to initialize the directory
@@ -72,4 +72,3 @@ following APIs enabled:
 [repository-function-submodule-requirements]: ../../modules/repository-function/README.md#requirements
 [repository-function-submodule]: ../../modules/repository-function
 [terraform-site]: https://terraform.io/
-[variables]: ./variables.tf

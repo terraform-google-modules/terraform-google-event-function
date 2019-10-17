@@ -32,5 +32,5 @@ variable "zone" {
 variable "subnetwork" {
   type        = string
   description = "The name or self_link of the subnetwork to create compute instance in."
-  default     = ""
+  default     = "default"
 }
