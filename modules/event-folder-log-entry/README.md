@@ -13,9 +13,8 @@ export event.
 ## Usage
 
 The
-[automatic-labelling-from-localhost example][a7c-l7g-from-l7t-example]
-is a tested reference of how to use this submodule with the
-[root module].
+[automatic-labelling-from-localhost example][automatic-labelling-from-localhost] is a tested reference of how to use this submodule with the
+[root module][root-module].
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Inputs
@@ -46,9 +45,8 @@ order to invoke this module.
 The following software dependencies must be installed on the system
 from which this module will be invoked:
 
-- [Terraform][terraform-site] v0.11.Z
-- [Terraform Provider for Google Cloud Platform][t7m-provider-gcp-site]
-  v2.1.Z
+- [Terraform][terraform-site] v0.12
+- [Terraform Provider for Google Cloud Platform][terraform-provider-gcp-site] v2.5
 
 ### IAM Roles
 
@@ -67,7 +65,8 @@ following APIs enabled:
 - Cloud Pub/Sub API: `pubsub.googleapis.com`
 - Stackdriver Logging API: `logging.googleapis.com`
 
-[automatic-labelling-example]: ../../examples/automatic_labelling
+[automatic-labelling-from-localhost]: ../../examples/automatic-labelling-from-localhost
 [repository-function]: ../repository-function
 [root-module]: ../..
 [terraform-site]: https://www.terraform.io/
+[terraform-provider-gcp-site]: https://github.com/terraform-providers/terraform-provider-google

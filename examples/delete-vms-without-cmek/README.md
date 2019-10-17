@@ -16,8 +16,7 @@ this directory:
 - `terraform apply` to apply the execution plan
 - `terraform destroy` to destroy the infrastructure
 
-[^]: (autogen_docs_start)
-
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -25,7 +24,7 @@ this directory:
 | project\_id | The ID of the project to which resources will be applied. | string | n/a | yes |
 | region | The region in which resources will be applied. | string | n/a | yes |
 
-[^]: (autogen_docs_end)
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Requirements
 
@@ -40,7 +39,7 @@ must also be met.
 The following software dependencies must be installed on the system
 from which this module will be invoked:
 
-- [Terraform][terraform-site] v0.11.Z
+- [Terraform][terraform-site] v0.12
 
 ### IAM Roles
 

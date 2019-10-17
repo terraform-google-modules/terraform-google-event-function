@@ -19,5 +19,6 @@ module "automatic_labelling_from_localhost" {
 
   project_id = var.project_id
   region     = var.region
+  subnetwork = var.subnetwork
   zone       = var.zone
 }

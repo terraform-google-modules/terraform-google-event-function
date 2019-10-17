@@ -17,17 +17,23 @@ this directory:
 - `terraform apply` to apply the execution plan
 - `terraform destroy` to destroy the infrastructure
 
-[^]: (autogen_docs_start)
-
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | project\_id | The ID of the project to which resources will be applied. | string | n/a | yes |
 | region | The region in which resources will be applied. | string | n/a | yes |
+| subnetwork | The name or self_link of the subnetwork to create compute instance in. | string | `"default"` | no |
 | zone | The zone in which resources will be applied. | string | n/a | yes |
 
-[^]: (autogen_docs_end)
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| compute\_instance\_name | The name of the unlabelled Compute instance. |
+
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Requirements
 
@@ -42,7 +48,7 @@ must also be met.
 The following software dependencies must be installed on the system
 from which this module will be invoked:
 
-- [Terraform][terraform-site] v0.11.Z
+- [Terraform][terraform-site] v0.12
 
 ### IAM Roles
 
