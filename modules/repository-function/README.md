@@ -50,7 +50,7 @@ The following software dependencies must be installed on the system
 from which this module will be invoked:
 
 - [Terraform][terraform-site] v0.12
-- [Terraform Provider for Google Cloud Platform][terraformm-provider-gcp-site] v2.5
+- [Terraform Provider for Google Cloud Platform][terraform-provider-gcp-site] v2.5
 
 ### IAM Roles
 
@@ -70,4 +70,4 @@ following APIs enabled:
 [automatic-labelling-from-repository-example]: ../../examples/automatic-labelling-from-repository
 [event-project-log-entry-submodule]: ../event-project-log-entry
 [terraform-site]: https://www.terraform.io/
-[terraformm-provider-gcp-site]: https://github.com/terraform-providers/terraform-provider-google
+[terraform-provider-gcp-site]: https://github.com/terraform-providers/terraform-provider-google

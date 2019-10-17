@@ -29,14 +29,8 @@ variable "zone" {
   description = "The zone in which resources will be applied."
 }
 
-variable "network" {
-  type        = string
-  description = "The name or self_link of the network to create compute instance in. Only one of network or subnetwork should be specified."
-  default     = ""
-}
-
 variable "subnetwork" {
   type        = string
-  description = "The name or self_link of the subnetwork to create compute instance in. Only one of network or subnetwork should be specified."
-  default     = ""
+  description = "The name or self_link of the subnetwork to create compute instance in."
+  default     = "default"
 }

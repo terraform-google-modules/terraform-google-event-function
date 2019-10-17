@@ -22,10 +22,9 @@ this directory:
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| network | The name or self_link of the network to create compute instance in. Only one of network or subnetwork should be specified. | string | `""` | no |
 | project\_id | The ID of the project to which resources will be applied. | string | n/a | yes |
 | region | The region in which resources will be applied. | string | n/a | yes |
-| subnetwork | The name or self_link of the subnetwork to create compute instance in. Only one of network or subnetwork should be specified. | string | `""` | no |
+| subnetwork | The name or self_link of the subnetwork to create compute instance in. | string | `"default"` | no |
 | zone | The zone in which resources will be applied. | string | n/a | yes |
 
 ## Outputs

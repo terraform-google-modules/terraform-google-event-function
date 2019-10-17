@@ -90,7 +90,6 @@ resource "google_compute_instance" "main" {
   }
 
   network_interface {
-    network    = var.network
     subnetwork = var.subnetwork
   }
 
