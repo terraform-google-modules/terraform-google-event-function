@@ -9,7 +9,7 @@ principal email address of the account responsible for causing the events.
 
 ## Usage
 
-To provision this example, populate `terraform.tfvars` with the [required variables][#inputs] and run the following commands within
+To provision this example, populate `terraform.tfvars` with the [required variables][variables] and run the following commands within
 this directory:
 
 - `terraform init` to initialize the directory
@@ -17,8 +17,7 @@ this directory:
 - `terraform apply` to apply the execution plan
 - `terraform destroy` to destroy the infrastructure
 
-[^]: (autogen_docs_start)
-
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -27,7 +26,13 @@ this directory:
 | region | The region in which resources will be applied. | string | n/a | yes |
 | zone | The zone in which resources will be applied. | string | n/a | yes |
 
-[^]: (autogen_docs_end)
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| compute\_instance\_name | The name of the unlabelled Compute instance. |
+
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Requirements
 
@@ -43,7 +48,7 @@ must also be met.
 The following software dependencies must be installed on the system
 from which this module will be invoked:
 
-- [Terraform][terraform-site] v0.11.Z
+- [Terraform][terraform-site] v0.12
 
 ### IAM Roles
 
@@ -65,3 +70,5 @@ following APIs enabled:
 [event-project-log-entry-submodule]: ../../modules/event-project-log-entry
 [repository-function-submodule-requirements]: ../../modules/repository-function/README.md#requirements
 [repository-function-submodule]: ../../modules/repository-function
+[terraform-site]: https://terraform.io/
+[variables]: ./variables.tf

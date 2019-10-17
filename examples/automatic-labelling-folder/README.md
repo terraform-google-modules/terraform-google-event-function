@@ -25,6 +25,14 @@ this directory:
 | project\_id | The ID of the project to which resources will be applied. | string | n/a | yes |
 | region | The region in which resources will be applied. | string | n/a | yes |
 
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| project\_id | The ID of the project to which resources are applied. |
+| region | The region in which resources are applied. |
+| test\_project\_id | The ID of the project to test. |
+
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Requirements
@@ -40,7 +48,7 @@ must also be met.
 The following software dependencies must be installed on the system
 from which this module will be invoked:
 
-- [Terraform][terraform-site] v0.12.Z
+- [Terraform][terraform-site] v0.12
 
 ### IAM Roles
 
