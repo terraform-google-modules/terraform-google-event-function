@@ -32,12 +32,11 @@ module "project" {
   source  = "terraform-google-modules/project-factory/google"
   version = "~> 3.0"
 
-  name                = local.project_name
-  random_project_id   = true
-  auto_create_network = true
-  org_id              = var.org_id
-  folder_id           = var.folder_id
-  billing_account     = var.billing_account
+  name              = local.project_name
+  random_project_id = true
+  org_id            = var.org_id
+  folder_id         = var.folder_id
+  billing_account   = var.billing_account
 
   activate_apis = [
     "cloudresourcemanager.googleapis.com",
@@ -50,3 +49,16 @@ module "project" {
   ]
 }
 
+module "network" {
+  source  = "terraform-google-modules/network/google"
+  version = "~> 1.2"
+
+  project_id   = module.project.project_id
+  network_name = "test-network"
+
+  subnets = [{
+    subnet_name   = "test-subnet-01"
+    subnet_ip     = "10.10.10.0/24"
+    subnet_region = var.region
+  }]
+}

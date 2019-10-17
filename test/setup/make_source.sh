@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Copyright 2018 Google LLC
+# Copyright 2019 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,6 +18,7 @@ project_id=$(terraform output project_id)
 region=$(terraform output region)
 zone=$(terraform output zone)
 sub_folder_id=$(terraform output sub_folder_id)
+subnetwork=$(terraform output subnetwork)
 
 {
   echo "#!/usr/bin/env bash"
@@ -25,10 +26,9 @@ sub_folder_id=$(terraform output sub_folder_id)
   echo "export TF_VAR_region='$region'"
   echo "export TF_VAR_zone='$zone'"
   echo "export TF_VAR_folder_id='$sub_folder_id'"
+  echo "export TF_VAR_subnetwork='$subnetwork'"
 } > ../source.sh
 
 sa_json=$(terraform output sa_key)
 # shellcheck disable=SC2086
 echo "export SERVICE_ACCOUNT_JSON='$(echo $sa_json | base64 --decode)'" >> ../source.sh
-
-

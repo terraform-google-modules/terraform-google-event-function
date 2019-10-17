@@ -119,7 +119,8 @@ resource "google_compute_instance" "main" {
   }
 
   network_interface {
-    network = "default"
+    network    = var.network
+    subnetwork = var.subnetwork
   }
 
   project = var.project_id

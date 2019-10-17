@@ -35,3 +35,7 @@ output "zone" {
   value = var.zone
 }
 
+output "subnetwork" {
+  value = module.network.subnets_self_links[0]
+}
+
