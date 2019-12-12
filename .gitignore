@@ -51,6 +51,8 @@ credentials.json
 examples/automatic-labelling-folder/function_source.zip
 examples/automatic-labelling-from-localhost/function_source.zip
 examples/automatic-labelling-from-repository/function_source_copy
+examples/dynamic-files/function_source.zip
+examples/dynamic-files/function_source/terraform_created_file.txt
 
 node_modules
 yarn.lock
