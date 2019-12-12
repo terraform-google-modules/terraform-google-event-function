@@ -73,6 +73,15 @@ variable "source_directory" {
   description = "The pathname of the directory which contains the function source code."
 }
 
+variable "source_dependent_files" {
+  type = list(object({
+    filename = string
+    id       = string
+  }))
+  description = "A list of any terraform created `local_file`s that the module will wait for before creating the archive."
+  default     = []
+}
+
 variable "timeout_s" {
   type        = number
   default     = 60

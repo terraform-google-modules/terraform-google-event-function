@@ -26,6 +26,26 @@ The
 is a tested reference of how to use the root module with the
 [event-project-log-entry submodule][event-project-log-entry-submodule].
 
+## Terraform Created Source Files
+
+If you have `local_file` terraform resources that need to be included in the function's archive include them in the optional `source_dependent_files`.
+
+This will tell the module to wait until those files exist before creating the archive.
+
+Example can also be seen in `examples/dynamic-files`
+
+```hcl
+resource "local_file" "file" {
+  content  = "some content"
+  filename = "${path.module}/function_source/terraform_created_file.txt"
+}
+
+module "localhost_function" {
+  ...
+
+  source_dependent_files = [local_file.file]
+}
+```
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Inputs
 
@@ -46,6 +66,7 @@ is a tested reference of how to use the root module with the
 | region | The region in which resources will be applied. | string | n/a | yes |
 | runtime | The runtime in which the function will be executed. | string | n/a | yes |
 | service\_account\_email | The service account to run the function as. | string | `""` | no |
+| source\_dependent\_files | A list of any terraform created `local_file`s that the module will wait for before creating the archive. | object | `<list>` | no |
 | source\_directory | The pathname of the directory which contains the function source code. | string | n/a | yes |
 | timeout\_s | The amount of time in seconds allotted for the execution of the function. | number | `"60"` | no |
 

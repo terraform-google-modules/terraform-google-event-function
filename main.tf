@@ -14,10 +14,37 @@
  * limitations under the License.
  */
 
+
+/**
+* This allows users of the module to pass in any local_file resources
+* that we'll wait to exist before creating the archive.
+* This allows for us to delay the archive creation when terraform itself
+* is creating files. See this issue for more details
+* https://github.com/terraform-providers/terraform-provider-archive/issues/11
+*/
+resource "null_resource" "dependent_files" {
+  triggers = {
+    for file in var.source_dependent_files :
+    pathexpand(file.filename) => file.id
+  }
+}
+
+data "null_data_source" "wait_for_files" {
+  inputs = {
+    # This ensures that this data resource will not be evaluated until
+    # after the null_resource has been created.
+    dependent_files_id = "${null_resource.dependent_files.id}"
+
+    # This value gives us something to implicitly depend on
+    # in the archive_file below.
+    source_dir = pathexpand(var.source_directory)
+  }
+}
+
 data "archive_file" "main" {
   type        = "zip"
   output_path = pathexpand("${var.source_directory}.zip")
-  source_dir  = pathexpand(var.source_directory)
+  source_dir  = "${data.null_data_source.wait_for_files.outputs["source_dir"]}"
 }
 
 resource "google_storage_bucket" "main" {
