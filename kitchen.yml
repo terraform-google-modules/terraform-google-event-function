@@ -50,3 +50,13 @@ suites:
       systems:
         - name: automatic-labelling-projects
           backend: gcp
+  - name: dynamic-files
+    driver:
+      root_module_directory: test/fixtures/dynamic-files
+    verifier:
+      color: false
+      systems:
+        - name: dynamic-files
+          backend: local
+          control:
+            - gcloud
