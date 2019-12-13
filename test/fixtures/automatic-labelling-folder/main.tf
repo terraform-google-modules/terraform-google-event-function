@@ -17,7 +17,7 @@
 module "automatic_labelling_folder" {
   source = "../../../examples/automatic-labelling-folder"
 
-  project_id = var.project_id
-  folder_id  = var.sub_folder_id
-  region     = var.region
+  project_id    = var.project_id
+  sub_folder_id = var.sub_folder_id
+  region        = var.region
 }

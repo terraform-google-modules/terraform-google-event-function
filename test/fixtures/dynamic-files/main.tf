@@ -18,6 +18,5 @@ module "dynamic_files" {
   source = "../../../examples/dynamic-files"
 
   project_id = var.project_id
-  folder_id  = var.folder_id
   region     = var.region
 }
