@@ -21,9 +21,9 @@ this directory:
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
+| folder\_id | The ID of the folder to look for changes. | string | n/a | yes |
 | project\_id | The ID of the project to which resources will be applied. | string | n/a | yes |
 | region | The region in which resources will be applied. | string | n/a | yes |
-| sub\_folder\_id | The ID of the folder to look for changes. | string | n/a | yes |
 
 ## Outputs
 

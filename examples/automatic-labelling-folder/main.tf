@@ -49,7 +49,7 @@ protoPayload.methodName="CreateProject"
 EOF
   name       = random_pet.main.id
   project_id = var.project_id
-  folder_id  = var.sub_folder_id
+  folder_id  = var.folder_id
 }
 
 module "localhost_function" {
@@ -59,7 +59,7 @@ module "localhost_function" {
   entry_point = "labelResource"
 
   environment_variables = {
-    FOLDER_ID   = var.sub_folder_id
+    FOLDER_ID   = var.folder_id
     LABEL_KEY   = "test"
     LABEL_VALUE = "foobar"
   }
@@ -89,7 +89,7 @@ resource "random_pet" "project_id" {
 resource "google_project" "test" {
   name       = random_pet.project_id.id
   project_id = random_pet.project_id.id
-  folder_id  = var.sub_folder_id
+  folder_id  = var.folder_id
 
   lifecycle {
     ignore_changes = [
