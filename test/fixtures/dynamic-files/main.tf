@@ -14,17 +14,9 @@
  * limitations under the License.
  */
 
-variable "project_id" {
-  type        = string
-  description = "The ID of the project to which resources will be applied."
-}
+module "dynamic_files" {
+  source = "../../../examples/dynamic-files"
 
-variable "sub_folder_id" {
-  type        = string
-  description = "The ID of the folder to look for changes."
-}
-
-variable "region" {
-  type        = string
-  description = "The region in which resources will be applied."
+  project_id = var.project_id
+  region     = var.region
 }

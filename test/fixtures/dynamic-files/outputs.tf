@@ -14,17 +14,22 @@
  * limitations under the License.
  */
 
-variable "project_id" {
-  type        = string
-  description = "The ID of the project to which resources will be applied."
+output "project_id" {
+  value       = var.project_id
+  description = "The ID of the project to which resources are applied."
 }
 
-variable "sub_folder_id" {
-  type        = string
-  description = "The ID of the folder to look for changes."
+output "region" {
+  value       = var.region
+  description = "The region in which resources are applied."
 }
 
-variable "region" {
-  type        = string
-  description = "The region in which resources will be applied."
+output "function_name" {
+  value       = module.dynamic_files.function_name
+  description = "The name of the function created"
+}
+
+output "random_file_string" {
+  value       = module.dynamic_files.random_file_string
+  description = "The content of the terraform created file in the source directory."
 }
