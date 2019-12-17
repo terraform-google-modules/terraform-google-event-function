@@ -7,6 +7,8 @@ project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [1.2.0] - 2019-12-17
+
 ### Added
 
 - The `source_dependent_files` variable. If used `archive` won't be created until Terraform created `local_file`s are finished. [#38]
@@ -34,10 +36,11 @@ project adheres to [Semantic Versioning](http://semver.org/).
 
 - Initial release
 
-[Unreleased]: https://github.com/terraform-google-modules/terraform-google-event-function/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/terraform-google-modules/terraform-google-event-function/compare/v1.2.0...HEAD
 [0.1.0]: https://github.com/terraform-google-modules/terraform-google-event-function/releases/tag/v0.1.0
 [1.0.0]: https://github.com/terraform-google-modules/terraform-google-event-function/compare/v0.1.0...v1.0.0
 [1.1.0]: https://github.com/terraform-google-modules/terraform-google-event-function/compare/v1.0.0...v1.1.0
+[1.2.0]: https://github.com/terraform-google-modules/terraform-google-event-function/compare/v1.1.0...v1.2.0
 
 
 [#38]: https://github.com/terraform-google-modules/terraform-google-event-function/issues/38
