@@ -2,7 +2,7 @@
 
 This example demonstrates how to use the
 [root module][root-module] that will contain source
-code files generated from terraform itself.
+code files generated from Terraform itself.
 
 ## Usage
 

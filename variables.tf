@@ -78,7 +78,7 @@ variable "source_dependent_files" {
     filename = string
     id       = string
   }))
-  description = "A list of any terraform created `local_file`s that the module will wait for before creating the archive."
+  description = "A list of any Terraform created `local_file`s that the module will wait for before creating the archive."
   default     = []
 }
 

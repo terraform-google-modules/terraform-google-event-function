@@ -28,7 +28,7 @@ is a tested reference of how to use the root module with the
 
 ## Terraform Created Source Files
 
-If you have `local_file` terraform resources that need to be included in the function's archive include them in the optional `source_dependent_files`.
+If you have `local_file` Terraform resources that need to be included in the function's archive include them in the optional `source_dependent_files`.
 
 This will tell the module to wait until those files exist before creating the archive.
 

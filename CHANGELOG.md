@@ -9,7 +9,7 @@ project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Added
 
-- New for `source_dependent_files` var. If used `archive` won't be created until terraform created `local_file`s are finished. [#38]
+- The `source_dependent_files` variable. If used `archive` won't be created until Terraform created `local_file`s are finished. [#38]
 
 ### Fixed
 
