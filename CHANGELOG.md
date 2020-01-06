@@ -7,6 +7,10 @@ project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- Adding the include_children option. [#39](https://github.com/terraform-google-modules/terraform-google-event-function/pull/39)
+
 ## [1.2.0] - 2019-12-17
 
 ### Added
