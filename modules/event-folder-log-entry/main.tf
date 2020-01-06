@@ -27,6 +27,7 @@ module "log_export" {
   filter                 = var.filter
   log_sink_name          = var.name
   parent_resource_id     = var.folder_id
+  include_children       = var.include_children
   parent_resource_type   = "folder"
   unique_writer_identity = "true"
 }

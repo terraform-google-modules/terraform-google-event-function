@@ -39,3 +39,9 @@ variable "folder_id" {
   type        = string
   description = "The ID of the folder to look for changes."
 }
+
+variable "include_children" {
+  description = "Determines whether or not to include folder's children in the sink export. If true, logs associated with child projects are also exported; otherwise only logs relating to the provided folder are included."
+  type        = bool
+  default     = false
+}

@@ -23,6 +23,7 @@ The
 |------|-------------|:----:|:-----:|:-----:|
 | filter | The filter to apply when exporting logs. | string | n/a | yes |
 | folder\_id | The ID of the folder to look for changes. | string | n/a | yes |
+| include\_children | Determines whether or not to include folder's children in the sink export. If true, logs associated with child projects are also exported; otherwise only logs relating to the provided folder are included. | bool | `"false"` | no |
 | labels | A set of key/value label pairs to assign to any labelable resources. | map(string) | `<map>` | no |
 | name | The name to apply to any nameable resources. | string | n/a | yes |
 | project\_id | The ID of the project to which resources will be applied. | string | n/a | yes |
