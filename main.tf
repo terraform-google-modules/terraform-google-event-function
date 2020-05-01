@@ -48,12 +48,13 @@ data "archive_file" "main" {
 }
 
 resource "google_storage_bucket" "main" {
-  name          = coalesce(var.bucket_name, var.name)
-  force_destroy = var.bucket_force_destroy
-  location      = var.region
-  project       = var.project_id
-  storage_class = "REGIONAL"
-  labels        = var.bucket_labels
+  name               = coalesce(var.bucket_name, var.name)
+  force_destroy      = var.bucket_force_destroy
+  location           = var.region
+  project            = var.project_id
+  storage_class      = "REGIONAL"
+  labels             = var.bucket_labels
+  bucket_policy_only = true
 }
 
 resource "google_storage_bucket_object" "main" {
