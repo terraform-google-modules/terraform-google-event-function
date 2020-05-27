@@ -109,7 +109,7 @@ variable "bucket_name" {
 variable "create_bucket" {
   type        = bool
   default     = true
-  description = "Whether to create a new bucket or use an existing bucket with the bucket_name passed to the module."
+  description = "Whether to create a new bucket or use an existing one. If false, `bucket_name` should reference the name of the alternate bucket to use."
 }
 
 variable "bucket_force_destroy" {

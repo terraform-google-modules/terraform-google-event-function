@@ -48,6 +48,7 @@ data "archive_file" "main" {
 }
 
 resource "google_storage_bucket" "main" {
+  count              = var.create_bucket ? 1 : 0
   name               = coalesce(var.bucket_name, var.name)
   force_destroy      = var.bucket_force_destroy
   location           = var.region
@@ -55,12 +56,11 @@ resource "google_storage_bucket" "main" {
   storage_class      = "REGIONAL"
   labels             = var.bucket_labels
   bucket_policy_only = true
-  count              = var.create_bucket == true ? 1 : 0
 }
 
 resource "google_storage_bucket_object" "main" {
   name                = "${data.archive_file.main.output_md5}-${basename(data.archive_file.main.output_path)}"
-  bucket              = var.create_bucket == true ? google_storage_bucket.main[0].name : var.bucket_name
+  bucket              = var.create_bucket ? google_storage_bucket.main[0].name : var.bucket_name
   source              = data.archive_file.main.output_path
   content_disposition = "attachment"
   content_encoding    = "gzip"
@@ -86,7 +86,7 @@ resource "google_cloudfunctions_function" "main" {
   labels                = var.labels
   runtime               = var.runtime
   environment_variables = var.environment_variables
-  source_archive_bucket = var.create_bucket == true ? google_storage_bucket.main[0].name : var.bucket_name
+  source_archive_bucket = var.create_bucket ? google_storage_bucket.main[0].name : var.bucket_name
   source_archive_object = google_storage_bucket_object.main.name
   project               = var.project_id
   region                = var.region
