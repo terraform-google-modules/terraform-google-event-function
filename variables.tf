@@ -106,6 +106,12 @@ variable "bucket_name" {
   description = "The name to apply to the bucket. Will default to a string of the function name."
 }
 
+variable "create_bucket" {
+  type        = bool
+  default     = true
+  description = "Whether to create a new bucket or use an existing one. If false, `bucket_name` should reference the name of the alternate bucket to use."
+}
+
 variable "bucket_force_destroy" {
   type        = bool
   default     = false
