@@ -123,3 +123,9 @@ variable "event_trigger_failure_policy_retry" {
   default     = false
   description = "A toggle to determine if the function should be retried on failure."
 }
+
+variable "ingress_settings" {
+  type        = string
+  default     = "ALLOW_ALL"
+  description = "Ingress settings for the Cloud Function"
+}
