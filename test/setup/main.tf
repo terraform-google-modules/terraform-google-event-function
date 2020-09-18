@@ -42,6 +42,7 @@ module "project" {
     "cloudresourcemanager.googleapis.com",
     "storage-api.googleapis.com",
     "serviceusage.googleapis.com",
+    "cloudbuild.googleapis.com",
     "cloudfunctions.googleapis.com",
     "storage-component.googleapis.com",
     "sourcerepo.googleapis.com",
