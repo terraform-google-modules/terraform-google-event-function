@@ -15,7 +15,7 @@
  */
 
 terraform {
-  required_version = "~> 0.12.0"
+  required_version = ">= 0.12"
 }
 
 provider "archive" {
@@ -23,7 +23,7 @@ provider "archive" {
 }
 
 provider "google" {
-  version = "~> 2.1"
+  version = "~> 3.39"
 }
 
 provider "random" {
@@ -80,7 +80,7 @@ module "repository_function" {
 
   description = "Labels resource with owner information."
   entry_point = "labelResource"
-  runtime     = "nodejs8"
+  runtime     = "nodejs10"
 
   environment_variables = {
     LABEL_KEY = "principal-email"

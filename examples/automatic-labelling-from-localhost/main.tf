@@ -15,7 +15,7 @@
  */
 
 terraform {
-  required_version = "~> 0.12.0"
+  required_version = ">= 0.12"
 }
 
 provider "archive" {
@@ -23,7 +23,7 @@ provider "archive" {
 }
 
 provider "google" {
-  version = "~> 2.1"
+  version = "~> 3.39"
 }
 
 provider "random" {
@@ -61,7 +61,7 @@ module "localhost_function" {
   project_id       = var.project_id
   region           = var.region
   source_directory = "${path.module}/function_source"
-  runtime          = "nodejs8"
+  runtime          = "nodejs10"
 }
 
 resource "null_resource" "wait_for_function" {

@@ -127,5 +127,5 @@ variable "event_trigger_failure_policy_retry" {
 variable "ingress_settings" {
   type        = string
   default     = "ALLOW_ALL"
-  description = "Ingress settings for the Cloud Function"
+  description = "The ingress settings for the function"
 }
