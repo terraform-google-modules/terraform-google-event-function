@@ -61,6 +61,7 @@ module "localhost_function" {
 | environment\_variables | A set of key/value environment variable pairs to assign to the function. | map(string) | `<map>` | no |
 | event\_trigger | A source that fires events in response to a condition in another service. | map(string) | n/a | yes |
 | event\_trigger\_failure\_policy\_retry | A toggle to determine if the function should be retried on failure. | bool | `"false"` | no |
+| ingress\_settings | The ingress settings for the function | string | `"ALLOW_ALL"` | no |
 | labels | A set of key/value label pairs to assign to the Cloud Function. | map(string) | `<map>` | no |
 | name | The name to apply to any nameable resources. | string | n/a | yes |
 | project\_id | The ID of the project to which resources will be applied. | string | n/a | yes |
@@ -70,8 +71,6 @@ module "localhost_function" {
 | source\_dependent\_files | A list of any Terraform created `local_file`s that the module will wait for before creating the archive. | object | `<list>` | no |
 | source\_directory | The pathname of the directory which contains the function source code. | string | n/a | yes |
 | timeout\_s | The amount of time in seconds allotted for the execution of the function. | number | `"60"` | no |
-| ingress\_settings | The ingress settings for the function | string | `"ALLOW_ALL"` | no |
-
 
 ## Outputs
 
