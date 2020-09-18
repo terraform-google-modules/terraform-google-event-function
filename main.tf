@@ -48,14 +48,14 @@ data "archive_file" "main" {
 }
 
 resource "google_storage_bucket" "main" {
-  count              = var.create_bucket ? 1 : 0
-  name               = coalesce(var.bucket_name, var.name)
-  force_destroy      = var.bucket_force_destroy
-  location           = var.region
-  project            = var.project_id
-  storage_class      = "REGIONAL"
-  labels             = var.bucket_labels
-  bucket_policy_only = true
+  count                       = var.create_bucket ? 1 : 0
+  name                        = coalesce(var.bucket_name, var.name)
+  force_destroy               = var.bucket_force_destroy
+  location                    = var.region
+  project                     = var.project_id
+  storage_class               = "REGIONAL"
+  labels                      = var.bucket_labels
+  uniform_bucket_level_access = true
 }
 
 resource "google_storage_bucket_object" "main" {
