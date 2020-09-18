@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this
 project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.3.0](https://www.github.com/terraform-google-modules/terraform-google-event-function/compare/v1.2.0...v1.3.0) (2020-09-18)
+
+
+### Features
+
+* Add option to use an existing archive bucket ([#42](https://www.github.com/terraform-google-modules/terraform-google-event-function/issues/42)) ([7ec5539](https://www.github.com/terraform-google-modules/terraform-google-event-function/commit/7ec5539f1d22059129234e7509f7d7549a0f02dd))
+* Add support for Ingress Settings (var.ingress_settings) on the function ([#43](https://www.github.com/terraform-google-modules/terraform-google-event-function/issues/43)) ([1f1c8c5](https://www.github.com/terraform-google-modules/terraform-google-event-function/commit/1f1c8c52dcdb3ff228f5580fc725114868b17aaa))
+
+
+### Bug Fixes
+
+* remove bucket_policy_only, add uniform_bucket_level_access ([#48](https://www.github.com/terraform-google-modules/terraform-google-event-function/issues/48)) ([76efb3a](https://www.github.com/terraform-google-modules/terraform-google-event-function/commit/76efb3a2d1a9fa1379bb6ce7dc16a888ea70cd06))
+* Use uniform-level access policy in GCS bucket ([9fa60be](https://www.github.com/terraform-google-modules/terraform-google-event-function/commit/9fa60be12c580ca62315b8082bae3698216681c4))
+
 ## [Unreleased]
 
 ### Added
