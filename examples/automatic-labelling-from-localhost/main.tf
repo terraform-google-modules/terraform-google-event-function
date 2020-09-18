@@ -61,7 +61,7 @@ module "localhost_function" {
   project_id       = var.project_id
   region           = var.region
   source_directory = "${path.module}/function_source"
-  runtime          = "nodejs8"
+  runtime          = "nodejs10"
 }
 
 resource "null_resource" "wait_for_function" {
