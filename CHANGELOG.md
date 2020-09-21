@@ -7,6 +7,10 @@ project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [1.3.0](https://www.github.com/terraform-google-modules/terraform-google-event-function/compare/v1.2.0...v1.3.0) (2020-09-18)
 
+### ⚠ BREAKING CHANGES
+
+* Minimum Google provider version increased to [3.38.0](https://github.com/hashicorp/terraform-provider-google/blob/master/CHANGELOG.md#3380-september-08-2020)
+
 
 ### Features
 
