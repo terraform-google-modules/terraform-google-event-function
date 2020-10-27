@@ -33,7 +33,7 @@ data "null_data_source" "wait_for_files" {
   inputs = {
     # This ensures that this data resource will not be evaluated until
     # after the null_resource has been created.
-    dependent_files_id = "${null_resource.dependent_files.id}"
+    dependent_files_id = null_resource.dependent_files.id
 
     # This value gives us something to implicitly depend on
     # in the archive_file below.
