@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this
 project adheres to [Semantic Versioning](http://semver.org/).
 
+### [1.3.1](https://www.github.com/terraform-google-modules/terraform-google-event-function/compare/v1.3.0...v1.3.1) (2020-10-27)
+
+
+### Bug Fixes
+
+* document provider requirements ([#49](https://www.github.com/terraform-google-modules/terraform-google-event-function/issues/49)) ([7c09f1c](https://www.github.com/terraform-google-modules/terraform-google-event-function/commit/7c09f1c9782b8c482b60524d8d08f9b8b3b76810))
+* removed interpolation-only expression ([#54](https://www.github.com/terraform-google-modules/terraform-google-event-function/issues/54)) ([1867aba](https://www.github.com/terraform-google-modules/terraform-google-event-function/commit/1867abadaff5a3bbe32b1c602ff8c034f11ab250))
+
 ## [1.3.0](https://www.github.com/terraform-google-modules/terraform-google-event-function/compare/v1.2.0...v1.3.0) (2020-09-18)
 
 ### ⚠ BREAKING CHANGES
