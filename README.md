@@ -59,7 +59,7 @@ module "localhost_function" {
 | description | The description of the function. | string | `"Processes events."` | no |
 | entry\_point | The name of a method in the function source which will be invoked when the function is executed. | string | n/a | yes |
 | environment\_variables | A set of key/value environment variable pairs to assign to the function. | map(string) | `<map>` | no |
-| event\_trigger | A source that fires events in response to a condition in another service. | map(string) | n/a | yes |
+| event\_trigger | A source that fires events in response to a condition in another service. Either this input must be defined or the `trigger_http` input must be set to `true`. | map(string) | n/a | no |
 | event\_trigger\_failure\_policy\_retry | A toggle to determine if the function should be retried on failure. | bool | `"false"` | no |
 | files\_to\_exclude\_in\_source\_dir | Specify files to ignore when reading the source_dir | list(string) | `<list>` | no |
 | ingress\_settings | The ingress settings for the function. Allowed values are ALLOW_ALL, ALLOW_INTERNAL_AND_GCLB and ALLOW_INTERNAL_ONLY. Changes to this field will recreate the cloud function. | string | `"ALLOW_ALL"` | no |
@@ -72,6 +72,7 @@ module "localhost_function" {
 | service\_account\_email | The service account to run the function as. | string | `""` | no |
 | source\_dependent\_files | A list of any Terraform created `local_file`s that the module will wait for before creating the archive. | object | `<list>` | no |
 | source\_directory | The pathname of the directory which contains the function source code. | string | n/a | yes |
+| trigger\_http | Any HTTP request (of a supported type) to the endpoint will trigger function execution. Either this input must be set to `true` or the `trigger_http` input must be defined. | bool | `"false"` | no |
 | timeout\_s | The amount of time in seconds allotted for the execution of the function. | number | `"60"` | no |
 | vpc\_connector | The VPC Network Connector that this cloud function can connect to. It should be set up as fully-qualified URI. The format of this field is projects/*/locations/*/connectors/*. | string | `"null"` | no |
 | vpc\_connector\_egress\_settings | The egress settings for the connector, controlling what traffic is diverted through it. Allowed values are ALL_TRAFFIC and PRIVATE_RANGES_ONLY. If unset, this field preserves the previously set value. | string | `"null"` | no |
