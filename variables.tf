@@ -129,3 +129,9 @@ variable "ingress_settings" {
   default     = "ALLOW_ALL"
   description = "The ingress settings for the function"
 }
+
+variable "vpc_connector" {
+  type        = string
+  default     = null
+  description = "The VPC Network Connector that this cloud function can connect to. It should be set up as fully-qualified URI. The format of this field is projects/*/locations/*/connectors/*."
+}

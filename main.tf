@@ -74,6 +74,7 @@ resource "google_cloudfunctions_function" "main" {
   timeout             = var.timeout_s
   entry_point         = var.entry_point
   ingress_settings    = var.ingress_settings
+  vpc_connector       = var.vpc_connector
 
   event_trigger {
     event_type = var.event_trigger["event_type"]

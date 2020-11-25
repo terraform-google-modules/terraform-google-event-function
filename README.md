@@ -71,6 +71,7 @@ module "localhost_function" {
 | source\_dependent\_files | A list of any Terraform created `local_file`s that the module will wait for before creating the archive. | object | `<list>` | no |
 | source\_directory | The pathname of the directory which contains the function source code. | string | n/a | yes |
 | timeout\_s | The amount of time in seconds allotted for the execution of the function. | number | `"60"` | no |
+| vpc\_connector | The VPC Network Connector that this cloud function can connect to. It should be set up as fully-qualified URI. The format of this field is projects/*/locations/*/connectors/*. | string | `"null"` | no |
 
 ## Outputs
 
