@@ -63,6 +63,7 @@ module "localhost_function" {
 | event\_trigger\_failure\_policy\_retry | A toggle to determine if the function should be retried on failure. | bool | `"false"` | no |
 | ingress\_settings | The ingress settings for the function | string | `"ALLOW_ALL"` | no |
 | labels | A set of key/value label pairs to assign to the Cloud Function. | map(string) | `<map>` | no |
+| max\_instances | The maximum number of parallel executions of the function. | number | `"0"` | no |
 | name | The name to apply to any nameable resources. | string | n/a | yes |
 | project\_id | The ID of the project to which resources will be applied. | string | n/a | yes |
 | region | The region in which resources will be applied. | string | n/a | yes |
