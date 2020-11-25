@@ -45,7 +45,7 @@ variable "event_trigger" {
 
 variable "trigger_http" {
   type        = bool
-  default     = false
+  default     = null
   description = "Wheter to use HTTP trigger instead of the event trigger."
 }
 

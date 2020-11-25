@@ -81,7 +81,7 @@ resource "google_cloudfunctions_function" "main" {
   vpc_connector                 = var.vpc_connector
 
   dynamic "event_trigger" {
-    for_each = var.trigger_http ? [] : [1]
+    for_each = var.trigger_http != null ? [] : [1]
 
     content {
       event_type = var.event_trigger["event_type"]
