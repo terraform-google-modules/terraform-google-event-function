@@ -88,6 +88,12 @@ variable "timeout_s" {
   description = "The amount of time in seconds allotted for the execution of the function."
 }
 
+variable "max_instances" {
+  type        = number
+  default     = 0
+  description = "The maximum number of parallel executions of the function."
+}
+
 variable "bucket_labels" {
   type        = map(string)
   default     = {}

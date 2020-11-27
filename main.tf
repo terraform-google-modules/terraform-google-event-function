@@ -44,7 +44,7 @@ data "null_data_source" "wait_for_files" {
 data "archive_file" "main" {
   type        = "zip"
   output_path = pathexpand("${var.source_directory}.zip")
-  source_dir  = "${data.null_data_source.wait_for_files.outputs["source_dir"]}"
+  source_dir  = data.null_data_source.wait_for_files.outputs["source_dir"]
 }
 
 resource "google_storage_bucket" "main" {
@@ -71,6 +71,7 @@ resource "google_cloudfunctions_function" "main" {
   name                = var.name
   description         = var.description
   available_memory_mb = var.available_memory_mb
+  max_instances       = var.max_instances
   timeout             = var.timeout_s
   entry_point         = var.entry_point
   ingress_settings    = var.ingress_settings
