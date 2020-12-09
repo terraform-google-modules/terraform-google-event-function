@@ -138,7 +138,7 @@ variable "ingress_settings" {
 
 variable "vpc_connector_egress_settings" {
   type        = string
-  default     = "PRIVATE_RANGES_ONLY"
+  default     = ""
   description = "The egress settings for the connector, controlling what traffic is diverted through it. Allowed values are ALL_TRAFFIC and PRIVATE_RANGES_ONLY. If unset, this field preserves the previously set value."
 }
 

@@ -73,7 +73,7 @@ module "localhost_function" {
 | source\_directory | The pathname of the directory which contains the function source code. | string | n/a | yes |
 | timeout\_s | The amount of time in seconds allotted for the execution of the function. | number | `"60"` | no |
 | vpc\_connector | The VPC Network Connector that this cloud function can connect to. It should be set up as fully-qualified URI. The format of this field is projects/*/locations/*/connectors/*. | string | `"null"` | no |
-| vpc\_connector\_egress\_settings | The egress settings for the connector, controlling what traffic is diverted through it. Allowed values are ALL_TRAFFIC and PRIVATE_RANGES_ONLY. If unset, this field preserves the previously set value. | string | `"PRIVATE_RANGES_ONLY"` | no |
+| vpc\_connector\_egress\_settings | The egress settings for the connector, controlling what traffic is diverted through it. Allowed values are ALL_TRAFFIC and PRIVATE_RANGES_ONLY. If unset, this field preserves the previously set value. | string | `""` | no |
 
 ## Outputs
 
