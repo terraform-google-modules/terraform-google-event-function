@@ -133,13 +133,13 @@ variable "event_trigger_failure_policy_retry" {
 variable "ingress_settings" {
   type        = string
   default     = "ALLOW_ALL"
-  description = "The ingress settings for the function"
+  description = "The ingress settings for the function. Allowed values are ALLOW_ALL, ALLOW_INTERNAL_AND_GCLB and ALLOW_INTERNAL_ONLY. Changes to this field will recreate the cloud function."
 }
 
 variable "vpc_connector_egress_settings" {
   type        = string
-  default     = "ALL_TRAFFIC"
-  description = "The egress settings for the connector, controlling what traffic is diverted through it. Allowed values are ALL_TRAFFIC and PRIVATE_RANGES_ONLY."
+  default     = "PRIVATE_RANGES_ONLY"
+  description = "The egress settings for the connector, controlling what traffic is diverted through it. Allowed values are ALL_TRAFFIC and PRIVATE_RANGES_ONLY. If unset, this field preserves the previously set value."
 }
 
 variable "vpc_connector" {
