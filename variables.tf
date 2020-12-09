@@ -136,6 +136,12 @@ variable "ingress_settings" {
   description = "The ingress settings for the function"
 }
 
+variable "vpc_connector_egress_settings" {
+  type        = string
+  default     = "ALLOW_ALL"
+  description = "The egress settings for the connector, controlling what traffic is diverted through it. Allowed values are ALL_TRAFFIC and PRIVATE_RANGES_ONLY."
+}
+
 variable "vpc_connector" {
   type        = string
   default     = null
