@@ -68,14 +68,15 @@ resource "google_storage_bucket_object" "main" {
 }
 
 resource "google_cloudfunctions_function" "main" {
-  name                = var.name
-  description         = var.description
-  available_memory_mb = var.available_memory_mb
-  max_instances       = var.max_instances
-  timeout             = var.timeout_s
-  entry_point         = var.entry_point
-  ingress_settings    = var.ingress_settings
-  vpc_connector       = var.vpc_connector
+  name                          = var.name
+  description                   = var.description
+  available_memory_mb           = var.available_memory_mb
+  max_instances                 = var.max_instances
+  timeout                       = var.timeout_s
+  entry_point                   = var.entry_point
+  ingress_settings              = var.ingress_settings
+  vpc_connector_egress_settings = var.vpc_connector_egress_settings
+  vpc_connector                 = var.vpc_connector
 
   event_trigger {
     event_type = var.event_trigger["event_type"]

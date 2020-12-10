@@ -61,7 +61,7 @@ module "localhost_function" {
 | environment\_variables | A set of key/value environment variable pairs to assign to the function. | map(string) | `<map>` | no |
 | event\_trigger | A source that fires events in response to a condition in another service. | map(string) | n/a | yes |
 | event\_trigger\_failure\_policy\_retry | A toggle to determine if the function should be retried on failure. | bool | `"false"` | no |
-| ingress\_settings | The ingress settings for the function | string | `"ALLOW_ALL"` | no |
+| ingress\_settings | The ingress settings for the function. Allowed values are ALLOW_ALL, ALLOW_INTERNAL_AND_GCLB and ALLOW_INTERNAL_ONLY. Changes to this field will recreate the cloud function. | string | `"ALLOW_ALL"` | no |
 | labels | A set of key/value label pairs to assign to the Cloud Function. | map(string) | `<map>` | no |
 | max\_instances | The maximum number of parallel executions of the function. | number | `"0"` | no |
 | name | The name to apply to any nameable resources. | string | n/a | yes |
@@ -73,6 +73,7 @@ module "localhost_function" {
 | source\_directory | The pathname of the directory which contains the function source code. | string | n/a | yes |
 | timeout\_s | The amount of time in seconds allotted for the execution of the function. | number | `"60"` | no |
 | vpc\_connector | The VPC Network Connector that this cloud function can connect to. It should be set up as fully-qualified URI. The format of this field is projects/*/locations/*/connectors/*. | string | `"null"` | no |
+| vpc\_connector\_egress\_settings | The egress settings for the connector, controlling what traffic is diverted through it. Allowed values are ALL_TRAFFIC and PRIVATE_RANGES_ONLY. If unset, this field preserves the previously set value. | string | `"null"` | no |
 
 ## Outputs
 
