@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this
 project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.4.0](https://www.github.com/terraform-google-modules/terraform-google-event-function/compare/v1.3.0...v1.4.0) (2020-12-10)
+
+
+### Features
+
+* add vpc serverless connnector argument to module, update docs ([#57](https://www.github.com/terraform-google-modules/terraform-google-event-function/issues/57)) ([3bea370](https://www.github.com/terraform-google-modules/terraform-google-event-function/commit/3bea3702e7bb2a51dfdbd6c02f8a27e9f6875975))
+* adds optional max_instances input ([#59](https://www.github.com/terraform-google-modules/terraform-google-event-function/issues/59)) ([6777831](https://www.github.com/terraform-google-modules/terraform-google-event-function/commit/6777831fb4d92d601fc4d2128b4dabd9e378fc69))
+* Adds support for vpc_connector_egress_settings ([#61](https://www.github.com/terraform-google-modules/terraform-google-event-function/issues/61)) ([6d558c5](https://www.github.com/terraform-google-modules/terraform-google-event-function/commit/6d558c541dfaba2f2fd042c74ee7b969a093b017))
+
+
+### Bug Fixes
+
+* document provider requirements ([#49](https://www.github.com/terraform-google-modules/terraform-google-event-function/issues/49)) ([7c09f1c](https://www.github.com/terraform-google-modules/terraform-google-event-function/commit/7c09f1c9782b8c482b60524d8d08f9b8b3b76810))
+* removed interpolation-only expression ([#54](https://www.github.com/terraform-google-modules/terraform-google-event-function/issues/54)) ([1867aba](https://www.github.com/terraform-google-modules/terraform-google-event-function/commit/1867abadaff5a3bbe32b1c602ff8c034f11ab250))
+
 ## [1.3.0](https://www.github.com/terraform-google-modules/terraform-google-event-function/compare/v1.2.0...v1.3.0) (2020-09-18)
 
 ### ⚠ BREAKING CHANGES
