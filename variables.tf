@@ -112,6 +112,12 @@ variable "bucket_name" {
   description = "The name to apply to the bucket. Will default to a string of the function name."
 }
 
+variable "bucket_prefix" {
+  type        = string
+  default     = ""
+  description = "The prefix of the bucket name for object subdirectory path."
+}
+
 variable "create_bucket" {
   type        = bool
   default     = true

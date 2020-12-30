@@ -59,7 +59,7 @@ resource "google_storage_bucket" "main" {
 }
 
 resource "google_storage_bucket_object" "main" {
-  name                = "${data.archive_file.main.output_md5}-${basename(data.archive_file.main.output_path)}"
+  name                = var.bucket_prefix != "" ? "${var.bucket_prefix}/${data.archive_file.main.output_md5}-${basename(data.archive_file.main.output_path)}" : "${data.archive_file.main.output_md5}-${basename(data.archive_file.main.output_path)}"
   bucket              = var.create_bucket ? google_storage_bucket.main[0].name : var.bucket_name
   source              = data.archive_file.main.output_path
   content_disposition = "attachment"
