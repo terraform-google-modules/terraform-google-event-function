@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this
 project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.5.0](https://www.github.com/terraform-google-modules/terraform-google-event-function/compare/v1.4.0...v1.5.0) (2021-02-18)
+
+
+### Features
+
+* Adds support to excludes parameter ([#68](https://www.github.com/terraform-google-modules/terraform-google-event-function/issues/68)) ([f6fdd18](https://www.github.com/terraform-google-modules/terraform-google-event-function/commit/f6fdd18df8c2e5a8a8f1afe0242f09ac48a02747))
+
+
+### Bug Fixes
+
+* Upgrade googleapis version ([#62](https://www.github.com/terraform-google-modules/terraform-google-event-function/issues/62)) ([7ab9bdf](https://www.github.com/terraform-google-modules/terraform-google-event-function/commit/7ab9bdf553a17b114da05f7a6ba49536ba637b9a))
+
 ## [1.4.0](https://www.github.com/terraform-google-modules/terraform-google-event-function/compare/v1.3.0...v1.4.0) (2020-12-10)
 
 
