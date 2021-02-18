@@ -45,6 +45,7 @@ data "archive_file" "main" {
   type        = "zip"
   output_path = pathexpand("${var.source_directory}.zip")
   source_dir  = data.null_data_source.wait_for_files.outputs["source_dir"]
+  excludes    = var.files_to_exclude_in_source_dir
 }
 
 resource "google_storage_bucket" "main" {
