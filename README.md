@@ -61,6 +61,7 @@ module "localhost_function" {
 | environment\_variables | A set of key/value environment variable pairs to assign to the function. | map(string) | `<map>` | no |
 | event\_trigger | A source that fires events in response to a condition in another service. | map(string) | n/a | yes |
 | event\_trigger\_failure\_policy\_retry | A toggle to determine if the function should be retried on failure. | bool | `"false"` | no |
+| files\_to\_exclude\_in\_source\_dir | Specify files to ignore when reading the source_dir | list(string) | `<list>` | no |
 | ingress\_settings | The ingress settings for the function. Allowed values are ALLOW_ALL, ALLOW_INTERNAL_AND_GCLB and ALLOW_INTERNAL_ONLY. Changes to this field will recreate the cloud function. | string | `"ALLOW_ALL"` | no |
 | labels | A set of key/value label pairs to assign to the Cloud Function. | map(string) | `<map>` | no |
 | max\_instances | The maximum number of parallel executions of the function. | number | `"0"` | no |

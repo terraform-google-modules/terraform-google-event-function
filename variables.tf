@@ -82,6 +82,12 @@ variable "source_dependent_files" {
   default     = []
 }
 
+variable "files_to_exclude_in_source_dir" {
+  type        = list(string)
+  description = "Specify files to ignore when reading the source_dir"
+  default     = []
+}
+
 variable "timeout_s" {
   type        = number
   default     = 60
