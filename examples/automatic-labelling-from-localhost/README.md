@@ -21,11 +21,11 @@ this directory:
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| project\_id | The ID of the project to which resources will be applied. | string | n/a | yes |
-| region | The region in which resources will be applied. | string | n/a | yes |
-| subnetwork | The name or self_link of the subnetwork to create compute instance in. | string | `"default"` | no |
-| zone | The zone in which resources will be applied. | string | n/a | yes |
+|------|-------------|------|---------|:--------:|
+| project\_id | The ID of the project to which resources will be applied. | `string` | n/a | yes |
+| region | The region in which resources will be applied. | `string` | n/a | yes |
+| subnetwork | The name or self\_link of the subnetwork to create compute instance in. | `string` | `"default"` | no |
+| zone | The zone in which resources will be applied. | `string` | n/a | yes |
 
 ## Outputs
 
