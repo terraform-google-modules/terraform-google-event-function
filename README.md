@@ -59,7 +59,7 @@ module "localhost_function" {
 | description | The description of the function. | string | `"Processes events."` | no |
 | entry\_point | The name of a method in the function source which will be invoked when the function is executed. | string | n/a | yes |
 | environment\_variables | A set of key/value environment variable pairs to assign to the function. | map(string) | `<map>` | no |
-| event\_trigger | A source that fires events in response to a condition in another service. | map(string) | n/a | yes |
+| event\_trigger | A source that fires events in response to a condition in another service. | map(string) | `<map>` | no |
 | event\_trigger\_failure\_policy\_retry | A toggle to determine if the function should be retried on failure. | bool | `"false"` | no |
 | files\_to\_exclude\_in\_source\_dir | Specify files to ignore when reading the source_dir | list(string) | `<list>` | no |
 | ingress\_settings | The ingress settings for the function. Allowed values are ALLOW_ALL, ALLOW_INTERNAL_AND_GCLB and ALLOW_INTERNAL_ONLY. Changes to this field will recreate the cloud function. | string | `"ALLOW_ALL"` | no |
@@ -73,6 +73,7 @@ module "localhost_function" {
 | source\_dependent\_files | A list of any Terraform created `local_file`s that the module will wait for before creating the archive. | object | `<list>` | no |
 | source\_directory | The pathname of the directory which contains the function source code. | string | n/a | yes |
 | timeout\_s | The amount of time in seconds allotted for the execution of the function. | number | `"60"` | no |
+| trigger\_http | Wheter to use HTTP trigger instead of the event trigger. | bool | `"null"` | no |
 | vpc\_connector | The VPC Network Connector that this cloud function can connect to. It should be set up as fully-qualified URI. The format of this field is projects/*/locations/*/connectors/*. | string | `"null"` | no |
 | vpc\_connector\_egress\_settings | The egress settings for the connector, controlling what traffic is diverted through it. Allowed values are ALL_TRAFFIC and PRIVATE_RANGES_ONLY. If unset, this field preserves the previously set value. | string | `"null"` | no |
 
@@ -80,6 +81,7 @@ module "localhost_function" {
 
 | Name | Description |
 |------|-------------|
+| https\_trigger\_url | URL which triggers function execution. |
 | name | The name of the function. |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
