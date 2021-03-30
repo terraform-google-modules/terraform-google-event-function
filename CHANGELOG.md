@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this
 project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.6.0](https://www.github.com/terraform-google-modules/terraform-google-event-function/compare/v1.5.0...v1.6.0) (2021-03-20)
+
+
+### Features
+
+* Adding optional trigger_http input ([#56](https://www.github.com/terraform-google-modules/terraform-google-event-function/issues/56)) ([9a0918b](https://www.github.com/terraform-google-modules/terraform-google-event-function/commit/9a0918be6711be689eee0d09f39b6a114bfaec98))
+
 ## [1.5.0](https://www.github.com/terraform-google-modules/terraform-google-event-function/compare/v1.4.0...v1.5.0) (2021-02-18)
 
 
