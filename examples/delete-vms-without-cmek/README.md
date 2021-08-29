@@ -20,9 +20,13 @@ this directory:
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| project\_id | The ID of the project to which resources will be applied. | string | n/a | yes |
-| region | The region in which resources will be applied. | string | n/a | yes |
+|------|-------------|------|---------|:--------:|
+| project\_id | The ID of the project to which resources will be applied. | `string` | n/a | yes |
+| region | The region in which resources will be applied. | `string` | n/a | yes |
+
+## Outputs
+
+No output.
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 

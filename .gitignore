@@ -56,3 +56,6 @@ examples/dynamic-files/function_source/terraform_created_file.txt
 
 node_modules
 yarn.lock
+
+# tf lock file
+.terraform.lock.hcl
