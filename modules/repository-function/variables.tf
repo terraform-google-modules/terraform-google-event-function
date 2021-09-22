@@ -79,3 +79,21 @@ variable "timeout_s" {
   default     = 60
   description = "The amount of time in seconds allotted for the execution of the function."
 }
+
+variable "ingress_settings" {
+  type        = string
+  default     = "ALLOW_ALL"
+  description = "The ingress settings for the function. Allowed values are ALLOW_ALL, ALLOW_INTERNAL_AND_GCLB and ALLOW_INTERNAL_ONLY. Changes to this field will recreate the cloud function."
+}
+
+variable "vpc_connector_egress_settings" {
+  type        = string
+  default     = null
+  description = "The egress settings for the connector, controlling what traffic is diverted through it. Allowed values are ALL_TRAFFIC and PRIVATE_RANGES_ONLY. If unset, this field preserves the previously set value."
+}
+
+variable "vpc_connector" {
+  type        = string
+  default     = null
+  description = "The VPC Network Connector that this cloud function can connect to. It should be set up as fully-qualified URI. The format of this field is projects/*/locations/*/connectors/*."
+}

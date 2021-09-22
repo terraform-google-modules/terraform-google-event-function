@@ -30,6 +30,9 @@ is a tested reference of how to use this submodule with the
 | runtime | The runtime in which the function will be executed. | string | `"nodejs6"` | no |
 | source\_repository\_url | The URL of the repository which contains the function source code. | string | n/a | yes |
 | timeout\_s | The amount of time in seconds allotted for the execution of the function. | number | `"60"` | no |
+| vpc\_connector | The VPC Network Connector that this cloud function can connect to. It should be set up as fully-qualified URI. The format of this field is projects/*/locations/*/connectors/*. | string | `"null"` | no |
+| vpc\_connector\_egress\_settings | The egress settings for the connector, controlling what traffic is diverted through it. Allowed values are ALL_TRAFFIC and PRIVATE_RANGES_ONLY. If unset, this field preserves the previously set value. | string | `"null"` | no |
+| ingress\_settings | The ingress settings for the function. Allowed values are ALLOW_ALL, ALLOW_INTERNAL_AND_GCLB and ALLOW_INTERNAL_ONLY. Changes to this field will recreate the cloud function. | string | `"ALLOW_ALL"` | no |
 
 ## Outputs
 
