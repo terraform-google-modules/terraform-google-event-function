@@ -20,12 +20,12 @@ The
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| filter | The filter to apply when exporting logs. | string | n/a | yes |
-| labels | A set of key/value label pairs to assign to any labelable resources. | map(string) | `<map>` | no |
-| name | The name to apply to any nameable resources. | string | n/a | yes |
-| parent\_resource\_type | The GCP resource in which you create the log sink. The value must not be computed, and must be one of the following: 'project', 'folder', 'billing_account', or 'organization'. | string | `"project"` | no |
-| project\_id | The ID of the project to which resources will be applied. | string | n/a | yes |
+|------|-------------|------|---------|:--------:|
+| filter | The filter to apply when exporting logs. | `string` | n/a | yes |
+| labels | A set of key/value label pairs to assign to any labelable resources. | `map(string)` | `{}` | no |
+| name | The name to apply to any nameable resources. | `string` | n/a | yes |
+| parent\_resource\_type | The GCP resource in which you create the log sink. The value must not be computed, and must be one of the following: 'project', 'folder', 'billing\_account', or 'organization'. | `string` | `"project"` | no |
+| project\_id | The ID of the project to which resources will be applied. | `string` | n/a | yes |
 
 ## Outputs
 
