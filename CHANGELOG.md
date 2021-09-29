@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this
 project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.7.0](https://www.github.com/terraform-google-modules/terraform-google-event-function/compare/v1.6.0...v1.7.0) (2021-09-29)
+
+
+### Features
+
+* Update repository-function module to support VPC connector ([#73](https://www.github.com/terraform-google-modules/terraform-google-event-function/issues/73)) ([5d4d6ad](https://www.github.com/terraform-google-modules/terraform-google-event-function/commit/5d4d6ada59959d9a18d316ba9dbf2e33612cca86))
+
 ## [1.6.0](https://www.github.com/terraform-google-modules/terraform-google-event-function/compare/v1.5.0...v1.6.0) (2021-03-20)
 
 
