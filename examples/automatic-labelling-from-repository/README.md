@@ -32,6 +32,8 @@ this directory:
 | Name | Description |
 |------|-------------|
 | compute\_instance\_name | The name of the unlabelled Compute instance. |
+| project\_id | The ID of the project to which resources are applied. |
+| zone | The zone in which resources are applied. |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 

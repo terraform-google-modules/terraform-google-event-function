@@ -21,7 +21,7 @@ locals {
 
 module "log_export" {
   source  = "terraform-google-modules/log-export/google"
-  version = "3.0.0"
+  version = "~> 7.1"
 
   destination_uri        = local.destination_uri
   filter                 = var.filter

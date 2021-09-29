@@ -27,6 +27,7 @@ this directory:
 | Name | Description |
 |------|-------------|
 | function\_name | The name of the function created |
+| project\_id | The project in which resources are applied. |
 | random\_file\_string | The content of the terraform created file in the source directory. |
 | region | The region in which resources are applied. |
 
