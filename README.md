@@ -14,14 +14,12 @@ configures a function sourced from a Cloud Source Repositories
 repository.
 
 ## Compatibility
-
 This module is meant for use with Terraform 0.13+ and tested using Terraform 1.0+.
 If you find incompatibilities using Terraform `>=0.13`, please open an issue.
 
 If you haven't [upgraded][terraform-0.13-upgrade] and need a Terraform
 0.12.x-compatible version of this module, the last released version
 intended for Terraform 0.12.x is [v1.5.0](https://registry.terraform.io/modules/terraform-google-modules/-event-function/google/v1.5.0).
-
 
 ## Usage
 
@@ -100,7 +98,7 @@ order to invoke this module.
 The following software dependencies must be installed on the system
 from which this module will be invoked:
 
-- [Terraform][terraform-site] v0.12
+- [Terraform](https://www.terraform.io/downloads.html) >= 0.13.0
 - [Terraform Provider for Archive][terraform-provider-archive-site]
   v1.2
 - [Terraform Provider for Google Cloud Platform][terraform-provider-gcp-site] v2.5

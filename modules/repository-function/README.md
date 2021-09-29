@@ -17,19 +17,22 @@ is a tested reference of how to use this submodule with the
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| available\_memory\_mb | The amount of memory in megabytes allotted for the function to use. | `number` | `256` | no |
-| description | The description of the function. | `string` | `"Processes events."` | no |
-| entry\_point | The name of a method in the function source which will be invoked when the function is executed. | `string` | n/a | yes |
-| environment\_variables | A set of key/value environment variable pairs to assign to the function. | `map(string)` | `{}` | no |
-| event\_trigger | A source that fires events in response to a condition in another service. | `map(string)` | n/a | yes |
-| labels | A set of key/value label pairs to assign to any lableable resources. | `map(string)` | `{}` | no |
-| name | The name to apply to any nameable resources. | `string` | n/a | yes |
-| project\_id | The ID of the project to which resources will be applied. | `string` | n/a | yes |
-| region | The region in which resources will be applied. | `string` | n/a | yes |
-| runtime | The runtime in which the function will be executed. | `string` | `"nodejs6"` | no |
-| source\_repository\_url | The URL of the repository which contains the function source code. | `string` | n/a | yes |
-| timeout\_s | The amount of time in seconds allotted for the execution of the function. | `number` | `60` | no |
+|------|-------------|:----:|:-----:|:-----:|
+| available\_memory\_mb | The amount of memory in megabytes allotted for the function to use. | number | `"256"` | no |
+| description | The description of the function. | string | `"Processes events."` | no |
+| entry\_point | The name of a method in the function source which will be invoked when the function is executed. | string | n/a | yes |
+| environment\_variables | A set of key/value environment variable pairs to assign to the function. | map(string) | `<map>` | no |
+| event\_trigger | A source that fires events in response to a condition in another service. | map(string) | n/a | yes |
+| ingress\_settings | The ingress settings for the function. Allowed values are ALLOW_ALL, ALLOW_INTERNAL_AND_GCLB and ALLOW_INTERNAL_ONLY. Changes to this field will recreate the cloud function. | string | `"ALLOW_ALL"` | no |
+| labels | A set of key/value label pairs to assign to any lableable resources. | map(string) | `<map>` | no |
+| name | The name to apply to any nameable resources. | string | n/a | yes |
+| project\_id | The ID of the project to which resources will be applied. | string | n/a | yes |
+| region | The region in which resources will be applied. | string | n/a | yes |
+| runtime | The runtime in which the function will be executed. | string | `"nodejs6"` | no |
+| source\_repository\_url | The URL of the repository which contains the function source code. | string | n/a | yes |
+| timeout\_s | The amount of time in seconds allotted for the execution of the function. | number | `"60"` | no |
+| vpc\_connector | The VPC Network Connector that this cloud function can connect to. It should be set up as fully-qualified URI. The format of this field is projects/*/locations/*/connectors/*. | string | `"null"` | no |
+| vpc\_connector\_egress\_settings | The egress settings for the connector, controlling what traffic is diverted through it. Allowed values are ALL_TRAFFIC and PRIVATE_RANGES_ONLY. If unset, this field preserves the previously set value. | string | `"null"` | no |
 
 ## Outputs
 
