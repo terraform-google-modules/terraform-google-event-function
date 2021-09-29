@@ -76,15 +76,20 @@ resource "google_cloudfunctions_function" "main" {
   timeout                       = var.timeout_s
   entry_point                   = var.entry_point
   ingress_settings              = var.ingress_settings
+  trigger_http                  = var.trigger_http
   vpc_connector_egress_settings = var.vpc_connector_egress_settings
   vpc_connector                 = var.vpc_connector
 
-  event_trigger {
-    event_type = var.event_trigger["event_type"]
-    resource   = var.event_trigger["resource"]
+  dynamic "event_trigger" {
+    for_each = var.trigger_http != null ? [] : [1]
 
-    failure_policy {
-      retry = var.event_trigger_failure_policy_retry
+    content {
+      event_type = var.event_trigger["event_type"]
+      resource   = var.event_trigger["resource"]
+
+      failure_policy {
+        retry = var.event_trigger_failure_policy_retry
+      }
     }
   }
 
