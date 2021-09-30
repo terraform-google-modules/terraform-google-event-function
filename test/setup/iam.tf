@@ -27,7 +27,6 @@ locals {
 
   int_required_folder_roles = [
     "roles/owner",
-    "roles/logging.admin",
     "roles/resourcemanager.projectCreator",
     "roles/resourcemanager.folderAdmin",
     "roles/resourcemanager.folderIamAdmin",
