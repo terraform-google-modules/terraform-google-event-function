@@ -15,15 +15,11 @@
 package test
 
 import (
-	// should be imported to enable testing for GO modules
 	"testing"
 
-	// should be imported to use terraform helpers in blueprints test framework
 	"github.com/GoogleCloudPlatform/cloud-foundation-toolkit/infra/blueprint-test/pkg/tft"
 )
 
-// entry function for the test; can be named as Test*
 func TestAll(t *testing.T) {
-	// the helper to autodiscover and test blueprint examples
 	tft.AutoDiscoverAndTest(t)
 }

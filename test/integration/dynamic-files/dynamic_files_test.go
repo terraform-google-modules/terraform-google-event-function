@@ -25,14 +25,10 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-// name the function as Test*
 func TestDynamicFiles(t *testing.T) {
-	// initialize Terraform test from the blueprint test framework
 	bpt := tft.NewTFBlueprintTest(t)
 
-	// define and write a custom verifier for this test case call the default verify for confirming no additional changes
 	bpt.DefineVerify(func(assert *assert.Assertions) {
-		// perform default verification ensuring Terraform reports no additional changes on an applied blueprint
 		bpt.DefaultVerify(assert)
 
 		// gather custom attributes for tests
@@ -41,11 +37,12 @@ func TestDynamicFiles(t *testing.T) {
 		functionName := bpt.GetStringOutput("function_name")
 		randomFileString := bpt.GetStringOutput("random_file_string")
 
+		// call the function directly
 		op := gcloud.Run(t,
 			fmt.Sprintf("functions call %s", functionName),
 			gcloud.WithCommonArgs([]string{"--data", "{}", "--format", "json", "--project", project, "--region", region}),
 		)
-		// assert values that are contained in the expected output
+		// assert random string is contained in function response
 		assert.Contains(op.Get("result").String(), randomFileString, "contains random string")
 	})
 
