@@ -26,7 +26,7 @@ steps:
   args: ['/bin/bash', '-c', 'cd test/integration && RUN_STAGE=init go test -v ./... -p 1']
 - id: converge
   name: 'gcr.io/cloud-foundation-cicd/$_DOCKER_IMAGE_DEVELOPER_TOOLS:$_DOCKER_TAG_VERSION_DEVELOPER_TOOLS'
-  args: ['/bin/bash', '-c', 'cd test/integration && RUN_STAGE=converge go test -v ./... -p 1']
+  args: ['/bin/bash', '-c', 'cd test/integration && RUN_STAGE=apply go test -v ./... -p 1']
 - id: verify
   name: 'gcr.io/cloud-foundation-cicd/$_DOCKER_IMAGE_DEVELOPER_TOOLS:$_DOCKER_TAG_VERSION_DEVELOPER_TOOLS'
   args: ['/bin/bash', '-c', 'cd test/integration && RUN_STAGE=verify go test -v ./... -p 1']
