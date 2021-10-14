@@ -29,6 +29,7 @@ is a tested reference of how to use this submodule with the
 | project\_id | The ID of the project to which resources will be applied. | `string` | n/a | yes |
 | region | The region in which resources will be applied. | `string` | n/a | yes |
 | runtime | The runtime in which the function will be executed. | `string` | `"nodejs6"` | no |
+| service\_account\_email | The service account to run the function as. | `string` | `""` | no |
 | source\_repository\_url | The URL of the repository which contains the function source code. | `string` | n/a | yes |
 | timeout\_s | The amount of time in seconds allotted for the execution of the function. | `number` | `60` | no |
 | vpc\_connector | The VPC Network Connector that this cloud function can connect to. It should be set up as fully-qualified URI. The format of this field is projects/\*/locations/\*/connectors/\*. | `string` | `null` | no |
