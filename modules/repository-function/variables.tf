@@ -80,6 +80,12 @@ variable "timeout_s" {
   description = "The amount of time in seconds allotted for the execution of the function."
 }
 
+variable "service_account_email" {
+  type        = string
+  default     = ""
+  description = "The service account to run the function as."
+}
+
 variable "ingress_settings" {
   type        = string
   default     = "ALLOW_ALL"

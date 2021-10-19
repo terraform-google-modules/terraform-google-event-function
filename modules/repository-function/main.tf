@@ -37,6 +37,7 @@ resource "google_cloudfunctions_function" "main" {
     url = var.source_repository_url
   }
 
-  project = var.project_id
-  region  = var.region
+  project               = var.project_id
+  region                = var.region
+  service_account_email = var.service_account_email
 }
