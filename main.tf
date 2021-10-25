@@ -59,8 +59,8 @@ resource "google_storage_bucket" "main" {
   uniform_bucket_level_access = true
 
   logging {
-      log_bucket        = var.log_bucket
-      log_object_prefix = var.log_object_prefix
+    log_bucket        = var.log_bucket
+    log_object_prefix = var.log_object_prefix
   }
 }
 
