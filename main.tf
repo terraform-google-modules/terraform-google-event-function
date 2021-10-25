@@ -57,6 +57,11 @@ resource "google_storage_bucket" "main" {
   storage_class               = "REGIONAL"
   labels                      = var.bucket_labels
   uniform_bucket_level_access = true
+
+  logging {
+      log_bucket        = var.log_bucket
+      log_object_prefix = var.log_object_prefix
+  }
 }
 
 resource "google_storage_bucket_object" "main" {
