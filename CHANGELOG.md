@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this
 project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.1.0](https://www.github.com/terraform-google-modules/terraform-google-event-function/compare/v2.0.0...v2.1.0) (2021-10-26)
+
+
+### Features
+
+* add service_account_email to repository_function input ([#78](https://www.github.com/terraform-google-modules/terraform-google-event-function/issues/78)) ([f2b3a98](https://www.github.com/terraform-google-modules/terraform-google-event-function/commit/f2b3a985f74d73b970d6288e12842f80ab8421e8))
+* add support for setting log bucket ([#80](https://www.github.com/terraform-google-modules/terraform-google-event-function/issues/80)) ([60cd78d](https://www.github.com/terraform-google-modules/terraform-google-event-function/commit/60cd78dbf26b9f22ec8e2159aa44149901531a4e))
+
 ## [2.0.0](https://www.github.com/terraform-google-modules/terraform-google-event-function/compare/v1.6.0...v2.0.0) (2021-09-30)
 
 
