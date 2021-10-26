@@ -22,6 +22,16 @@
 * is creating files. See this issue for more details
 * https://github.com/terraform-providers/terraform-provider-archive/issues/11
 */
+
+locals {
+  logging = var.log_bucket == null ? [] : [
+    {
+      log_bucket        = var.log_bucket
+      log_object_prefix = var.log_object_prefix
+    }
+  ]
+}
+
 resource "null_resource" "dependent_files" {
   triggers = {
     for file in var.source_dependent_files :
@@ -57,6 +67,15 @@ resource "google_storage_bucket" "main" {
   storage_class               = "REGIONAL"
   labels                      = var.bucket_labels
   uniform_bucket_level_access = true
+
+  dynamic "logging" {
+    for_each = local.logging == [] ? [] : local.logging
+    content {
+      log_bucket        = logging.value.log_bucket
+      log_object_prefix = logging.value.log_object_prefix
+    }
+  }
+
 }
 
 resource "google_storage_bucket_object" "main" {

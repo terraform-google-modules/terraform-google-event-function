@@ -160,3 +160,16 @@ variable "vpc_connector" {
   default     = null
   description = "The VPC Network Connector that this cloud function can connect to. It should be set up as fully-qualified URI. The format of this field is projects/*/locations/*/connectors/*."
 }
+
+variable "log_bucket" {
+  type        = string
+  default     = null
+  description = "Log bucket"
+}
+
+variable "log_object_prefix" {
+  type        = string
+  default     = null
+  description = "Log object prefix"
+}
+

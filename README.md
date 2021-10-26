@@ -66,6 +66,8 @@ module "localhost_function" {
 | files\_to\_exclude\_in\_source\_dir | Specify files to ignore when reading the source\_dir | `list(string)` | `[]` | no |
 | ingress\_settings | The ingress settings for the function. Allowed values are ALLOW\_ALL, ALLOW\_INTERNAL\_AND\_GCLB and ALLOW\_INTERNAL\_ONLY. Changes to this field will recreate the cloud function. | `string` | `"ALLOW_ALL"` | no |
 | labels | A set of key/value label pairs to assign to the Cloud Function. | `map(string)` | `{}` | no |
+| log\_bucket | Log bucket | `string` | `null` | no |
+| log\_object\_prefix | Log object prefix | `string` | `null` | no |
 | max\_instances | The maximum number of parallel executions of the function. | `number` | `0` | no |
 | name | The name to apply to any nameable resources. | `string` | n/a | yes |
 | project\_id | The ID of the project to which resources will be applied. | `string` | n/a | yes |
