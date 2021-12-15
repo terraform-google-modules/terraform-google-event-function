@@ -68,7 +68,7 @@ module "localhost_function" {
   name             = random_pet.main.id
   project_id       = var.project_id
   region           = var.region
-  source_directory = "${path.module}/function_source"
+  source_directory = "${path.module}/invalid_function_source"
   runtime          = "nodejs10"
 }
 
