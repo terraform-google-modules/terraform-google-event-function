@@ -17,7 +17,7 @@
 variable "available_memory_mb" {
   type        = number
   default     = 256
-  description = "The amount of memory in megabytes allotted for the function to use."
+  description = "The amount of memory in megabytes allotted for the function to use"
 }
 
 variable "description" {
