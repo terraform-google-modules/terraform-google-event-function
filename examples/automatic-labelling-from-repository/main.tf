@@ -14,26 +14,6 @@
  * limitations under the License.
  */
 
-terraform {
-  required_version = ">= 0.12"
-}
-
-provider "archive" {
-  version = "~> 1.0"
-}
-
-provider "google" {
-  version = "~> 3.39"
-}
-
-provider "random" {
-  version = "~> 2.0"
-}
-
-provider "null" {
-  version = "~> 2.1"
-}
-
 resource "random_pet" "main" {
   separator = "-"
 }
