@@ -58,6 +58,11 @@ data "archive_file" "main" {
   excludes    = var.files_to_exclude_in_source_dir
 }
 
+data "google_project" "project" {
+  project_id = var.project_id
+}
+
+
 resource "google_storage_bucket" "main" {
   count                       = var.create_bucket ? 1 : 0
   name                        = coalesce(var.bucket_name, var.name)
@@ -109,6 +114,17 @@ resource "google_cloudfunctions_function" "main" {
       failure_policy {
         retry = var.event_trigger_failure_policy_retry
       }
+    }
+  }
+
+  dynamic "secret_environment_variables" {
+    for_each = { for item in var.secret_environment_variables : item.key => item }
+
+    content {
+      key        = secret_environment_variables.value["key"]
+      project_id = lookup(secret_environment_variables.value, "project_id", data.google_project.project.number)
+      secret     = secret_environment_variables.value["secret_id"]
+      version    = lookup(secret_environment_variables.value, "version", "latest")
     }
   }
 

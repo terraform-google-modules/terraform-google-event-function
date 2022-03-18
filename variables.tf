@@ -75,6 +75,12 @@ variable "runtime" {
   description = "The runtime in which the function will be executed."
 }
 
+variable "secret_environment_variables" {
+  type        = list(map(string))
+  default     = []
+  description = "A list of maps which contains key, project_id (only project number is supported by this field), secret_id (not the full secret name) and version to assign to the function as a set of secret environment variables."
+}
+
 variable "source_directory" {
   type        = string
   description = "The pathname of the directory which contains the function source code."
@@ -172,4 +178,3 @@ variable "log_object_prefix" {
   default     = null
   description = "Log object prefix"
 }
-
