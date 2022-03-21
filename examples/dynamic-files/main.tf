@@ -14,6 +14,10 @@
  * limitations under the License.
  */
 
+locals {
+  secret_key_name = "random_secret_key"
+}
+
 resource "random_pet" "main" {
   length    = 2
   separator = "-"
@@ -28,12 +32,43 @@ resource "google_storage_bucket" "trigger_bucket" {
 }
 
 resource "random_string" "random" {
+  count   = 2
   length  = 16
   special = false
 }
 
+resource "google_secret_manager_secret" "secret_key" {
+  project   = var.project_id
+  secret_id = local.secret_key_name
+
+  replication {
+    user_managed {
+      replicas {
+        location = var.region
+      }
+    }
+  }
+}
+
+resource "google_secret_manager_secret_version" "secret_key_version" {
+  secret      = google_secret_manager_secret.secret_key.id
+  secret_data = random_string.random[0].result
+  depends_on = [
+    google_secret_manager_secret.secret_key
+  ]
+}
+
+resource "google_secret_manager_secret_iam_member" "iam_access_policy" {
+  secret_id = google_secret_manager_secret.secret_key.id
+  role      = "roles/secretmanager.secretAccessor"
+  member    = "serviceAccount:${var.project_id}@appspot.gserviceaccount.com"
+  depends_on = [
+    google_secret_manager_secret.secret_key
+  ]
+}
+
 resource "local_file" "file" {
-  content  = random_string.random.result
+  content  = random_string.random[1].result
   filename = "${path.module}/function_source/terraform_created_file.txt"
 }
 
@@ -48,6 +83,15 @@ module "localhost_function" {
     resource   = google_storage_bucket.trigger_bucket.name
   }
 
+  secret_environment_variables = [
+    {
+      key         = "KEY"
+      project_id  = var.project_id
+      secret_name = local.secret_key_name
+      version     = "1"
+    }
+  ]
+
   name             = random_pet.main.id
   project_id       = var.project_id
   region           = var.region
@@ -55,6 +99,7 @@ module "localhost_function" {
   runtime          = "nodejs10"
 
   source_dependent_files = [local_file.file]
+  depends_on             = [google_secret_manager_secret_version.secret_key_version]
 }
 
 resource "null_resource" "wait_for_function" {

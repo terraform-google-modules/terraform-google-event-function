@@ -58,10 +58,6 @@ data "archive_file" "main" {
   excludes    = var.files_to_exclude_in_source_dir
 }
 
-data "google_project" "project" {
-  project_id = var.project_id
-}
-
 
 resource "google_storage_bucket" "main" {
   count                       = var.create_bucket ? 1 : 0
@@ -122,8 +118,8 @@ resource "google_cloudfunctions_function" "main" {
 
     content {
       key        = secret_environment_variables.value["key"]
-      project_id = lookup(secret_environment_variables.value, "project_id", data.google_project.project.number)
-      secret     = secret_environment_variables.value["secret_id"]
+      project_id = lookup(secret_environment_variables.value, "project_id", var.project_id)
+      secret     = secret_environment_variables.value["secret_name"]
       version    = lookup(secret_environment_variables.value, "version", "latest")
     }
   }

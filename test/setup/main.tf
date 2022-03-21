@@ -46,7 +46,8 @@ module "project" {
     "cloudfunctions.googleapis.com",
     "storage-component.googleapis.com",
     "sourcerepo.googleapis.com",
-    "compute.googleapis.com"
+    "compute.googleapis.com",
+    "secretmanager.googleapis.com",
   ]
 }
 

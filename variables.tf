@@ -78,7 +78,7 @@ variable "runtime" {
 variable "secret_environment_variables" {
   type        = list(map(string))
   default     = []
-  description = "A list of maps which contains key, project_id (only project number is supported by this field), secret_id (not the full secret name) and version to assign to the function as a set of secret environment variables."
+  description = "A list of maps which contains key, project_id, secret_name (not the full secret id) and version to assign to the function as a set of secret environment variables."
 }
 
 variable "source_directory" {

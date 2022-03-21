@@ -73,7 +73,7 @@ module "localhost_function" {
 | project\_id | The ID of the project to which resources will be applied. | `string` | n/a | yes |
 | region | The region in which resources will be applied. | `string` | n/a | yes |
 | runtime | The runtime in which the function will be executed. | `string` | n/a | yes |
-| secret\_environment\_variables | A list of maps which contains key, project\_id (only project number is supported by this field), secret\_id (not the full secret name) and version to assign to the function as a set of secret environment variables. | `list(map(string))` | `[]` | no |
+| secret\_environment\_variables | A list of maps which contains key, project\_id, secret\_name (not the full secret id) and version to assign to the function as a set of secret environment variables. | `list(map(string))` | `[]` | no |
 | service\_account\_email | The service account to run the function as. | `string` | `""` | no |
 | source\_dependent\_files | A list of any Terraform created `local_file`s that the module will wait for before creating the archive. | <pre>list(object({<br>    filename = string<br>    id       = string<br>  }))</pre> | `[]` | no |
 | source\_directory | The pathname of the directory which contains the function source code. | `string` | n/a | yes |

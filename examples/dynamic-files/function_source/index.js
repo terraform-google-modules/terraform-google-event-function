@@ -27,9 +27,10 @@ const filePath = path.join(__dirname, "terraform_created_file.txt");
 exports.fileContent = (data, context, callback) => {
   console.log("Received event");
 
+  console.log("Value from KEY env variable: " + process.env.KEY);
   fs.readFile(filePath, { encoding: "utf-8" }, function(err, data) {
     if (!err) {
-      callback(null, data);
+      callback(null, data + "\n" + process.env.KEY);
     } else {
       callback(err);
     }
