@@ -178,3 +178,9 @@ variable "log_object_prefix" {
   default     = null
   description = "Log object prefix"
 }
+
+variable "build_environment_variables" {
+  type        = map(string)
+  default     = {}
+  description = "A set of key/value environment variable pairs available during build time."
+}

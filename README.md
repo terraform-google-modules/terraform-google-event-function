@@ -57,6 +57,7 @@ module "localhost_function" {
 | bucket\_force\_destroy | When deleting the GCS bucket containing the cloud function, delete all objects in the bucket first. | `bool` | `false` | no |
 | bucket\_labels | A set of key/value label pairs to assign to the function source archive bucket. | `map(string)` | `{}` | no |
 | bucket\_name | The name to apply to the bucket. Will default to a string of the function name. | `string` | `""` | no |
+| build\_environment\_variables | A set of key/value environment variable pairs available during build time. | `map(string)` | `{}` | no |
 | create\_bucket | Whether to create a new bucket or use an existing one. If false, `bucket_name` should reference the name of the alternate bucket to use. | `bool` | `true` | no |
 | description | The description of the function. | `string` | `"Processes events."` | no |
 | entry\_point | The name of a method in the function source which will be invoked when the function is executed. | `string` | n/a | yes |
