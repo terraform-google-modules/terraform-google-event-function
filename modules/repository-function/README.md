@@ -22,7 +22,7 @@ is a tested reference of how to use this submodule with the
 | description | The description of the function. | `string` | `"Processes events."` | no |
 | entry\_point | The name of a method in the function source which will be invoked when the function is executed. | `string` | n/a | yes |
 | environment\_variables | A set of key/value environment variable pairs to assign to the function. | `map(string)` | `{}` | no |
-| event\_trigger | A source that fires events in response to a condition in another service. | `map(string)` | n/a | yes |
+| event\_trigger | A source that fires events in response to a condition in another service. | `map(string)` | `{}` | no |
 | ingress\_settings | The ingress settings for the function. Allowed values are ALLOW\_ALL, ALLOW\_INTERNAL\_AND\_GCLB and ALLOW\_INTERNAL\_ONLY. Changes to this field will recreate the cloud function. | `string` | `"ALLOW_ALL"` | no |
 | labels | A set of key/value label pairs to assign to any lableable resources. | `map(string)` | `{}` | no |
 | name | The name to apply to any nameable resources. | `string` | n/a | yes |
@@ -32,6 +32,7 @@ is a tested reference of how to use this submodule with the
 | service\_account\_email | The service account to run the function as. | `string` | `""` | no |
 | source\_repository\_url | The URL of the repository which contains the function source code. | `string` | n/a | yes |
 | timeout\_s | The amount of time in seconds allotted for the execution of the function. | `number` | `60` | no |
+| trigger\_http | Wheter to use HTTP trigger instead of the event trigger. | `bool` | `null` | no |
 | vpc\_connector | The VPC Network Connector that this cloud function can connect to. It should be set up as fully-qualified URI. The format of this field is projects/\*/locations/\*/connectors/\*. | `string` | `null` | no |
 | vpc\_connector\_egress\_settings | The egress settings for the connector, controlling what traffic is diverted through it. Allowed values are ALL\_TRAFFIC and PRIVATE\_RANGES\_ONLY. If unset, this field preserves the previously set value. | `string` | `null` | no |
 
@@ -39,6 +40,7 @@ is a tested reference of how to use this submodule with the
 
 | Name | Description |
 |------|-------------|
+| https\_trigger\_url | URL which triggers function execution. |
 | name | The name of the function. |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
