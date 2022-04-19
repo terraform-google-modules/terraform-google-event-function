@@ -23,6 +23,7 @@ locals {
     "roles/logging.configWriter",
     "roles/source.admin",
     "roles/iam.serviceAccountUser",
+    "roles/secretmanager.admin",
   ]
 
   int_required_folder_roles = [
