@@ -58,6 +58,7 @@ data "archive_file" "main" {
   excludes    = var.files_to_exclude_in_source_dir
 }
 
+
 resource "google_storage_bucket" "main" {
   count                       = var.create_bucket ? 1 : 0
   name                        = coalesce(var.bucket_name, var.name)
@@ -87,6 +88,12 @@ resource "google_storage_bucket_object" "main" {
   content_type        = "application/zip"
 }
 
+// todo(bharathkkb): remove workaround after https://github.com/hashicorp/terraform-provider-google/issues/11383
+data "google_project" "nums" {
+  for_each   = toset(concat(compact([for item in var.secret_environment_variables : lookup(item, "project_id", "")]), [var.project_id]))
+  project_id = each.value
+}
+
 resource "google_cloudfunctions_function" "main" {
   name                          = var.name
   description                   = var.description
@@ -109,6 +116,17 @@ resource "google_cloudfunctions_function" "main" {
       failure_policy {
         retry = var.event_trigger_failure_policy_retry
       }
+    }
+  }
+
+  dynamic "secret_environment_variables" {
+    for_each = { for item in var.secret_environment_variables : item.key => item }
+
+    content {
+      key        = secret_environment_variables.value["key"]
+      project_id = data.google_project.nums[lookup(secret_environment_variables.value, "project_id", var.project_id)].number
+      secret     = secret_environment_variables.value["secret_name"]
+      version    = lookup(secret_environment_variables.value, "version", "latest")
     }
   }
 

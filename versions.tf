@@ -20,12 +20,12 @@ terraform {
 
     google = {
       source  = "hashicorp/google"
-      version = ">= 3.53"
+      version = ">= 4.11, < 5.0"
     }
   }
 
   provider_meta "google" {
-    module_name = "blueprints/terraform/terraform-google-event-function/v2.1.0"
+    module_name = "blueprints/terraform/terraform-google-event-function/v2.2.0"
   }
 
 }

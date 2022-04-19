@@ -20,12 +20,12 @@ terraform {
 
     google = {
       source  = "hashicorp/google"
-      version = "~> 3.53"
+      version = ">= 3.53, < 5.0"
     }
   }
 
   provider_meta "google" {
-    module_name = "blueprints/terraform/terraform-google-event-function:event-folder-log-entry/v2.1.0"
+    module_name = "blueprints/terraform/terraform-google-event-function:event-folder-log-entry/v2.2.0"
   }
 
 }
