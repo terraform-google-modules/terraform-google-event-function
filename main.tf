@@ -130,12 +130,13 @@ resource "google_cloudfunctions_function" "main" {
     }
   }
 
-  labels                = var.labels
-  runtime               = var.runtime
-  environment_variables = var.environment_variables
-  source_archive_bucket = var.create_bucket ? google_storage_bucket.main[0].name : var.bucket_name
-  source_archive_object = google_storage_bucket_object.main.name
-  project               = var.project_id
-  region                = var.region
-  service_account_email = var.service_account_email
+  labels                      = var.labels
+  runtime                     = var.runtime
+  environment_variables       = var.environment_variables
+  source_archive_bucket       = var.create_bucket ? google_storage_bucket.main[0].name : var.bucket_name
+  source_archive_object       = google_storage_bucket_object.main.name
+  project                     = var.project_id
+  region                      = var.region
+  service_account_email       = var.service_account_email
+  build_environment_variables = var.build_environment_variables
 }
