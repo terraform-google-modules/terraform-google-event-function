@@ -23,6 +23,7 @@ is a tested reference of how to use this submodule with the
 | entry\_point | The name of a method in the function source which will be invoked when the function is executed. | `string` | n/a | yes |
 | environment\_variables | A set of key/value environment variable pairs to assign to the function. | `map(string)` | `{}` | no |
 | event\_trigger | A source that fires events in response to a condition in another service. | `map(string)` | `{}` | no |
+| event\_trigger\_failure\_policy\_retry | A toggle to determine if the function should be retried on failure. | `bool` | `false` | no |
 | ingress\_settings | The ingress settings for the function. Allowed values are ALLOW\_ALL, ALLOW\_INTERNAL\_AND\_GCLB and ALLOW\_INTERNAL\_ONLY. Changes to this field will recreate the cloud function. | `string` | `"ALLOW_ALL"` | no |
 | labels | A set of key/value label pairs to assign to any lableable resources. | `map(string)` | `{}` | no |
 | name | The name to apply to any nameable resources. | `string` | n/a | yes |
