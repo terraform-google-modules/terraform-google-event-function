@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this
 project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.3.0](https://github.com/terraform-google-modules/terraform-google-event-function/compare/v2.2.0...v2.3.0) (2022-05-02)
+
+
+### Features
+
+* add support for setting build environment variables ([#89](https://github.com/terraform-google-modules/terraform-google-event-function/issues/89)) ([022440d](https://github.com/terraform-google-modules/terraform-google-event-function/commit/022440d6bede5135f0ce3fbb1abf9cf086cb5a11))
+* Add support for using secret manager environment variables in Cloud Function ([#88](https://github.com/terraform-google-modules/terraform-google-event-function/issues/88)) ([78dc870](https://github.com/terraform-google-modules/terraform-google-event-function/commit/78dc870d7e8861ef118dc43990590c9cfd78ee34))
+
 ## [2.2.0](https://github.com/terraform-google-modules/terraform-google-event-function/compare/v2.1.0...v2.2.0) (2022-01-17)
 
 
