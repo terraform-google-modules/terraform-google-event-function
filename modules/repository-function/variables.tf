@@ -39,7 +39,14 @@ variable "environment_variables" {
 
 variable "event_trigger" {
   type        = map(string)
+  default     = {}
   description = "A source that fires events in response to a condition in another service."
+}
+
+variable "trigger_http" {
+  type        = bool
+  default     = null
+  description = "Wheter to use HTTP trigger instead of the event trigger."
 }
 
 variable "labels" {
@@ -84,6 +91,12 @@ variable "service_account_email" {
   type        = string
   default     = ""
   description = "The service account to run the function as."
+}
+
+variable "event_trigger_failure_policy_retry" {
+  type        = bool
+  default     = false
+  description = "A toggle to determine if the function should be retried on failure."
 }
 
 variable "ingress_settings" {
