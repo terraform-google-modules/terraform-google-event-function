@@ -89,9 +89,15 @@ resource "google_storage_bucket_object" "main" {
 }
 
 // todo(bharathkkb): remove workaround after https://github.com/hashicorp/terraform-provider-google/issues/11383
+// Also: https://github.com/hashicorp/terraform/issues/28925 (when this functions project is created)
 data "google_project" "nums" {
-  for_each   = toset(concat(compact([for item in var.secret_environment_variables : lookup(item, "project_id", "")]), [var.project_id]))
+  for_each   = toset(compact([for item in var.secret_environment_variables : lookup(item, "project_id", "")]))
   project_id = each.value
+}
+
+data "google_project" "default" {
+  count      = length(var.secret_environment_variables) > 0 ? 1 : 0
+  project_id = var.project_id
 }
 
 resource "google_cloudfunctions_function" "main" {
@@ -124,7 +130,7 @@ resource "google_cloudfunctions_function" "main" {
 
     content {
       key        = secret_environment_variables.value["key"]
-      project_id = data.google_project.nums[lookup(secret_environment_variables.value, "project_id", var.project_id)].number
+      project_id = try(data.google_project.nums[secret_environment_variables.value["project_id"]].number, data.google_project.default[0].number)
       secret     = secret_environment_variables.value["secret_name"]
       version    = lookup(secret_environment_variables.value, "version", "latest")
     }
