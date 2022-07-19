@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this
 project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.4.0](https://github.com/terraform-google-modules/terraform-google-event-function/compare/v2.3.0...v2.4.0) (2022-06-30)
+
+
+### Features
+
+* Added trigger_http variable to repository-function submodule ([#93](https://github.com/terraform-google-modules/terraform-google-event-function/issues/93)) ([6e3f2d6](https://github.com/terraform-google-modules/terraform-google-event-function/commit/6e3f2d683199be6a9b8cd109b93561cd7561177d))
+
+
+### Bug Fixes
+
+* Secrets when project_id is known after apply ([#95](https://github.com/terraform-google-modules/terraform-google-event-function/issues/95)) ([c8dda71](https://github.com/terraform-google-modules/terraform-google-event-function/commit/c8dda71820ac5dcce4454b03864532d4bc5a1127))
+
 ## [2.3.0](https://github.com/terraform-google-modules/terraform-google-event-function/compare/v2.2.0...v2.3.0) (2022-05-02)
 
 
