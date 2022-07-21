@@ -71,6 +71,10 @@ module "repository_function" {
   project_id            = var.project_id
   region                = var.region
   source_repository_url = data.null_data_source.main.outputs["source_repository_url"]
+
+  operation_timeouts = {
+    update = "10m"
+  }
 }
 
 resource "null_resource" "wait_for_function" {

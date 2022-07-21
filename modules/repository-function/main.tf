@@ -49,4 +49,14 @@ resource "google_cloudfunctions_function" "main" {
   project               = var.project_id
   region                = var.region
   service_account_email = var.service_account_email
+
+
+  dynamic "timeouts" {
+    for_each = var.operation_timeouts
+    content {
+      create = timeouts.value["create"]
+      update = timeouts.value["update"]
+      delete = timeouts.value["delete"]
+    }
+  }
 }
