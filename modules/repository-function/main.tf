@@ -50,7 +50,6 @@ resource "google_cloudfunctions_function" "main" {
   region                = var.region
   service_account_email = var.service_account_email
 
-
   dynamic "timeouts" {
     for_each = var.operation_timeouts
     content {
