@@ -54,9 +54,9 @@ resource "google_cloudfunctions_function" "main" {
   dynamic "timeouts" {
     for_each = var.operation_timeouts
     content {
-      create = timeouts.value["create"]
-      update = timeouts.value["update"]
-      delete = timeouts.value["delete"]
+      create = var.operation_timeouts["create"]
+      update = var.operation_timeouts["update"]
+      delete = var.operation_timeouts["delete"]
     }
   }
 }

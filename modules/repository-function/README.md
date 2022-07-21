@@ -27,7 +27,7 @@ is a tested reference of how to use this submodule with the
 | ingress\_settings | The ingress settings for the function. Allowed values are ALLOW\_ALL, ALLOW\_INTERNAL\_AND\_GCLB and ALLOW\_INTERNAL\_ONLY. Changes to this field will recreate the cloud function. | `string` | `"ALLOW_ALL"` | no |
 | labels | A set of key/value label pairs to assign to any lableable resources. | `map(string)` | `{}` | no |
 | name | The name to apply to any nameable resources. | `string` | n/a | yes |
-| operation\_timeouts | Timeout setting to customize how long certain operations(create, update, delete) are allowed to take before being considered to have failed. | `map(string)` | `{}` | no |
+| operation\_timeouts | Timeout setting to customize how long certain operations(create, update, delete) are allowed to take before being considered to have failed. | <pre>object({<br>    create = optional(string)<br>    update = optional(string)<br>    delete = optional(string)<br>  })</pre> | <pre>{<br>  "create": "5m",<br>  "delete": "5m",<br>  "update": "5m"<br>}</pre> | no |
 | project\_id | The ID of the project to which resources will be applied. | `string` | n/a | yes |
 | region | The region in which resources will be applied. | `string` | n/a | yes |
 | runtime | The runtime in which the function will be executed. | `string` | `"nodejs6"` | no |

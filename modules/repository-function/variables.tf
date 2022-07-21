@@ -14,6 +14,12 @@
  * limitations under the License.
  */
 
+terraform {
+  # Optional attributes and the defaults function are
+  # both experimental, so we must opt in to the experiment.
+  experiments = [module_variable_optional_attrs]
+}
+
 variable "available_memory_mb" {
   type        = number
   default     = 256
@@ -118,7 +124,15 @@ variable "vpc_connector" {
 }
 
 variable "operation_timeouts" {
-  type        = map(string)
-  default     = {}
-  description = "Timeout setting to customize how long certain operations(create, update, delete) are allowed to take before being considered to have failed. "
+  type = object({
+    create = optional(string)
+    update = optional(string)
+    delete = optional(string)
+  })
+  default = {
+    create = "5m"
+    update = "5m"
+    delete = "5m"
+  }
+  description = "Timeout setting to customize how long certain operations(create, update, delete) are allowed to take before being considered to have failed."
 }
