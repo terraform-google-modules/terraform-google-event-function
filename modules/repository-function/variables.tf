@@ -14,12 +14,6 @@
  * limitations under the License.
  */
 
-terraform {
-  # Optional attributes and the defaults function are
-  # both experimental, so we must opt in to the experiment.
-  experiments = [module_variable_optional_attrs]
-}
-
 variable "available_memory_mb" {
   type        = number
   default     = 256
@@ -123,16 +117,13 @@ variable "vpc_connector" {
   description = "The VPC Network Connector that this cloud function can connect to. It should be set up as fully-qualified URI. The format of this field is projects/*/locations/*/connectors/*."
 }
 
-variable "operation_timeouts" {
-  type = object({
-    create = optional(string)
-    update = optional(string)
-    delete = optional(string)
-  })
-  default = {
-    create = "5m"
-    update = "5m"
-    delete = "5m"
-  }
+variable "timeouts" {
+  type        = map(string)
   description = "Timeout setting to customize how long certain operations(create, update, delete) are allowed to take before being considered to have failed."
+  default     = {}
+  validation {
+    condition     = !contains([for t in keys(var.timeouts) : contains(["create", "update", "delete"], t)], false)
+    error_message = "Only create, update, delete timeouts can be specified."
+  }
 }
+

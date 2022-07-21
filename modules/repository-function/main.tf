@@ -51,8 +51,8 @@ resource "google_cloudfunctions_function" "main" {
   service_account_email = var.service_account_email
 
   timeouts {
-    create = var.operation_timeouts.create
-    update = var.operation_timeouts.update
-    delete = var.operation_timeouts.delete
+    create = lookup(var.timeouts, "create", "5m")
+    update = lookup(var.timeouts, "update", "5m")
+    delete = lookup(var.timeouts, "delete", "5m")
   }
 }

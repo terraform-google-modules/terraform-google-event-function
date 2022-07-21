@@ -72,7 +72,7 @@ module "repository_function" {
   region                = var.region
   source_repository_url = data.null_data_source.main.outputs["source_repository_url"]
 
-  operation_timeouts = {
+  timeouts = {
     update = "10m"
   }
 }
