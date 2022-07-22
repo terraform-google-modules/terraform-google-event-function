@@ -49,4 +49,10 @@ resource "google_cloudfunctions_function" "main" {
   project               = var.project_id
   region                = var.region
   service_account_email = var.service_account_email
+
+  timeouts {
+    create = lookup(var.timeouts, "create", "5m")
+    update = lookup(var.timeouts, "update", "5m")
+    delete = lookup(var.timeouts, "delete", "5m")
+  }
 }

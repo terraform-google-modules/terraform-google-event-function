@@ -116,3 +116,14 @@ variable "vpc_connector" {
   default     = null
   description = "The VPC Network Connector that this cloud function can connect to. It should be set up as fully-qualified URI. The format of this field is projects/*/locations/*/connectors/*."
 }
+
+variable "timeouts" {
+  type        = map(string)
+  description = "Timeout setting to customize how long certain operations(create, update, delete) are allowed to take before being considered to have failed."
+  default     = {}
+  validation {
+    condition     = !contains([for t in keys(var.timeouts) : contains(["create", "update", "delete"], t)], false)
+    error_message = "Only create, update, delete timeouts can be specified."
+  }
+}
+
