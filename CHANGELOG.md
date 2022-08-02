@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this
 project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.5.0](https://github.com/terraform-google-modules/terraform-google-event-function/compare/v2.4.0...v2.5.0) (2022-07-22)
+
+
+### Features
+
+* Added timeout block in repository-function module ([#99](https://github.com/terraform-google-modules/terraform-google-event-function/issues/99)) ([f091820](https://github.com/terraform-google-modules/terraform-google-event-function/commit/f0918204eb57a95bba9b8e4b96c8850ffd7edee7))
+
 ## [2.4.0](https://github.com/terraform-google-modules/terraform-google-event-function/compare/v2.3.0...v2.4.0) (2022-06-30)
 
 

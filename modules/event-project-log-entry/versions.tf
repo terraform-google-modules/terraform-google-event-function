@@ -25,7 +25,7 @@ terraform {
   }
 
   provider_meta "google" {
-    module_name = "blueprints/terraform/terraform-google-event-function:event-project-log-entry/v2.4.0"
+    module_name = "blueprints/terraform/terraform-google-event-function:event-project-log-entry/v2.5.0"
   }
 
 }
