@@ -53,6 +53,7 @@ module "localhost_function" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| archive\_output\_file\_mode | The file mode of the locally generated archive | `string` | `"0664"` | no |
 | available\_memory\_mb | The amount of memory in megabytes allotted for the function to use. | `number` | `256` | no |
 | bucket\_force\_destroy | When deleting the GCS bucket containing the cloud function, delete all objects in the bucket first. | `bool` | `false` | no |
 | bucket\_labels | A set of key/value label pairs to assign to the function source archive bucket. | `map(string)` | `{}` | no |
