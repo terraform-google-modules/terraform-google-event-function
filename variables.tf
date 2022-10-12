@@ -184,3 +184,9 @@ variable "build_environment_variables" {
   default     = {}
   description = "A set of key/value environment variable pairs available during build time."
 }
+
+variable "archive_output_file_mode" {
+  type        = string
+  default     = "0664"
+  description = "The file mode of the locally generated archive"
+}
