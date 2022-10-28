@@ -19,7 +19,7 @@ terraform {
 }
 
 provider "google" {
-  version = "~> 3.53.0"
+  version = "~> 4.41.0"
 }
 
 provider "google-beta" {
