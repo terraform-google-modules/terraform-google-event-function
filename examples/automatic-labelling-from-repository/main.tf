@@ -58,9 +58,10 @@ module "event_project_log_entry" {
 module "repository_function" {
   source = "../../modules/repository-function"
 
-  description = "Labels resource with owner information."
-  entry_point = "labelResource"
-  runtime     = "nodejs10"
+  description   = "Labels resource with owner information."
+  entry_point   = "labelResource"
+  runtime       = "nodejs10"
+  max_instances = 3000
 
   environment_variables = {
     LABEL_KEY = "principal-email"

@@ -26,6 +26,7 @@ is a tested reference of how to use this submodule with the
 | event\_trigger\_failure\_policy\_retry | A toggle to determine if the function should be retried on failure. | `bool` | `false` | no |
 | ingress\_settings | The ingress settings for the function. Allowed values are ALLOW\_ALL, ALLOW\_INTERNAL\_AND\_GCLB and ALLOW\_INTERNAL\_ONLY. Changes to this field will recreate the cloud function. | `string` | `"ALLOW_ALL"` | no |
 | labels | A set of key/value label pairs to assign to any lableable resources. | `map(string)` | `{}` | no |
+| max\_instances | The maximum number of parallel executions of the function. | `number` | `null` | no |
 | name | The name to apply to any nameable resources. | `string` | n/a | yes |
 | project\_id | The ID of the project to which resources will be applied. | `string` | n/a | yes |
 | region | The region in which resources will be applied. | `string` | n/a | yes |

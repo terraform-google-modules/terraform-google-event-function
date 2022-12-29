@@ -97,6 +97,7 @@ module "localhost_function" {
   region           = var.region
   source_directory = "${path.module}/function_source"
   runtime          = "nodejs10"
+  max_instances    = 3000
 
   source_dependent_files = [local_file.file]
   depends_on             = [google_secret_manager_secret_version.secret_key_version]
