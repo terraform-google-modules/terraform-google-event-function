@@ -42,6 +42,7 @@ module "localhost_function" {
   region           = var.region
   source_directory = "${path.module}/function_source"
   runtime          = "nodejs10"
+  max_instances    = 3000
 }
 
 resource "null_resource" "wait_for_function" {

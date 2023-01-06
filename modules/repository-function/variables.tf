@@ -127,3 +127,8 @@ variable "timeouts" {
   }
 }
 
+variable "max_instances" {
+  type        = number
+  default     = null
+  description = "The maximum number of parallel executions of the function."
+}
