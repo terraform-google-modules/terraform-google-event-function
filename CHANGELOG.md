@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this
 project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.5.1](https://github.com/terraform-google-modules/terraform-google-event-function/compare/v2.5.0...v2.5.1) (2023-01-20)
+
+
+### Bug Fixes
+
+* set optional max_instances to default value for CI ([#133](https://github.com/terraform-google-modules/terraform-google-event-function/issues/133)) ([63c98bd](https://github.com/terraform-google-modules/terraform-google-event-function/commit/63c98bd3a86cb5f04d0a2a71fc182e5aca15f829))
+
 ## [2.5.0](https://github.com/terraform-google-modules/terraform-google-event-function/compare/v2.4.0...v2.5.0) (2022-07-22)
 
 
