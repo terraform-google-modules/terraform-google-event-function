@@ -84,7 +84,6 @@ resource "google_storage_bucket_object" "main" {
   bucket              = var.create_bucket ? google_storage_bucket.main[0].name : var.bucket_name
   source              = data.archive_file.main.output_path
   content_disposition = "attachment"
-  content_encoding    = "gzip"
   content_type        = "application/zip"
 }
 
