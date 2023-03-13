@@ -70,7 +70,7 @@ resource "google_storage_bucket" "main" {
   uniform_bucket_level_access = true
 
   dynamic "logging" {
-    for_each = local.logging == [] ? [] : local.logging
+    for_each = length(local.logging) == 0 ? [] : local.logging
     content {
       log_bucket        = logging.value.log_bucket
       log_object_prefix = logging.value.log_object_prefix
