@@ -145,3 +145,4 @@ resource "google_cloudfunctions_function" "main" {
   service_account_email       = var.service_account_email
   build_environment_variables = var.build_environment_variables
 }
+
