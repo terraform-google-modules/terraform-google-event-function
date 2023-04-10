@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this
 project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.5.2](https://github.com/terraform-google-modules/terraform-google-event-function/compare/v2.5.1...v2.5.2) (2023-04-10)
+
+
+### Bug Fixes
+
+* remove gzip content-encoding metadata on function source archive  ([#142](https://github.com/terraform-google-modules/terraform-google-event-function/issues/142)) ([4995870](https://github.com/terraform-google-modules/terraform-google-event-function/commit/499587078436b9ee162062feb7ab4728491e6e3f))
+* updates for tflint ([#147](https://github.com/terraform-google-modules/terraform-google-event-function/issues/147)) ([7c6690c](https://github.com/terraform-google-modules/terraform-google-event-function/commit/7c6690c8d3706f2c998ef6d610c393b0b38cf8af))
+
 ## [2.5.1](https://github.com/terraform-google-modules/terraform-google-event-function/compare/v2.5.0...v2.5.1) (2023-01-20)
 
 
