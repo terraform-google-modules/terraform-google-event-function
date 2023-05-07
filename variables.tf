@@ -193,7 +193,7 @@ variable "docker_registry" {
 
 variable "docker_repository" {
   type        = string
-  default     = ""
+  default     = null
   description = "User managed repository created in Artifact Registry optionally with a customer managed encryption key. If specified, deployments will use Artifact Registry."
 }
 
