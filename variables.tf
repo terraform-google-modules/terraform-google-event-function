@@ -200,6 +200,6 @@ variable "docker_repository" {
 
 variable "kms_key_name" {
   type        = string
-  default     = ""
+  default     = null
   description = "Resource name of a KMS crypto key (managed by the user) used to encrypt/decrypt function resources."
 }
