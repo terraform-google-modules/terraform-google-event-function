@@ -187,7 +187,7 @@ variable "build_environment_variables" {
 
 variable "docker_registry" {
   type        = string
-  default     = "CONTAINER_REGISTRY"
+  default     = null
   description = "Docker Registry to use for storing the function's Docker images. Allowed values are CONTAINER_REGISTRY (default) and ARTIFACT_REGISTRY."
 }
 
