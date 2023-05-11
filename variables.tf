@@ -184,3 +184,21 @@ variable "build_environment_variables" {
   default     = {}
   description = "A set of key/value environment variable pairs available during build time."
 }
+
+variable "docker_registry" {
+  type        = string
+  default     = null
+  description = "Docker Registry to use for storing the function's Docker images. Allowed values are CONTAINER_REGISTRY (default behavior) and ARTIFACT_REGISTRY"
+}
+
+variable "docker_repository" {
+  type        = string
+  default     = null
+  description = "User managed repository created in Artifact Registry optionally with a customer managed encryption key. If specified, deployments will use Artifact Registry. This is the repository to which the function docker image will be pushed after it is built by Cloud Build. If unspecified, Container Registry will be used by default, unless specified otherwise by other means."
+}
+
+variable "kms_key_name" {
+  type        = string
+  default     = null
+  description = "Resource name of a KMS crypto key (managed by the user) used to encrypt/decrypt function resources. It must match the pattern projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}. If specified, you must also provide an artifact registry repository using the docker_repository field that was created with the same KMS crypto key."
+}
