@@ -60,12 +60,15 @@ module "localhost_function" {
 | build\_environment\_variables | A set of key/value environment variable pairs available during build time. | `map(string)` | `{}` | no |
 | create\_bucket | Whether to create a new bucket or use an existing one. If false, `bucket_name` should reference the name of the alternate bucket to use. | `bool` | `true` | no |
 | description | The description of the function. | `string` | `"Processes events."` | no |
+| docker\_registry | Docker Registry to use for storing the function's Docker images. Allowed values are CONTAINER\_REGISTRY (default) and ARTIFACT\_REGISTRY. | `string` | `null` | no |
+| docker\_repository | User managed repository created in Artifact Registry optionally with a customer managed encryption key. If specified, deployments will use Artifact Registry. | `string` | `null` | no |
 | entry\_point | The name of a method in the function source which will be invoked when the function is executed. | `string` | n/a | yes |
 | environment\_variables | A set of key/value environment variable pairs to assign to the function. | `map(string)` | `{}` | no |
 | event\_trigger | A source that fires events in response to a condition in another service. | `map(string)` | `{}` | no |
 | event\_trigger\_failure\_policy\_retry | A toggle to determine if the function should be retried on failure. | `bool` | `false` | no |
 | files\_to\_exclude\_in\_source\_dir | Specify files to ignore when reading the source\_dir | `list(string)` | `[]` | no |
 | ingress\_settings | The ingress settings for the function. Allowed values are ALLOW\_ALL, ALLOW\_INTERNAL\_AND\_GCLB and ALLOW\_INTERNAL\_ONLY. Changes to this field will recreate the cloud function. | `string` | `"ALLOW_ALL"` | no |
+| kms\_key\_name | Resource name of a KMS crypto key (managed by the user) used to encrypt/decrypt function resources. | `string` | `null` | no |
 | labels | A set of key/value label pairs to assign to the Cloud Function. | `map(string)` | `{}` | no |
 | log\_bucket | Log bucket | `string` | `null` | no |
 | log\_object\_prefix | Log object prefix | `string` | `null` | no |
