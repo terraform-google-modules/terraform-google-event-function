@@ -33,7 +33,7 @@ terraform {
   }
 
   provider_meta "google" {
-    module_name = "blueprints/terraform/terraform-google-event-function/v2.5.2"
+    module_name = "blueprints/terraform/terraform-google-event-function/v3.0.0"
   }
 
 }
