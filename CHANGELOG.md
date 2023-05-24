@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this
 project adheres to [Semantic Versioning](http://semver.org/).
 
+## [3.0.0](https://github.com/terraform-google-modules/terraform-google-event-function/compare/v2.5.2...v3.0.0) (2023-05-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* **TPG >=4.23:** Add docker_registry variables and use them in google_cloudfunctions_function resource ([#164](https://github.com/terraform-google-modules/terraform-google-event-function/issues/164))
+
+### Features
+
+* **TPG >=4.23:** Add docker_registry variables and use them in google_cloudfunctions_function resource ([#164](https://github.com/terraform-google-modules/terraform-google-event-function/issues/164)) ([12beb96](https://github.com/terraform-google-modules/terraform-google-event-function/commit/12beb969e5225463cda856283a4001dfa5eff72e))
+
 ## [2.5.2](https://github.com/terraform-google-modules/terraform-google-event-function/compare/v2.5.1...v2.5.2) (2023-04-10)
 
 
