@@ -24,11 +24,11 @@ terraform {
     }
     null = {
       source  = "hashicorp/null"
-      version = ">= 2.1, < 3.0"
+      version = ">= 2.1, < 4.0"
     }
     archive = {
       source  = "hashicorp/archive"
-      version = ">= 1.2, < 2.0"
+      version = ">= 1.2, < 3.0"
     }
   }
 
