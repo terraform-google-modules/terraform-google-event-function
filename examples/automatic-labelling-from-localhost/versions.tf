@@ -21,7 +21,7 @@ terraform {
       version = "~> 2.0"
     }
     google = {
-      source  = "hashicorp/google"
+      source = "hashicorp/google"
     }
     null = {
       source  = "hashicorp/null"
