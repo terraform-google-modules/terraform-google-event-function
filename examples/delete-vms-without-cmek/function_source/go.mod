@@ -1,6 +1,6 @@
 module github.com/terraform-google-modules/terraform-google-event-function
 
-go 1.20
+go 1.20.11
 
 require (
 	cloud.google.com/go v0.110.9
