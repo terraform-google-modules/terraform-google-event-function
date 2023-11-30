@@ -39,23 +39,13 @@ resource "null_resource" "dependent_files" {
   }
 }
 
-data "null_data_source" "wait_for_files" {
-  inputs = {
-    # This ensures that this data resource will not be evaluated until
-    # after the null_resource has been created.
-    dependent_files_id = null_resource.dependent_files.id
-
-    # This value gives us something to implicitly depend on
-    # in the archive_file below.
-    source_dir = pathexpand(var.source_directory)
-  }
-}
-
 data "archive_file" "main" {
   type        = "zip"
   output_path = pathexpand("${var.source_directory}.zip")
-  source_dir  = data.null_data_source.wait_for_files.outputs["source_dir"]
+  source_dir  = pathexpand(var.source_directory)
   excludes    = var.files_to_exclude_in_source_dir
+
+  depends_on = [null_resource.dependent_files]
 }
 
 

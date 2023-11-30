@@ -39,14 +39,6 @@ resource "null_resource" "configure_repository" {
   }
 }
 
-data "null_data_source" "main" {
-  inputs = {
-    source_repository_url = "https://source.developers.google.com/projects/${var.project_id}/repos/${random_pet.main.id}/moveable-aliases/master/paths/"
-  }
-
-  depends_on = [null_resource.configure_repository]
-}
-
 module "event_project_log_entry" {
   source = "../../modules/event-project-log-entry"
 
@@ -71,11 +63,12 @@ module "repository_function" {
   name                  = random_pet.main.id
   project_id            = var.project_id
   region                = var.region
-  source_repository_url = data.null_data_source.main.outputs["source_repository_url"]
+  source_repository_url = "https://source.developers.google.com/projects/${var.project_id}/repos/${random_pet.main.id}/moveable-aliases/master/paths/"
 
   timeouts = {
     update = "10m"
   }
+  depends_on = [null_resource.configure_repository]
 }
 
 resource "null_resource" "wait_for_function" {
