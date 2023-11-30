@@ -20,7 +20,7 @@ terraform {
 
     google = {
       source  = "hashicorp/google"
-      version = ">= 4.23, < 5.0"
+      version = ">= 4.23, < 6"
     }
     null = {
       source  = "hashicorp/null"
@@ -33,7 +33,7 @@ terraform {
   }
 
   provider_meta "google" {
-    module_name = "blueprints/terraform/terraform-google-event-function/v3.0.0"
+    module_name = "blueprints/terraform/terraform-google-event-function/v3.0.1"
   }
 
 }
