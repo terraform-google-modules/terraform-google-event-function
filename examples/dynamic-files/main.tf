@@ -73,7 +73,8 @@ resource "local_file" "file" {
 }
 
 module "localhost_function" {
-  source = "../.."
+  source  = "terraform-google-modules/event-function/google"
+  version = "~> 3.0"
 
   description = "Returns back the random file content"
   entry_point = "fileContent"
