@@ -4,5 +4,5 @@ go 1.20
 
 require (
 	cloud.google.com/go v0.111.0
-	google.golang.org/api v0.152.0
+	google.golang.org/api v0.154.0
 )

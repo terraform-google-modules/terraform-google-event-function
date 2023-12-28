@@ -16,7 +16,7 @@
 
 locals {
   destination_uri = "pubsub.googleapis.com/projects/${var.project_id}/topics/${local.topic_name}"
-  topic_name      = element(concat(google_pubsub_topic.main.*.name, [""]), 0)
+  topic_name      = element(concat(google_pubsub_topic.main[*].name, [""]), 0)
 }
 
 module "log_export" {
