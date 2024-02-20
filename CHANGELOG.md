@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this
 project adheres to [Semantic Versioning](http://semver.org/).
 
+## [3.0.3](https://github.com/terraform-google-modules/terraform-google-event-function/compare/v3.0.2...v3.0.3) (2024-02-20)
+
+
+### Bug Fixes
+
+* **deps:** Update module github.com/GoogleCloudPlatform/cloud-foundation-toolkit/infra/blueprint-test to v0.12.1 ([#223](https://github.com/terraform-google-modules/terraform-google-event-function/issues/223)) ([17a7792](https://github.com/terraform-google-modules/terraform-google-event-function/commit/17a77929117b6b004ffdfd0e79dda16508bc1b46))
+
 ## [3.0.2](https://github.com/terraform-google-modules/terraform-google-event-function/compare/v3.0.1...v3.0.2) (2023-12-28)
 
 
