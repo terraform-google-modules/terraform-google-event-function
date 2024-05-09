@@ -38,6 +38,7 @@ module "event_project_log_entry" {
   filter     = "resource.type=\"gce_instance\" jsonPayload.event_subtype=\"compute.instances.insert\" jsonPayload.event_type=\"GCE_OPERATION_DONE\""
   name       = random_pet.main.id
   project_id = var.project_id
+  labels     = {}
 }
 
 module "localhost_function" {
