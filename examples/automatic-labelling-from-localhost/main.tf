@@ -32,7 +32,7 @@ module "localhost_function" {
   source  = "terraform-google-modules/event-function/google"
   version = "~> 3.0"
 
-  event_trigger_failure_policy_retry = false
+  event_trigger_failure_policy_retry = true
 
   description = "Labels resource with owner information."
   entry_point = "labelResource"
