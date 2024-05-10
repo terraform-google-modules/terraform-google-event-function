@@ -45,6 +45,8 @@ module "localhost_function" {
   source  = "terraform-google-modules/event-function/google"
   version = "~> 3.0"
 
+  event_trigger_failure_policy_retry = false
+
   description = "Deletes VMs created with disks not encrypted with CMEK"
   entry_point = "ReceiveMessage"
   runtime     = "go111"
