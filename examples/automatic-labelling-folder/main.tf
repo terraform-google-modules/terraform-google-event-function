@@ -31,6 +31,7 @@ EOF
   name       = random_pet.main.id
   project_id = var.project_id
   folder_id  = var.folder_id
+  labels     = {}
 }
 
 module "localhost_function" {
