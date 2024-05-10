@@ -66,7 +66,7 @@ module "repository_function" {
   name                  = random_pet.main.id
   project_id            = var.project_id
   region                = var.region
-  source_repository_url = "https://source.developers.google.com/projects/${var.project_id}/repos/${random_pet.main.id}/moveable-aliases/master/paths/./"
+  source_repository_url = "https://source.developers.google.com/projects/${var.project_id}/repos/${random_pet.main.id}/moveable-aliases/master/paths/"
 
   timeouts = {
     update = "10m"
