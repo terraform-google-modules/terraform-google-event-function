@@ -46,6 +46,7 @@ module "event_project_log_entry" {
   filter     = "protoPayload.@type=\"type.googleapis.com/google.cloud.audit.AuditLog\" protoPayload.methodName:insert operation.first=true"
   name       = random_pet.main.id
   project_id = var.project_id
+  labels     = {}
 }
 
 module "repository_function" {
