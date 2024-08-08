@@ -20,6 +20,11 @@ variable "available_memory_mb" {
   description = "The amount of memory in megabytes allotted for the function to use."
 }
 
+variable "build_service_account" {
+  type        = string
+  description = " The self-provided service account to use to build the function. The format of this value is projects/{project}/serviceAccounts/{serviceAccountEmail}"
+}
+
 variable "description" {
   type        = string
   default     = "Processes events."
