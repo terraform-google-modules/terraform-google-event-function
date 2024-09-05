@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this
 project adheres to [Semantic Versioning](http://semver.org/).
 
+## [4.1.0](https://github.com/terraform-google-modules/terraform-google-event-function/compare/v4.0.0...v4.1.0) (2024-08-29)
+
+
+### Features
+
+* **deps:** Update Terraform google to v6 ([#250](https://github.com/terraform-google-modules/terraform-google-event-function/issues/250)) ([4c1eda2](https://github.com/terraform-google-modules/terraform-google-event-function/commit/4c1eda25ffd8177d92f43c4e1b9d49cce578b320))
+
 ## [4.0.0](https://github.com/terraform-google-modules/terraform-google-event-function/compare/v3.0.2...v4.0.0) (2024-08-16)
 
 
