@@ -133,6 +133,7 @@ resource "google_cloudfunctions_function" "main" {
   project                     = var.project_id
   region                      = var.region
   service_account_email       = var.service_account_email
+  build_service_account       = var.build_service_account
   build_environment_variables = var.build_environment_variables
   docker_registry             = var.docker_registry
   docker_repository           = var.docker_repository
