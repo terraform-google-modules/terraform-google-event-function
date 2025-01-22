@@ -125,6 +125,12 @@ variable "service_account_email" {
   description = "The service account to run the function as."
 }
 
+variable "build_service_account" {
+  type        = string
+  default     = ""
+  description = "The self-provided service account to use to build the function. The format of this field is projects/{project}/serviceAccounts/{serviceAccountEmail}"
+}
+
 variable "bucket_name" {
   type        = string
   default     = ""
