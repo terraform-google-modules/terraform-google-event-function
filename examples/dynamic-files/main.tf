@@ -97,7 +97,7 @@ module "localhost_function" {
   project_id       = var.project_id
   region           = var.region
   source_directory = "${path.module}/function_source"
-  runtime          = "nodejs12"
+  runtime          = "nodejs14"
   max_instances    = 3000
 
   source_dependent_files = [local_file.file]
