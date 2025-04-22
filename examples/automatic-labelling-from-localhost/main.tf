@@ -43,7 +43,7 @@ module "localhost_function" {
   project_id       = var.project_id
   region           = var.region
   source_directory = "${path.module}/function_source"
-  runtime          = "nodejs10"
+  runtime          = "nodejs12"
   max_instances    = 3000
 }
 
