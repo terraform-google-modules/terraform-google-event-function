@@ -138,3 +138,4 @@ resource "google_cloudfunctions_function" "main" {
   docker_repository           = var.docker_repository
   kms_key_name                = var.kms_key_name
 }
+
