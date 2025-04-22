@@ -54,7 +54,7 @@ module "repository_function" {
 
   description   = "Labels resource with owner information."
   entry_point   = "labelResource"
-  runtime       = "nodejs10"
+  runtime       = "nodejs20"
   max_instances = 3000
 
   environment_variables = {
