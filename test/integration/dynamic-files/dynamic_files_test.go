@@ -18,6 +18,7 @@ package dynamic_files
 import (
 	"fmt"
 	"testing"
+	"time"
 
 	// import the blueprints test framework modules for testing and assertions
 	"github.com/GoogleCloudPlatform/cloud-foundation-toolkit/infra/blueprint-test/pkg/gcloud"
@@ -26,7 +27,13 @@ import (
 )
 
 func TestDynamicFiles(t *testing.T) {
-	bpt := tft.NewTFBlueprintTest(t)
+	RetryableTransientErrors := map[string]string{
+		".*Error code 13, message: Gen1 operation for function .* failed: Failed to configure trigger providers/cloud.storage/eventTypes/object.change.*": "Retry Cloud Function Creation",
+	}
+
+	bpt := tft.NewTFBlueprintTest(t,
+		tft.WithRetryableTerraformErrors(RetryableTransientErrors, 3, 30*time.Second),
+	)
 
 	bpt.DefineVerify(func(assert *assert.Assertions) {
 		bpt.DefaultVerify(assert)

@@ -80,6 +80,8 @@ resource "google_project" "test" {
     ]
   }
 
+  deletion_policy = "DELETE"
+
   depends_on = [null_resource.wait_for_function]
 }
 
