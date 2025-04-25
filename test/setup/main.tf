@@ -30,7 +30,7 @@ resource "google_folder" "ci_event_func_subfolder" {
 
 module "project" {
   source  = "terraform-google-modules/project-factory/google"
-  version = "~> 17.0"
+  version = "~> 18.0"
 
   name                    = local.project_name
   random_project_id       = true
@@ -54,7 +54,7 @@ module "project" {
 
 module "network" {
   source  = "terraform-google-modules/network/google"
-  version = "~> 9.0"
+  version = "~> 10.0"
 
   project_id   = module.project.project_id
   network_name = "test-network"
