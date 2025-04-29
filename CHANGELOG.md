@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this
 project adheres to [Semantic Versioning](http://semver.org/).
 
+## [5.0.0](https://github.com/terraform-google-modules/terraform-google-event-function/compare/v4.1.0...v5.0.0) (2025-04-24)
+
+
+### ⚠ BREAKING CHANGES
+
+* **TFv1.3:** Update go modules and/or dev-tools ([#258](https://github.com/terraform-google-modules/terraform-google-event-function/issues/258))
+* **deps:** bump log_export version to v10.0.0 ([#271](https://github.com/terraform-google-modules/terraform-google-event-function/issues/271))
+
+### Bug Fixes
+
+* **deps:** bump log_export version to v10.0.0 ([#271](https://github.com/terraform-google-modules/terraform-google-event-function/issues/271)) ([b221877](https://github.com/terraform-google-modules/terraform-google-event-function/commit/b2218770de5d45738a653e66c2083fe1e73bc233))
+* **TFv1.3:** Update go modules and/or dev-tools ([#258](https://github.com/terraform-google-modules/terraform-google-event-function/issues/258)) ([7873b42](https://github.com/terraform-google-modules/terraform-google-event-function/commit/7873b42804f5f68aba886fa99988a09dfbbcce5d))
+
 ## [4.1.0](https://github.com/terraform-google-modules/terraform-google-event-function/compare/v4.0.0...v4.1.0) (2024-08-29)
 
 

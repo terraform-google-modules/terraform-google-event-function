@@ -25,7 +25,7 @@ terraform {
   }
 
   provider_meta "google" {
-    module_name = "blueprints/terraform/terraform-google-event-function:repository-function/v4.1.0"
+    module_name = "blueprints/terraform/terraform-google-event-function:repository-function/v5.0.0"
   }
 
 }
