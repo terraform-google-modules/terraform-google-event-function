@@ -41,7 +41,7 @@ resource "null_resource" "configure_repository" {
 
 module "event_project_log_entry" {
   source  = "terraform-google-modules/event-function/google//modules/event-project-log-entry"
-  version = "~> 4.0"
+  version = "~> 5.0"
 
   filter     = "protoPayload.@type=\"type.googleapis.com/google.cloud.audit.AuditLog\" protoPayload.methodName:insert operation.first=true"
   name       = random_pet.main.id
@@ -50,7 +50,7 @@ module "event_project_log_entry" {
 
 module "repository_function" {
   source  = "terraform-google-modules/event-function/google//modules/repository-function"
-  version = "~> 4.0"
+  version = "~> 5.0"
 
   description   = "Labels resource with owner information."
   entry_point   = "labelResource"
