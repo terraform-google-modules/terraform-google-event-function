@@ -21,7 +21,7 @@ resource "random_pet" "main" {
 
 module "event_folder_log_entry" {
   source  = "terraform-google-modules/event-function/google//modules/event-folder-log-entry"
-  version = "~> 4.0"
+  version = "~> 5.0"
 
   filter     = <<EOF
 resource.type="project" AND
@@ -35,7 +35,7 @@ EOF
 
 module "localhost_function" {
   source  = "terraform-google-modules/event-function/google"
-  version = "~> 4.0"
+  version = "~> 5.0"
 
   description = "Labels resource with owner information."
   entry_point = "labelResource"
