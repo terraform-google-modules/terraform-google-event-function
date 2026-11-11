@@ -43,7 +43,7 @@ module "localhost_function" {
   project_id       = var.project_id
   region           = var.region
   source_directory = "${path.module}/function_source"
-  runtime          = "nodejs20"
+  runtime          = "nodejs22"
   max_instances    = 3000
 }
 
@@ -58,7 +58,7 @@ resource "null_resource" "wait_for_function" {
 resource "google_compute_instance" "main" {
   boot_disk {
     initialize_params {
-      image = "debian-cloud/debian-11"
+      image = "debian-cloud/debian-12"
     }
   }
 
