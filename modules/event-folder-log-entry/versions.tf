@@ -29,7 +29,7 @@ terraform {
   }
 
   provider_meta "google" {
-    module_name = "blueprints/terraform/terraform-google-event-function:event-folder-log-entry/v6.0.0"
+    module_name = "blueprints/terraform/terraform-google-event-function:event-folder-log-entry/v6.1.0"
   }
 
 }
