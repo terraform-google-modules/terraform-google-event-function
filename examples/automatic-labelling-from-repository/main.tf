@@ -54,7 +54,7 @@ module "repository_function" {
 
   description   = "Labels resource with owner information."
   entry_point   = "labelResource"
-  runtime       = "nodejs20"
+  runtime       = "nodejs22"
   max_instances = 3000
 
   environment_variables = {
@@ -84,7 +84,7 @@ resource "null_resource" "wait_for_function" {
 resource "google_compute_instance" "main" {
   boot_disk {
     initialize_params {
-      image = "debian-cloud/debian-11"
+      image = "debian-cloud/debian-12"
     }
   }
 

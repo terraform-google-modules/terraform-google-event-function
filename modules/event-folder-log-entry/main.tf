@@ -38,9 +38,20 @@ resource "google_pubsub_topic" "main" {
   project = var.project_id
 }
 
+resource "null_resource" "wait_for_writer_identity" {
+  triggers = {
+    writer_identity = module.log_export.writer_identity
+  }
+
+  provisioner "local-exec" {
+    command = "sleep 30"
+  }
+}
+
 resource "google_pubsub_topic_iam_member" "main" {
-  topic   = google_pubsub_topic.main.name
-  project = var.project_id
-  member  = module.log_export.writer_identity
-  role    = "roles/pubsub.publisher"
+  topic      = google_pubsub_topic.main.name
+  project    = var.project_id
+  member     = module.log_export.writer_identity
+  role       = "roles/pubsub.publisher"
+  depends_on = [null_resource.wait_for_writer_identity]
 }
